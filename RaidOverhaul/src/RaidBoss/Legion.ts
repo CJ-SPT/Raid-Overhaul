@@ -198,19 +198,24 @@ export class LegionData
             const swagBossConfig =     JSON.parse(fs.readFileSync(swagBossConfigPath, 'utf-8'));
 
 
-            swagBossConfig.CustomBosses.legion.enabled = true;
-            swagBossConfig.CustomBosses.legion.useProgressSpawnChance = true;
-            swagBossConfig.CustomBosses.legion.customs = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.factory = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.factory_night = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.groundzero = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.interchange = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.laboratory = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.lighthouse = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.reserve = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.shoreline = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.streets = bossLegionChance;
-            swagBossConfig.CustomBosses.legion.woods = bossLegionChance;
+            swagBossConfig.CustomBosses.legion.enabled == true;
+
+            if (swagBossConfig.CustomBosses.legion.useProgressSpawnChance)
+            {
+                swagBossConfig.CustomBosses.legion.customs = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.factory = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.factory_night = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.groundzero = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.interchange = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.laboratory = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.lighthouse = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.reserve = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.shoreline = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.streets = bossLegionChance;
+                swagBossConfig.CustomBosses.legion.woods = bossLegionChance;
+
+                this.modifySwagLegionSettings();
+            }
 
             fs.writeFileSync(swagBossConfigPath, JSON.stringify(swagBossConfig, null, 2), 'utf-8');
         }
@@ -218,8 +223,6 @@ export class LegionData
         {
             logger.error(`[${logString}] Error adding Legion to SWAG:` + error);
         }
-
-        this.modifySwagLegionSettings();
     }
 
     private static modifySwagLegionSettings()
@@ -411,41 +414,27 @@ export class LegionData
 
         const legionSpawnPath = path.join(__dirname, '../../config/LegionChance.json');
         const spawnChance =     JSON.parse(fs.readFileSync(legionSpawnPath, "utf8"));
-        const victimRole =      info.profile.Stats.Victims?.Role?.toLowerCase();
-        const aggressorName =   info.profile.Stats.Aggressor?.Name?.toLowerCase();
         bossLegionChance =      spawnChance?.legionChance ?? 15;
 
-        if (victimRole?.includes("bosslegion") && hasRun == false)
-        {
-            bossLegionChance = 15;
-            hasRun = true;
-        }
-    
-        if (aggressorName?.includes("legion") && hasRun == false)
-        {
-            bossLegionChance = 15;
-            hasRun = true;
-        }
-
-        if (info.exit === "survived" && hasRun == false)
+        if (info.exit === "survived" && !hasRun)
         {
             bossLegionChance += 2.5;
             hasRun = true;
         }
 
-        if (info.exit === "runner" && hasRun == false)
+        if (info.exit === "runner" && !hasRun)
         {
             bossLegionChance += 1;
             hasRun = true;
         }
 
-        if (info.exit === "Left" && hasRun == false)
+        if (info.exit === "Left" && !hasRun)
         {
             bossLegionChance += 1;
             hasRun = true;
         }
 
-        if (info.exit === "killed" && hasRun == false)
+        if (info.exit === "killed" && !hasRun)
         {
             bossLegionChance /= 2;
             hasRun = true;
@@ -454,6 +443,11 @@ export class LegionData
         if (bossLegionChance > 100)
         {
             bossLegionChance = 100;
+        }
+
+        if (bossLegionChance = 100)
+        {
+            bossLegionChance = 15
         }
 
         if (bossLegionChance < 1)

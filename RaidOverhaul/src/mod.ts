@@ -140,7 +140,7 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
                     ) => 
                     {
                         TraderData.traderRepLogic(info, sessionId, traderHelper);
-                        TraderData.legionRepLogic(info, sessionId, traderHelper);
+                        //TraderData.legionRepLogic(info, sessionId, traderHelper);
                         LegionData.modifySpawnChance(info)
                         LegionData.LoadBossData();
                         if (preAkiModLoader.getImportedModsNames().includes("SWAG"))

@@ -688,7 +688,7 @@ export class TraderData
             logger.error(`[${logString}] Error modifying Trader Rep on Successful Raid Exfil:` + error);
         }
     }
-
+    /*
     static legionRepLogic(info: any, sessionId: string, traderHelper: any): void
     {
         const logger = container.resolve<ILogger>("WinstonLogger");
@@ -696,9 +696,9 @@ export class TraderData
 
         try 
         {
-            const victimRole = info.profile.Stats.Victims?.Role?.toLowerCase();
+            const victimRole = info.profile.Stats.Victims?.Name?.toLowerCase();
 
-            if (victimRole?.includes("bosslegion"))
+            if (victimRole?.includes("legion"))
             {
                 traderHelper.addStandingToTrader(sessionId, "Requisitions", 0.15);
                 return;
@@ -714,5 +714,6 @@ export class TraderData
             logger.error(`[${logString}] Error modifying Trader Rep on killing Legion:` + error);
         }
     }
+    */
     //#endregion
 }
