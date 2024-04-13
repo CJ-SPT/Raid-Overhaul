@@ -33,7 +33,7 @@ namespace DJsRaidOverhaul.Helpers
         public static ConfigEntry<bool> Malfunction;
         public static ConfigEntry<bool> Trader;
         public static ConfigEntry<bool> Berserk;
-        public static ConfigEntry<bool> Overweight;
+        public static ConfigEntry<bool> Weight;
         public static ConfigEntry<bool> JokesAndFun;
         public static ConfigEntry<bool> ShoppingSpree;
         public static ConfigEntry<bool> ExfilLockdown;
@@ -42,7 +42,7 @@ namespace DJsRaidOverhaul.Helpers
         public static ConfigEntry<bool> DoorUnlock;
         public static ConfigEntry<bool> KDoorUnlock;
 
-        public static ConfigEntry<bool> DebugLogging;
+        public static ConfigEntry<bool> WatchAnimations;
 
         public static void BindConfig(ConfigFile cfg)
         {
@@ -140,11 +140,11 @@ namespace DJsRaidOverhaul.Helpers
                 null,
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 12 }));
 
-            Overweight = cfg.Bind(
+            Weight = cfg.Bind(
                "2. Random Events",
-               "Overweight Event",
+               "Weight Event",
                 true,
-                new ConfigDescription("Disable/Enable the Overweight event.",
+                new ConfigDescription("Disable/Enable the Weight event.",
                 null,
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 11 }));
 
@@ -167,10 +167,10 @@ namespace DJsRaidOverhaul.Helpers
             Malfunction = cfg.Bind(
                "2. Random Events",
                "Malfunction Event",
-                false,
+                true,
                 new ConfigDescription("Disable/Enable the Malfunction event.",
                 null,
-                new ConfigurationManagerAttributes { IsAdvanced = true, ShowRangeAsPercent = false, Order = 8 }));
+                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 8 }));
 
             NoJokesHere = cfg.Bind(
                "2. Random Events",
@@ -211,7 +211,7 @@ namespace DJsRaidOverhaul.Helpers
                 new ConfigDescription("Disable/Enable the Airdrop event.",
                 null,
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 3 }));
-
+            
             Skill = cfg.Bind(
                "2. Random Events",
                "Skill Event",
@@ -264,9 +264,9 @@ namespace DJsRaidOverhaul.Helpers
                 "4. Body Cleanup Configs",
                 "Enable Clean",
                 true,
-                new ConfigDescription("Enable body cleanup event.",
+                new ConfigDescription("Enable body cleanup event.\nThis requires a restart to take effect after enabling or disabling!",
                 null,
-                new ConfigurationManagerAttributes { IsAdvanced = true, ShowRangeAsPercent = false, Order = 3 }));
+                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 3 }));
 
             TimeToClean = cfg.Bind(
                 "4. Body Cleanup Configs",
@@ -292,9 +292,9 @@ namespace DJsRaidOverhaul.Helpers
                 "5. Backpack Drop Configs",
                 "Drop Backpack",
                 true,
-                new ConfigDescription("Enable the dropping of backpacks on death or cleanup.",
+                new ConfigDescription("Enable the dropping of backpacks on death or cleanup.\nThis requires a restart to take effect after enabling or disabling!",
                 null,
-                new ConfigurationManagerAttributes { IsAdvanced = true, ShowRangeAsPercent = true, Order = 2 }));
+                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = true, Order = 2 }));
 
             DropBackPackChance = cfg.Bind(
                 "5. Backpack Drop Configs",
@@ -330,14 +330,13 @@ namespace DJsRaidOverhaul.Helpers
                 null,
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 1 }));
 
-
-            DebugLogging = cfg.Bind(
-                "8. Debug Logging",
+            WatchAnimations = cfg.Bind(
+                "8. Watch Animations",
                 "Enable",
-                false,
-                new ConfigDescription("Enable extra notifications for debug purposes. Only really matters if you're testing shit lol.",
+                true,
+                new ConfigDescription("Enable watch animation changes.\nThis requires a restart to take effect after enabling or disabling!",
                 null,
-                new ConfigurationManagerAttributes { IsAdvanced = true, ShowRangeAsPercent = false, Order = 1 }));
+                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 1 }));
 
             #endregion
         }

@@ -1,4 +1,3 @@
-
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -72,9 +71,9 @@ namespace DJsRaidOverhaul.Helpers
             var _malfWeighting = DJConfig.Malfunction.Value ? 4 : 0;
             var _traderWeighting = DJConfig.Trader.Value ? 3 : 0;
             var _berserkWeighting = DJConfig.Berserk.Value ? 4 : 0;
-            var _overweightWeightingLOL = DJConfig.Overweight.Value ? 4 : 0;
+            var _weightWeightingLOL = DJConfig.Weight.Value ? 4 : 0;
             var _maxLLWeighting = DJConfig.ShoppingSpree.Value ? 1 : 0;
-            var _exfilWeightings = DJConfig.ExfilLockdown.Value ? 1 : 0;
+            var _exfilWeighting = DJConfig.ExfilLockdown.Value ? 1 : 0;
 
             weightedEvents = new List<(Action, int)>
             {
@@ -89,9 +88,9 @@ namespace DJsRaidOverhaul.Helpers
                 (Plugin.ECScript.DoMalfEvent,       _malfWeighting),
                 (Plugin.ECScript.DoLLEvent,         _traderWeighting),
                 (Plugin.ECScript.DoBerserkEvent,    _berserkWeighting),
-                (Plugin.ECScript.DoWeightEvent,     _overweightWeightingLOL),
+                (Plugin.ECScript.DoWeightEvent,     _weightWeightingLOL),
                 (Plugin.ECScript.DoMaxLLEvent,      _maxLLWeighting),
-                (Plugin.ECScript.DoLockDownEvent,   _exfilWeightings)
+                (Plugin.ECScript.DoLockDownEvent,   _exfilWeighting)
             };
         }
     }

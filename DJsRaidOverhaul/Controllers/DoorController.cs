@@ -4,7 +4,6 @@ using UnityEngine;
 using Comfort.Common;
 using EFT.Interactive;
 using System.Reflection;
-using EFT.Communications;
 using System.Collections;
 using DJsRaidOverhaul.Helpers;
 
@@ -87,19 +86,17 @@ namespace DJsRaidOverhaul.Controllers
         {
             if (player.Location != "laboratory" && player.Location != "rezervbase" && player.Location != "bigmap" && player.Location != "interchange")
             {
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("No switches available on this map, returning.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("No switches available on this map, returning.");
+#endif
                 return;
             }
 
             if (_switchs == null || _switchs.Length <= 0)
             {
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("No switches left to open, returning.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("No switches left to open, returning.");
+#endif
                 return;
             }
 
@@ -110,12 +107,11 @@ namespace DJsRaidOverhaul.Controllers
 
             if (_switch.DoorState == EDoorState.Shut)
             {
-                typeof(Switch).GetMethod("Open", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(_switch, null);
+                typeof(Switch).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(_switch, null);
 
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("A random switch has been thrown.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("A random switch has been thrown.");
+#endif
 
                 RemoveAt(ref _switchs, selection);
             }
@@ -130,10 +126,9 @@ namespace DJsRaidOverhaul.Controllers
         {
             if (_door == null || _door.Length <= 0)
             {
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("No locked doors available, returning.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("No locked doors available, returning.");
+#endif
                 return;
             }
 
@@ -142,15 +137,22 @@ namespace DJsRaidOverhaul.Controllers
             int selection = random.Next(_door.Length + 1);
             Door door = _door[selection];
 
-            if (door.DoorState == EDoorState.Locked)
+            if (door.gameObject.layer != LayerMaskClass.InteractiveLayer)
             {
-                typeof(Door).GetMethod("Unlock", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(door, null);
-                typeof(Door).GetMethod("Open", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(door, null);
+#if DEBUG
+                Plugin.Log.LogDebug("Chosen door isn't on the interactive layer, returning.");
+#endif
+                return;
+            }
 
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("A random door has been unlocked.", ENotificationDurationType.Default);
-                }
+            if (door.DoorState == EDoorState.Locked && door.Operatable && door.enabled)
+            {
+                typeof(Door).GetMethod("Unlock", BindingFlags.Instance | BindingFlags.Public).Invoke(door, null);
+                typeof(Door).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(door, null);
+
+#if DEBUG
+                Plugin.Log.LogDebug("A random door has been unlocked.");
+#endif
 
                 RemoveAt(ref _door, selection);
             }
@@ -165,19 +167,17 @@ namespace DJsRaidOverhaul.Controllers
         {
             if (player.Location != "laboratory" && player.Location != "interchange")
             {
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("No keycard doors available on this map, returning.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("No keycard doors available on this map, returning.");
+#endif
                 return;
             }
 
             if (_kdoor == null || _kdoor.Length <= 0)
             {
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("No keycard doors left to open, returning.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("No keycard doors left to open, returning.");
+#endif
                 return;
             }
 
@@ -188,13 +188,12 @@ namespace DJsRaidOverhaul.Controllers
 
             if (kdoor.DoorState == EDoorState.Locked)
             {
-                typeof(KeycardDoor).GetMethod("Unlock", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(kdoor, null);
-                typeof(KeycardDoor).GetMethod("Open", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(kdoor, null);
+                typeof(KeycardDoor).GetMethod("Unlock", BindingFlags.Instance | BindingFlags.Public).Invoke(kdoor, null);
+                typeof(KeycardDoor).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(kdoor, null);
 
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification("A random keycard door has been unlocked.", ENotificationDurationType.Default);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug("A random keycard door has been unlocked.");
+#endif
 
                 RemoveAt(ref _kdoor, selection);
             }
@@ -242,21 +241,20 @@ namespace DJsRaidOverhaul.Controllers
 
                     if (UnityEngine.Random.Range(0, 100) < 50 && (door.DoorState == EDoorState.Shut))
                     {
-                        typeof(Door).GetMethod("Open", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(door, null);
+                        typeof(Door).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(door, null);
                         _doorChangedCount++;
                     }
 
                     if (UnityEngine.Random.Range(0, 100) < 50 && (door.DoorState == EDoorState.Open))
                     {
-                        typeof(Door).GetMethod("Close", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(door, null);
+                        typeof(Door).GetMethod("Close", BindingFlags.Instance | BindingFlags.Public).Invoke(door, null);
                         _doorChangedCount++;
                     }
                 });
 
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification($"[{_doorChangedCount}] total Doors have had their states changed. [{_doorNotChangedCount}] haven't been modified.", ENotificationDurationType.Long, ENotificationIconType.Note);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug($"[{_doorChangedCount}] total Doors have had their states changed. [{_doorNotChangedCount}] haven't been modified.");
+#endif
             }
         }
 
@@ -274,11 +272,9 @@ namespace DJsRaidOverhaul.Controllers
                     }
                 });
 
-
-                if (DJConfig.DebugLogging.Value)
-                {
-                    NotificationManagerClass.DisplayMessageNotification($"[{_lampCount}] total Lamps have been modified.", ENotificationDurationType.Long, ENotificationIconType.Note);
-                }
+#if DEBUG
+                Plugin.Log.LogDebug($"[{_lampCount}] total Lamps have been modified.");
+#endif
             }
         }
 

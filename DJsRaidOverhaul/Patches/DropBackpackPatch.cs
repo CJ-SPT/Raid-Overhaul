@@ -9,7 +9,7 @@ namespace DJsRaidOverhaul.Patches
     public class OnDeadPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod() =>
-            typeof(Player).GetMethod("OnDead", BindingFlags.Instance | BindingFlags.NonPublic);
+            typeof(Player).GetMethod("OnDead", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPostfix]
         private static void PatchPostFix(ref Player __instance)

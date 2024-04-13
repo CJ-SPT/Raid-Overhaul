@@ -14,6 +14,8 @@ using EFT.Communications;
 using EFT.UI.BattleTimer;
 using Aki.Reflection.Patching;
 using DJsRaidOverhaul.Controllers;
+using EFT.UI;
+using DJsRaidOverhaul.Helpers;
 
 namespace DJsRaidOverhaul.Patches
 {
@@ -53,7 +55,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class GlobalsPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(TarkovApplication).GetMethod("Start", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(TarkovApplication).GetMethod("Start", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPostfix]
         static async void Postfix(TarkovApplication __instance)
@@ -76,7 +78,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class UIPanelPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(LocationConditionsPanel).GetMethod("method_0", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(LocationConditionsPanel).GetMethod("method_0", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPostfix]
         static void Postfix(ref TextMeshProUGUI ____currentPhaseTime, ref TextMeshProUGUI ____nextPhaseTime)
@@ -89,7 +91,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class TimerUIPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(MainTimerPanel).GetMethod("SetTimerText", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(TimerPanel).GetMethod("SetTimerText", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPrefix]
         static void Prefix(ref TimeSpan timeSpan) => timeSpan = new TimeSpan(RaidTime.GetDateTime().Ticks);
@@ -97,7 +99,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class ExitTimerUIPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(MainTimerPanel).GetMethod("UpdateTimer", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(MainTimerPanel).GetMethod("UpdateTimer", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchTranspiler]
         static IEnumerable<CodeInstruction> Transpile(IEnumerable<CodeInstruction> instructions)
@@ -139,7 +141,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class WeatherControllerPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(WeatherController).GetMethod("Awake", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(WeatherController).GetMethod("Awake", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPostfix]
         static void Postfix(ref WeatherController __instance) => __instance.WindController.CloudWindMultiplier = 1;
@@ -147,7 +149,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class WatchPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(Watch).GetProperty("DateTime_0", BindingFlags.Instance | BindingFlags.NonPublic).GetGetMethod(true);
+        protected override MethodBase GetTargetMethod() => typeof(Watch).GetProperty("DateTime_0", BindingFlags.Instance | BindingFlags.Public).GetGetMethod(true);
 
         [PatchPostfix]
         static void Postfix(ref DateTime __result)
@@ -168,6 +170,20 @@ namespace DJsRaidOverhaul.Patches
         {
             DoorController.RandomizeDefaultDoors();
             DoorController.RandomizeLampState();
+        }
+    }
+
+    public class RigPatch : ModulePatch
+    {
+        protected override MethodBase GetTargetMethod()
+        {
+            return typeof(PreloaderUI).GetMethod("InitConsole");
+        }
+
+        [PatchPostfix]
+        public static void Postfix(PreloaderUI __instance)
+        {
+            LayoutLoader.LoadRigLayouts();
         }
     }
 }

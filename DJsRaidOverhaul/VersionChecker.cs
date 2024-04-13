@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using BepInEx.Logging;
@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics;
 using UnityEngine;
 
-namespace DrakiaXYZ.VersionChecker
+namespace DJsRaidOverhaul
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
     public class VersionChecker : Attribute
@@ -27,7 +27,7 @@ namespace DrakiaXYZ.VersionChecker
             int buildVersion = DJsRaidOverhaul.Plugin.TarkovVersion;
             if (currentVersion != buildVersion)
             {
-                string errorMessage = $"ERROR: This version of DJs Raid Overhaul v1.5.0 was built for Tarkov {buildVersion}, but you are running {currentVersion}. Please download the correct plugin version.";
+                string errorMessage = $"ERROR: This version of Raid Overhaul v2.0.0 was built for Tarkov {buildVersion}, but you are running {currentVersion}. Please download the correct plugin version.";
                 Logger.LogError(errorMessage);
                 Chainloader.DependencyErrors.Add(errorMessage);
 

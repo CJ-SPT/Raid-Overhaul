@@ -1,3 +1,4 @@
+using EFT.InventoryLogic;
 using System.Collections.Generic;
 
 namespace DJsRaidOverhaul.Helpers
@@ -23,5 +24,20 @@ namespace DJsRaidOverhaul.Helpers
         {
             return DJConfig.EffectStrength.Value;
         }
+
+        public static EquipmentSlot[] _armbandFAS = {
+            EquipmentSlot.Pockets,
+            EquipmentSlot.TacticalVest,
+            EquipmentSlot.ArmBand
+        };
+
+        public static EquipmentSlot[] _armbandAAS = {
+            EquipmentSlot.TacticalVest,
+            EquipmentSlot.ArmorVest,
+            EquipmentSlot.Headwear,
+            EquipmentSlot.FaceCover,
+            EquipmentSlot.Eyewear,
+            EquipmentSlot.ArmBand
+        };
     }
 }

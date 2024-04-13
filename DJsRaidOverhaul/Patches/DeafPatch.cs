@@ -5,7 +5,6 @@ using System.Linq;
 using Comfort.Common;
 using System.Reflection;
 using EFT.InventoryLogic;
-using System.Threading.Tasks;
 using Aki.Reflection.Patching;
 using DJsRaidOverhaul.Helpers;
 
@@ -44,7 +43,7 @@ namespace DJsRaidOverhaul.Patches
 
     public class DeafnessPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => typeof(Player.FirearmController).GetMethod("RegisterShot", BindingFlags.Instance | BindingFlags.NonPublic);
+        protected override MethodBase GetTargetMethod() => typeof(Player.FirearmController).GetMethod("RegisterShot", BindingFlags.Instance | BindingFlags.Public);
 
         [PatchPostfix]
         static void Postfix(Player.FirearmController __instance, object shot)
@@ -76,7 +75,7 @@ namespace DJsRaidOverhaul.Patches
                     PlayerInfo.player.ActiveHealthController.DoContusion(4, 50);
                 } catch (Exception e)
                 {
-                    Plugin.logger.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
+                    Plugin.Log.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
                     PlayerInfo.player.PlayerHealthController.DoStun(1, 0);
                     PlayerInfo.player.PlayerHealthController.DoContusion(4, 100);
                 }
@@ -87,7 +86,7 @@ namespace DJsRaidOverhaul.Patches
                 PlayerInfo.player.ActiveHealthController.DoContusion(0, 100);
             } catch (Exception e)
             {
-                Plugin.logger.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
+                Plugin.Log.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
                 PlayerInfo.player.PlayerHealthController.DoStun(1, 0);
                 PlayerInfo.player.PlayerHealthController.DoContusion(0, 100);
             }
