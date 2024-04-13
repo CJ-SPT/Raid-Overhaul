@@ -5,6 +5,7 @@ import { IDatabaseTables }                      from "@spt-aki/models/spt/server
 import { ITraderConfig, UpdateTime }            from "@spt-aki/models/spt/config/ITraderConfig";
 import { LogTextColor }                         from "@spt-aki/models/spt/logging/LogTextColor";
 import { ILogger }                              from "@spt-aki/models/spt/utils/ILogger";
+import { IPmcData }                             from "@spt-aki/models/eft/common/IPmcData";
 import { RandomUtil }                           from "@spt-aki/utils/RandomUtil";
 import { JsonUtil }                             from "@spt-aki/utils/JsonUtil";
 import { HashUtil }                             from "@spt-aki/utils/HashUtil";
@@ -679,7 +680,7 @@ export class TraderData
 
             else if (info.exit === "survived")
             {
-                traderHelper.addStandingToTrader(sessionId, "Requisitions", 0.05)
+                traderHelper.addStandingToTrader(sessionId, "Requisitions", 0.03)
                 return;
             }
         }
@@ -688,7 +689,7 @@ export class TraderData
             logger.error(`[${logString}] Error modifying Trader Rep on Successful Raid Exfil:` + error);
         }
     }
-    /*
+
     static legionRepLogic(info: any, sessionId: string, traderHelper: any): void
     {
         const logger = container.resolve<ILogger>("WinstonLogger");
@@ -696,7 +697,8 @@ export class TraderData
 
         try 
         {
-            const victimRole = info.profile.Stats.Victims?.Name?.toLowerCase();
+            const pmcData: IPmcData = info.profile;
+            const victimRole = pmcData.Stats.Eft.Victims?.map(victim => victim.Role.toLowerCase());
 
             if (victimRole?.includes("legion"))
             {
@@ -714,6 +716,5 @@ export class TraderData
             logger.error(`[${logString}] Error modifying Trader Rep on killing Legion:` + error);
         }
     }
-    */
     //#endregion
 }

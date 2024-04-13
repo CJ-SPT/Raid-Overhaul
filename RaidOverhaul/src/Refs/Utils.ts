@@ -99,18 +99,6 @@ export class Utils
         return this.shuffle(array).pop().toString() && this.shuffle(array).shift().toString();
     }
 
-    public stopHurtingMeSVM(tables, caseToAdd): void
-    {
-        const unbreakFilters = [
-            {
-                "Filter": ["54009119af1c881c07000029"],
-                "ExcludedFilter": [""]
-            }
-        ];
-        
-        tables.templates.items[caseToAdd]._props.Grids[0]._props.filters = unbreakFilters;
-    }
-
     public profileBackup(vfs, logger, modName, sessionID: string, path, profile: IAkiProfile, randomUtil): void
     {
         const backupPath =   path.join(__dirname, "../../ProfileBackup/");
@@ -262,6 +250,8 @@ export class Utils
     {
         const items = tables.templates.items
 
+        this.stopHurtingMeSVM(tables, caseToAdd)
+
         for (const item in items) 
         {
             if (items[item]._id === caseToAdd)
@@ -347,6 +337,18 @@ export class Utils
 		}
 
         tables.loot.staticLoot[lootContainer].itemDistribution.push(lootToPush);
+    }
+
+    public stopHurtingMeSVM(tables, caseToAdd)
+    {
+        const unbreakFilters = [
+            {
+                "Filter": ["54009119af1c881c07000029"],
+                "ExcludedFilter": [""]
+            }
+        ];
+        
+        tables.templates.items[caseToAdd]._props.Grids[0]._props.filters = unbreakFilters;
     }
     //#endregion
     //
@@ -747,6 +749,7 @@ export class AssortUtils
     //
     //
     //#region Get Assorts
+    /*
     public getAssorts(tHelper, vfs)
     {
         const assortArray1 =    [];
@@ -788,6 +791,7 @@ export class AssortUtils
         vfs.writeFile("./user/mods/RaidOverhaul/src/Refs/ArrayFiles/Traders/jaegerArray.json", assortArray6File);
         vfs.writeFile("./user/mods/RaidOverhaul/src/Refs/ArrayFiles/Traders/peacekeeperArray.json", assortArray7File);
     }
+    */
     //#endregion
     //
     //
@@ -899,6 +903,7 @@ export class AssortUtils
                 && item._id !== "5d03775b86f774203e7e0c4b"
                 && item._id !== "6389c85357baa773a825b356"
                 && item._id !== "6389c7f115805221fb410466"
+                && item._id !== "6389c7750ef44505c87f5996"
                 && item._props.Prefab.path !== ""){itemArray.push(item._id)}
 
             if (item._parent === BaseClasses.ARMBAND
@@ -990,6 +995,7 @@ export class AssortUtils
             if (item._parent === BaseClasses.VEST 
                 && item._props.QuestItem !== true
                 && item._type !== "Node"
+                && item._id !== "DeadArmband"
                 && item._props.Prefab.path !== ""){gearArray.push(item._id)}
 
             if (item._parent === BaseClasses.HEADWEAR 
