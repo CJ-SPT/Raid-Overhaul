@@ -682,8 +682,20 @@ namespace DJsRaidOverhaul.Controllers
                 EventExfilPatch.IsLockdown = false;
             }
         }
-
         #endregion
+
+        public void ExfilAirdropBOOMBOOM()
+        {
+            if (player.Location != "factory4_day" && player.Location != "factory4_night" && player.Location != "laboratory" && player.Location != "sandbox")
+            {
+                AirdropBoxPatch.isExtractCrate = true;
+                gameWorld.gameObject.AddComponent<AirdropsManager>().isFlareDrop = true;
+            }
+        }
+
+        //
+        //
+        //
 
         public bool Ready()
         {

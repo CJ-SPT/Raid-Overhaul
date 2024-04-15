@@ -14,10 +14,11 @@ using Aki.Reflection.Utils;
 using DJsRaidOverhaul.Helpers;
 using DJsRaidOverhaul.Patches;
 using DJsRaidOverhaul.Controllers;
+using EFT.Communications;
 
 namespace DJsRaidOverhaul
 {
-    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.0.0")]
+    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.1.0")]
 
     public class Plugin : BaseUnityPlugin
     {
@@ -95,6 +96,7 @@ namespace DJsRaidOverhaul
             new RandomizeDefaultStatePatch().Enable();
             new EventExfilPatch().Enable();
             new RigPatch().Enable();
+            new AirdropBoxPatch().Enable();
 
             if (DJConfig.WatchAnimations.Value && watchAnimsDetected == false)
             {
@@ -159,14 +161,14 @@ namespace DJsRaidOverhaul
         {
             if (Chainloader.PluginInfos.ContainsKey(Realism) && PreloaderUI.Instantiated && realismDetected == false)
             {
-                NotificationManagerClass.DisplayWarningNotification("[Raid Overhaul] detected Realism Mod. Disabled adrenaline and deafness options to avoid conflicts with Realism.", EFT.Communications.ENotificationDurationType.Long);
+                NotificationManagerClass.DisplayMessageNotification("[Raid Overhaul] detected Realism Mod. Disabled adrenaline and deafness options to avoid conflicts with Realism.", ENotificationDurationType.Long, ENotificationIconType.Default);
 
                 realismDetected = true;
             }
 
             if (Chainloader.PluginInfos.ContainsKey(WatchAnims) && PreloaderUI.Instantiated && watchAnimsDetected == false)
             {
-                NotificationManagerClass.DisplayWarningNotification("[Raid Overhaul] detected Watch Animations Standalone. Disabled the animations from this mod to avoid conflicts.", EFT.Communications.ENotificationDurationType.Long);
+                NotificationManagerClass.DisplayMessageNotification("[Raid Overhaul] detected Watch Animations Standalone. Disabled the animations from this mod to avoid conflicts.", ENotificationDurationType.Long, ENotificationIconType.Default);
 
                 watchAnimsDetected = true;
             }
