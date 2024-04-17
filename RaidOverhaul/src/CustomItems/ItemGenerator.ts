@@ -592,8 +592,7 @@ export class ItemGenerator
                       "_proto": "55d30c4c4bdc2db4468b457e",
                       "_required": true
                     }
-                ], 
-                ammoCaliber: "MultiCalibre"
+                ]
             },
             LocalePush: 
             {

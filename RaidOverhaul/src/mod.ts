@@ -10,6 +10,7 @@ import { ILogger }                  from "@spt-aki/models/spt/utils/ILogger";
 import { Traders }                  from "@spt-aki/models/enums/Traders";
 import { ConfigTypes }              from "@spt-aki/models/enums/ConfigTypes";
 import { StaticRouterModService }   from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
+import { DynamicRouterModService }  from "@spt-aki/services/mod/dynamicRouter/DynamicRouterModService";
 import { ConfigServer }             from "@spt-aki/servers/ConfigServer";
 import { DatabaseServer }           from "@spt-aki/servers/DatabaseServer";
 import { VFS }                      from "@spt-aki/utils/VFS";
@@ -30,6 +31,7 @@ import { Base }                     from "./BaseFeatures/baseFeatures";
 import { ItemGenerator }            from "./CustomItems/ItemGenerator";
 import { pushTraderFeatures }       from "./Trader/TraderPushes";
 
+import * as EventWeightingsConfig   from "../config/EventWeightings.json";
 import * as baseJson                from "../db/base.json";
 import * as path                    from "path";
 import JSON5                        from "json5";
@@ -96,8 +98,10 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
         const ragfair =             configServer.getConfig<IRagfairConfig>(ConfigTypes.RAGFAIR);
         const traderConfig:         ITraderConfig = configServer.getConfig<ITraderConfig>(ConfigTypes.TRADER);
         const traderData =          new TraderData(traderConfig, this.ref, this.utils, vfs, randomUtil, jsonUtil, logger);
+        const modConfig =           JSON5.parse(vfs.readFile(path.resolve(__dirname, "../config/config.json5")));
         
-        const staticRouterModService: StaticRouterModService = container.resolve<StaticRouterModService>("StaticRouterModService");
+        const staticRouterModService: StaticRouterModService =   container.resolve<StaticRouterModService>("StaticRouterModService");
+        const dynamicRouterModService: DynamicRouterModService = container.resolve<DynamicRouterModService>("DynamicRouterModService");
 
         traderData.registerProfileImage();
         traderData.setupTraderUpdateTime();
@@ -119,12 +123,52 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
                     {
                         const profileInfo = profileHelper.getFullProfile(sessionID)
 
-                        this.utils.profileBackup(vfs, logger, this.modName, sessionID, path, profileInfo, randomUtil);
+                        if (modConfig.BackupProfile)
+                        {
+                            this.utils.profileBackup(vfs, logger, this.modName, sessionID, path, profileInfo, randomUtil);
+                        }
                         return output;
                     }
                 }
             ],
             "aki"
+        );
+
+        staticRouterModService.registerStaticRouter(
+            "GetEventWeightings",
+            [
+                {
+                    url: "/RaidOverhaul/GetEventWeightings",
+                    action: (url: string, 
+                        info: string, 
+                        sessionId: string, 
+                        output: string) => 
+                    {                     
+                        const EventWeightings = EventWeightingsConfig;
+
+                        return JSON.stringify(EventWeightings);
+                    }
+                }
+            ],
+            ""
+        );
+
+        dynamicRouterModService.registerDynamicRouter(`DynamicReportError${this.modName}`,
+        [
+            {
+                url: "/RaidOverhaul/LogToServer/",
+                    action: (url: string) => 
+                    {
+                        const urlParts = url.split("/");
+                        const clientMessage = urlParts[urlParts.length - 1];
+
+                        const regex = /%20/g;
+                        this.utils.logToServer(clientMessage.replace(regex, " "), logger);
+
+                        return JSON.stringify({ resp: "OK" });
+                    }
+                }
+            ], "LogToServer"
         );
 
         staticRouterModService.registerStaticRouter(
@@ -141,7 +185,7 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
                     {
                         TraderData.traderRepLogic(info, sessionId, traderHelper);
                         TraderData.legionRepLogic(info, sessionId, traderHelper);
-                        LegionData.modifySpawnChance(info)
+                        LegionData.modifySpawnChance(info, output)
                         LegionData.LoadBossData();
                         if (preAkiModLoader.getImportedModsNames().includes("SWAG"))
                         { 
