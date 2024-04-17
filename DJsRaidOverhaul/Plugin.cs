@@ -14,7 +14,6 @@ using Aki.Reflection.Utils;
 using DJsRaidOverhaul.Helpers;
 using DJsRaidOverhaul.Patches;
 using DJsRaidOverhaul.Controllers;
-using EFT.Communications;
 
 namespace DJsRaidOverhaul
 {
@@ -66,7 +65,9 @@ namespace DJsRaidOverhaul
             BCScript = Hook.AddComponent<BodyCleanup>();
             DontDestroyOnLoad(Hook);
 
-            // Initialize the weightings
+            // Get and Initialize the weightings
+            Weighting.EventWeights = Utils.Get<Weightings>("/RaidOverhaul/GetEventWeightings");
+
             Weighting.InitWeightings();
 
 
@@ -161,16 +162,14 @@ namespace DJsRaidOverhaul
         {
             if (Chainloader.PluginInfos.ContainsKey(Realism) && PreloaderUI.Instantiated && realismDetected == false)
             {
-                NotificationManagerClass.DisplayMessageNotification("[Raid Overhaul] detected Realism Mod. Disabled adrenaline and deafness options to avoid conflicts with Realism.", ENotificationDurationType.Long, ENotificationIconType.Default);
-
                 realismDetected = true;
+                Utils.LogToServerConsole("Realism Detected, disabling ROs adrenaline and deafness mechanics.");
             }
 
             if (Chainloader.PluginInfos.ContainsKey(WatchAnims) && PreloaderUI.Instantiated && watchAnimsDetected == false)
             {
-                NotificationManagerClass.DisplayMessageNotification("[Raid Overhaul] detected Watch Animations Standalone. Disabled the animations from this mod to avoid conflicts.", ENotificationDurationType.Long, ENotificationIconType.Default);
-
                 watchAnimsDetected = true;
+                Utils.LogToServerConsole("Watch Animations Standalone Detected, disabling ROs watch animations.");
             }
 
             if (Session == null && ClientAppUtils.GetMainApp().GetClientBackEndSession() != null)

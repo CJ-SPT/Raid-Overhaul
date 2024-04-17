@@ -77,6 +77,8 @@ namespace DJsRaidOverhaul.Controllers
         private Dictionary<string, OriginalWeaponStats> _originalWSMalf = new Dictionary<string, OriginalWeaponStats>();
         private IEnumerable<Item> _allWeapons => Session.Profile.Inventory.AllRealPlayerItems;
 
+        private const string _whiteFlare = "62178be9d0050232da3485d9";
+
         void Update()
         {
             if (DJConfig.TimeChanges.Value)
@@ -135,6 +137,11 @@ namespace DJsRaidOverhaul.Controllers
                 {
                     ChangeExfilUI();
                 }
+            }
+
+            if (Ready())
+            {
+                FlareLogicEC();
             }
         }
 
@@ -693,6 +700,21 @@ namespace DJsRaidOverhaul.Controllers
             }
         }
 
+
+        public void FlareLogicEC()
+        {
+            var whiteFlareInHands = player.HandsController.Item.TemplateId == _whiteFlare;
+
+            if (!whiteFlareInHands) { return; }
+
+            if (whiteFlareInHands && Ready())
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    ExfilAirdropBOOMBOOM();
+                }
+            }
+        }
         //
         //
         //

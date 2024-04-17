@@ -22,7 +22,6 @@ namespace DJsRaidOverhaul.Helpers
             ConsoleScreen.Processor.RegisterCommand("DoMaxLLEvent",      new Action(Plugin.ECScript.DoMaxLLEvent));
             ConsoleScreen.Processor.RegisterCommand("DoLockdownEvent",   new Action(Plugin.ECScript.DoLockDownEvent));
             ConsoleScreen.Processor.RegisterCommand("DoExfilAirdrop",    new Action(Plugin.ECScript.ExfilAirdropBOOMBOOM));
-
         }
     }
 }

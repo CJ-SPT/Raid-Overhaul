@@ -24,6 +24,8 @@ using Aki.Custom.Airdrops.Models;
 using Aki.Reflection.Patching;
 using DJsRaidOverhaul.Helpers;
 using DJsRaidOverhaul.Controllers;
+using EFT.InputSystem;
+using EFT.UI.Gestures;
 
 namespace DJsRaidOverhaul.Patches
 {
@@ -258,7 +260,7 @@ namespace DJsRaidOverhaul.Patches
             RequestHandler.PutJson("/singleplayer/traderServices/itemDelivery", new
             {
                 items = exfilCrateItems,
-                traderId = BTRUtil.BTRTraderId
+                traderId = Utils.ReqID
             }.ToJson(_defaultJsonConverters));
         }
     }

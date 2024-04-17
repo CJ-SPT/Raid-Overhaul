@@ -1,5 +1,9 @@
-using EFT.InventoryLogic;
+using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Aki.Common.Http;
+using EFT.InventoryLogic;
+using BepInEx.Logging;
 
 namespace DJsRaidOverhaul.Helpers
 {
@@ -23,6 +27,23 @@ namespace DJsRaidOverhaul.Helpers
         public static float GetStrength()
         {
             return DJConfig.EffectStrength.Value;
+        }
+
+        public static T Get<T>(string url)
+        {
+            var req = RequestHandler.GetJson(url);
+
+            if (string.IsNullOrEmpty(req))
+            {
+                throw new InvalidOperationException("The response from the server is null or empty.");
+            }
+
+            return JsonConvert.DeserializeObject<T>(req);
+        }
+        public static void LogToServerConsole(string message)
+        {
+            Plugin.Log.Log( LogLevel.Info, message);
+            RequestHandler.GetJson("/RaidOverhaul/LogToServer/" + message);
         }
 
         public static EquipmentSlot[] _armbandFAS = {

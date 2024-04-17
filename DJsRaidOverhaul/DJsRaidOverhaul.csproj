@@ -74,6 +74,9 @@
 		<Reference Include="UnityEngine.IMGUIModule">
 		  <HintPath>..\..\3.8 Deps\UnityEngine.IMGUIModule.dll</HintPath>
 		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule">
+		  <HintPath>..\..\3.8 Deps\UnityEngine.InputLegacyModule.dll</HintPath>
+		</Reference>
 		<Reference Include="UnityEngine.TextRenderingModule">
 		  <HintPath>..\..\3.8 Deps\UnityEngine.TextRenderingModule.dll</HintPath>
 		</Reference>
