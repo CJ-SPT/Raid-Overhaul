@@ -996,7 +996,8 @@ export class AssortUtils
             if (item._parent === BaseClasses.FACECOVER 
                 && item._props.QuestItem !== true
                 && item._type !== "Node"
-                && item._id !== "KnightMask" 
+                && item._id !== "KnightMask"
+                && item._id !== "58ac60eb86f77401897560ff"
                 && item._props.Prefab.path !== ""){gearArray.push(item._id)}
 
             if (item._parent === BaseClasses.VEST 
