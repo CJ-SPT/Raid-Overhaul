@@ -5,6 +5,7 @@ import { DatabaseServer }       from "@spt-aki/servers/DatabaseServer";
 import { VFS }                  from "@spt-aki/utils/VFS";
 import { JsonUtil }             from "@spt-aki/utils/JsonUtil";
 import { RandomUtil }           from "@spt-aki/utils/RandomUtil";
+import { IPmcData }             from "@spt-aki/models/eft/common/IPmcData";
 import { ConfigTypes }          from "@spt-aki/models/enums/ConfigTypes";
 import { ILogger }              from "@spt-aki/models/spt/utils/ILogger";
 import { IBotConfig }           from "@spt-aki/models/spt/config/IBotConfig";
@@ -407,14 +408,17 @@ export class LegionData
         }
     }
 
-    static modifySpawnChance(info: any)
+    static modifySpawnChance(info: any, output: any)
     {
         let bossLegionChance = 15
         let hasRun = false
 
-        const legionSpawnPath = path.join(__dirname, '../../config/LegionChance.json');
-        const spawnChance =     JSON.parse(fs.readFileSync(legionSpawnPath, "utf8"));
-        bossLegionChance =      spawnChance?.legionChance ?? 15;
+        const legionSpawnPath =     path.join(__dirname, '../../config/LegionChance.json');
+        const spawnChance =         JSON.parse(fs.readFileSync(legionSpawnPath, "utf8"));
+        const pmcData: IPmcData =   info.profile;
+        const victimRoles =         pmcData.Stats.Eft.Victims?.map(victim => victim.Role.toLowerCase());
+        const aggressorName =       pmcData.Stats.Eft.Aggressor?.Name?.toLowerCase();
+        bossLegionChance =          spawnChance?.legionChance ?? 15;
 
         if (info.exit === "survived" && !hasRun)
         {
@@ -436,18 +440,25 @@ export class LegionData
 
         if (info.exit === "killed" && !hasRun)
         {
+            bossLegionChance /= 4;
+            hasRun = true;
+        }
+
+        if (victimRoles?.includes("bosslegion") && !hasRun)
+        {
             bossLegionChance /= 2;
+            hasRun = true;
+        }
+
+        if (aggressorName === "legion" && !hasRun)
+        {
+            bossLegionChance = 15;
             hasRun = true;
         }
 
         if (bossLegionChance > 100)
         {
             bossLegionChance = 100;
-        }
-
-        if (bossLegionChance = 100)
-        {
-            bossLegionChance = 15
         }
 
         if (bossLegionChance < 1)
@@ -458,5 +469,7 @@ export class LegionData
         spawnChance.legionChance = bossLegionChance
 
         fs.writeFileSync(legionSpawnPath, JSON.stringify(spawnChance, null, 2), 'utf-8');
+
+        return output;
     }
 }

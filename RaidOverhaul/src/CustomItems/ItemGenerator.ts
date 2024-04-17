@@ -592,8 +592,7 @@ export class ItemGenerator
                       "_proto": "55d30c4c4bdc2db4468b457e",
                       "_required": true
                     }
-                ], 
-                ammoCaliber: "MultiCalibre"
+                ]
             },
             LocalePush: 
             {
@@ -1427,7 +1426,7 @@ export class ItemGenerator
         }, tables, ragfair, jsonUtil);
 
         newItem.addToWeaponShelf("MCM4");      
-        //this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4", 5);
+        this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4", 5);
         this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM457", 3);
         this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4300", 3);
         this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4545", 3);
@@ -1439,7 +1438,7 @@ export class ItemGenerator
         this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4762Mag", 3);
         this.utils.addToStaticLoot(tables, "5909d89086f77472591234a0", "MCM4939Mag", 3);
 
-        //this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4", 5);
+        this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4", 5);
         this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM457", 3);
         this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4300", 3);
         this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4545", 3);
@@ -1451,7 +1450,7 @@ export class ItemGenerator
         this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4762Mag", 3);
         this.utils.addToStaticLoot(tables, "5909d7cf86f77470ee57d75a", "MCM4939Mag", 3);
 
-        //this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4", 5);
+        this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4", 5);
         this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM457", 3);
         this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4300", 3);
         this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4545", 3);
@@ -1463,7 +1462,7 @@ export class ItemGenerator
         this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4762Mag", 3);
         this.utils.addToStaticLoot(tables, "5909d76c86f77471e53d2adf", "MCM4939Mag", 3);
 
-        //this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4", 5);
+        this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4", 5);
         this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM457", 5);
         this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4300", 3);
         this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4545", 3);
@@ -1475,7 +1474,7 @@ export class ItemGenerator
         this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4762Mag", 3);
         this.utils.addToStaticLoot(tables, "5909d5ef86f77467974efbd8", "MCM4939Mag", 3);
 
-        //this.utils.addToStaticLoot(tables, "578f87ad245977356274f2cc", "MCM4", 5);
+        this.utils.addToStaticLoot(tables, "578f87ad245977356274f2cc", "MCM4", 5);
         this.utils.addToStaticLoot(tables, "578f87ad245977356274f2cc", "MCM457", 3);
         this.utils.addToStaticLoot(tables, "578f87ad245977356274f2cc", "MCM4300", 3);
         this.utils.addToStaticLoot(tables, "578f87ad245977356274f2cc", "MCM4545", 3);

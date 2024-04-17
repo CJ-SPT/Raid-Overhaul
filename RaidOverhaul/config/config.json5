@@ -1,6 +1,8 @@
 {
   "EnableCustomItems": true,        //Enables the custom weapons and attachments. Doesn't affect the gear and Req Slips as those are heavily tied into the boss and shop
 
+  "BackupProfile": true,            //Creates a backup of your most recent profile on startup, to a max of 3 profiles. After 3 it will delete and replace the oldest backup
+
   "Raid": {
     "ReduceFoodAndHydroDegrade":{       
         "Enabled": true,
@@ -30,7 +32,7 @@
   },
 
   "Weight": {
-    "Enabled": true,
+    "Enabled": false,
     "MinWeight": 90,                //Minimum overweight limit  DEFAULT 21
     "MaxWeight": 140,               //Maximum overweight limit  DEFAULT 81
     "WalkMinWeight": 110,           //Minimum walk overweight limit  DEFAULT 42
@@ -74,7 +76,7 @@
   },
 
   "Loot": {
-    "EnableLootOptions": true,      //Enables the static and loose loot multipliers. Both types of loot will be multiplied per map by whatever number you put in it's respective section
+    "EnableLootOptions": false,     //Enables the static and loose loot multipliers. Both types of loot will be multiplied per map by whatever number you put in it's respective section
     "Locations": {
       "Customs": 3,
       "FactoryDay": 3,

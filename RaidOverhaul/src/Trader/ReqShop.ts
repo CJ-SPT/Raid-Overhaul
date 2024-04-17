@@ -17,6 +17,8 @@ import { Currency }                             from "../Refs/Enums";
 
 import * as customPresetArray   from "../Refs/ArrayFiles/Items/customPresets.json";
 import * as presetArray         from "../Refs/ArrayFiles/Items/presetArray.json";
+import * as dialogue            from "../../db/dialogue.json";
+import * as services            from "../../db/services.json";
 import * as baseJson            from "../../db/base.json";
 import * as path                from "path";
 
@@ -59,7 +61,7 @@ export class TraderData
         const databaseServer: DatabaseServer = container.resolve<DatabaseServer>("DatabaseServer");
         const tables = databaseServer.getTables();
 
-        this.traderHelper.addTraderToDb(baseJson, tables, this.jsonUtil)
+        this.traderHelper.addTraderToDb(baseJson, tables, this.jsonUtil, dialogue, services)
     }
     
     public addTraderToLocales(tables: IDatabaseTables, fullName: string, firstName: string, nickName: string, location: string, description: string): void
@@ -534,6 +536,34 @@ export class TraderData
     //
     //
 
+    public addFlares(): void
+    {
+        const databaseServer: DatabaseServer =  container.resolve<DatabaseServer>("DatabaseServer");
+        const hashUtil: HashUtil =              container.resolve<HashUtil>("HashUtil");
+        const tables =                          databaseServer.getTables();
+        this.assortUtils =                      new AssortUtils(hashUtil, this.ref.logger);
+
+        const randomAssortCount =       this.randomUtil.randInt(1, 5);
+        const randomReqSlipCount =      this.randomUtil.randInt(1, 3);
+        const randomRoubleCount =       this.randomUtil.randInt(44999, 67999);
+
+        this.assortUtils.createSingleAssortItem("62178be9d0050232da3485d9")
+                        .addStackCount(randomAssortCount)
+                        .addLoyaltyLevel(1)
+                        .addBarterCost(Currency.ReqSlips, randomReqSlipCount)
+                        .export(tables.traders[baseJson._id], false);
+
+        this.assortUtils.createSingleAssortItem("62178be9d0050232da3485d9")
+                        .addStackCount(randomAssortCount)
+                        .addLoyaltyLevel(1)
+                        .addMoneyCost(Currency.Roubles, randomRoubleCount)
+                        .export(tables.traders[baseJson._id], false);
+    }
+
+    //
+    //
+    //
+
     public addPresets(count, debugLogging): void
     {
         const databaseServer: DatabaseServer =  container.resolve<DatabaseServer>("DatabaseServer");
@@ -700,7 +730,7 @@ export class TraderData
             const pmcData: IPmcData = info.profile;
             const victimRole = pmcData.Stats.Eft.Victims?.map(victim => victim.Role.toLowerCase());
 
-            if (victimRole?.includes("legion"))
+            if (victimRole?.includes("bosslegion"))
             {
                 traderHelper.addStandingToTrader(sessionId, "Requisitions", 0.15);
                 return;

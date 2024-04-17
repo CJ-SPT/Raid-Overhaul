@@ -31,6 +31,7 @@ export class pushTraderFeatures
         traderData.createKeyFluidAssort(probHelper, debugLogging);
         traderData.createSpecFluidAssort(probHelper, debugLogging);
         traderData.addReqSlips();
+        traderData.addFlares();
         
         for (var presetCount = 1; presetCount <randomUtil.getInt(20, 35); presetCount++) traderData.addPresets(presetCount, debugLogging);
 

@@ -99,6 +99,11 @@ export class Utils
         return this.shuffle(array).pop().toString() && this.shuffle(array).shift().toString();
     }
 
+    public logToServer(message: string, logger: any): void
+    {
+        logger.log("[Raid Overhaul] " + message, LogTextColor.CYAN);
+    }
+
     public profileBackup(vfs, logger, modName, sessionID: string, path, profile: IAkiProfile, randomUtil): void
     {
         const backupPath =   path.join(__dirname, "../../ProfileBackup/");
@@ -419,11 +424,13 @@ export class TraderUtils
         traderConfig.updateTime.push(traderRefreshRecord);
     }
 
-    public addTraderToDb(traderDetailsToAdd: any, tables: IDatabaseTables, jsonUtil: JsonUtil): void
+    public addTraderToDb(traderDetailsToAdd: any, tables: IDatabaseTables, jsonUtil: JsonUtil, dialogueToAdd: any, servicesToAdd: any): void
     {
         tables.traders[traderDetailsToAdd._id] = {
             assort: this.createAssortTable(),
             base: jsonUtil.deserialize(jsonUtil.serialize(traderDetailsToAdd)) as ITraderBase,
+            dialogue: jsonUtil.deserialize(jsonUtil.serialize(dialogueToAdd)),
+            services: jsonUtil.deserialize(jsonUtil.serialize(servicesToAdd)),
             questassort: {
                 started: {},
                 success: {},
