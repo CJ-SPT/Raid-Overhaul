@@ -255,12 +255,15 @@ export class Utils
     {
         const items = tables.templates.items
 
-        this.stopHurtingMeSVM(tables, caseToAdd)
-
         for (const item in items) 
         {
             if (items[item]._id === caseToAdd)
             {
+                if (items[item]._props?.Grids[0]._props.filters[0].Filter == null)
+                {
+                    this.stopHurtingMeSVM(tables, caseToAdd)
+                }
+
                 if (items[item]._props?.Grids[0]._props.filters[0].Filter !== null)
                 {
                     items[item]._props?.Grids[0]._props.filters[0].Filter.push(itemToAdd)
