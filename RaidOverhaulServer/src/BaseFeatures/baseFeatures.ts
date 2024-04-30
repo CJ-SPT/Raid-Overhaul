@@ -68,16 +68,16 @@ export class Base
             airdropConfig.airdropChancePercent.reserve = modConfig.Raid.ChangeAirdropValues.Reserve;
         }
         
-        if (modConfig.Weight.Enabled) 
+        if (modConfig.WeightChanges.Enabled) 
         {
-            stamina.BaseOverweightLimits["x"] = modConfig.Weight.MinWeight
-            stamina.BaseOverweightLimits["y"] = modConfig.Weight.MaxWeight
-            stamina.WalkOverweightLimits["x"] = modConfig.Weight.WalkMinWeight
-            stamina.WalkOverweightLimits["y"] = modConfig.Weight.WalkMaxWeight
-            stamina.WalkSpeedOverweightLimits["x"] = modConfig.Weight.WalkSpeedMinWeight
-            stamina.WalkSpeedOverweightLimits["y"] = modConfig.Weight.WalkSpeedMaxWeight
-            stamina.SprintOverweightLimits["x"] = modConfig.Weight.SprintMinWeight
-            stamina.SprintOverweightLimits["y"] = modConfig.Weight.SprintMaxWeight
+            stamina.BaseOverweightLimits["x"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.BaseOverweightLimits["y"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.WalkOverweightLimits["x"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.WalkOverweightLimits["y"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.WalkSpeedOverweightLimits["x"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.WalkSpeedOverweightLimits["y"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.SprintOverweightLimits["x"] *= modConfig.WeightChanges.WeightMultiplier
+            stamina.SprintOverweightLimits["y"] *= modConfig.WeightChanges.WeightMultiplier
         }
 
         if (modConfig.Raid.SaveQuestItems)
@@ -117,11 +117,11 @@ export class Base
             }
         }
 
-        if (modConfig.Raid.PocketChanges) 
+        if (modConfig.PocketChanges.Enabled) 
         {
             const pockets = this.ref.tables.templates.items["627a4e6b255f7527fb05a0f6"];
 
-            pockets._props.Grids = [{"_id": this.ref.hashUtil.generate(),"_name": "pocket1","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": 1,"cellsV": 2,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket2","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": 2,"cellsV": 2,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket3","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": 1,"cellsV": 2,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket4","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": 1,"cellsV": 2,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"}],
+            pockets._props.Grids = [{"_id": this.ref.hashUtil.generate(),"_name": "pocket1","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": modConfig.PocketChanges.Pocket1.Horizontal,"cellsV": modConfig.PocketChanges.Pocket1.Vertical,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket2","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": modConfig.PocketChanges.Pocket2.Horizontal,"cellsV": modConfig.PocketChanges.Pocket2.Vertical,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket3","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": modConfig.PocketChanges.Pocket3.Horizontal,"cellsV": modConfig.PocketChanges.Pocket3.Vertical,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"},{"_id": this.ref.hashUtil.generate(),"_name": "pocket4","_parent": "627a4e6b255f7527fb05a0f6","_props": {"cellsH": modConfig.PocketChanges.Pocket4.Horizontal,"cellsV": modConfig.PocketChanges.Pocket4.Vertical,"filters": [{"ExcludedFilter": ["5448bf274bdc2dfc2f8b456a"],"Filter": ["54009119af1c881c07000029"]}],"isSortingTable": false,"maxCount": 0,"maxWeight": 0,"minCount": 0},"_proto": "55d329c24bdc2d892f8b4567"}],
             pockets._props.Slots = [{"_id": this.ref.hashUtil.generate(),"_mergeSlotWithChildren": false,"_name": "SpecialSlot1","_parent": "627a4e6b255f7527fb05a0f6","_props": {"filters": [{"Filter": ["54009119af1c881c07000029"]}]},"_proto": "55d721144bdc2d89028b456f","_required": false},{"_id": this.ref.hashUtil.generate(),"_mergeSlotWithChildren": false,"_name": "SpecialSlot2","_parent": "627a4e6b255f7527fb05a0f6","_props": {"filters": [{"Filter": ["54009119af1c881c07000029"]}]},"_proto": "55d721144bdc2d89028b456f","_required": false},{"_id": this.ref.hashUtil.generate(),"_mergeSlotWithChildren": false,"_name": "SpecialSlot3","_parent": "627a4e6b255f7527fb05a0f6","_props": {"filters": [{"Filter": ["54009119af1c881c07000029"]}]},"_proto": "55d721144bdc2d89028b456f","_required": false}]
 
             this.utils.stopHurtingMeSVM("627a4e6b255f7527fb05a0f6");
@@ -248,31 +248,31 @@ export class Base
         //
         //
         //#region Loot
-        if (modConfig.Loot.EnableLootOptions)
+        if (modConfig.LootChanges.EnableLootOptions)
         {
-            maps.looseLootMultiplier.bigmap = modConfig.Loot.Locations.Customs;
-            maps.looseLootMultiplier.factory4_day = modConfig.Loot.Locations.FactoryDay;
-            maps.looseLootMultiplier.factory4_night = modConfig.Loot.Locations.FactoryNight;
-            maps.looseLootMultiplier.interchange = modConfig.Loot.Locations.Interchange;
-            maps.looseLootMultiplier.laboratory = modConfig.Loot.Locations.Labs;
-            maps.looseLootMultiplier.rezervbase = modConfig.Loot.Locations.Reserve;
-            maps.looseLootMultiplier.shoreline = modConfig.Loot.Locations.Shoreline;
-            maps.looseLootMultiplier.woods = modConfig.Loot.Locations.Woods;
-            maps.looseLootMultiplier.lighthouse = modConfig.Loot.Locations.Lighthouse;
-            maps.looseLootMultiplier.tarkovstreets = modConfig.Loot.Locations.Streets;
-            maps.looseLootMultiplier.sandbox = modConfig.Loot.Locations.GroundZero;
+            maps.looseLootMultiplier.bigmap = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.factory4_day = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.factory4_night = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.interchange = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.laboratory = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.rezervbase = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.shoreline = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.woods = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.lighthouse = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.tarkovstreets = modConfig.LootChanges.LooseLootMultiplier;
+            maps.looseLootMultiplier.sandbox = modConfig.LootChanges.LooseLootMultiplier;
 
-            maps.staticLootMultiplier.bigmap = modConfig.Loot.Locations.Customs;
-            maps.staticLootMultiplier.factory4_day = modConfig.Loot.Locations.FactoryDay;
-            maps.staticLootMultiplier.factory4_night = modConfig.Loot.Locations.FactoryNight;
-            maps.staticLootMultiplier.interchange = modConfig.Loot.Locations.Interchange;
-            maps.staticLootMultiplier.laboratory = modConfig.Loot.Locations.Labs;
-            maps.staticLootMultiplier.rezervbase = modConfig.Loot.Locations.Reserve;
-            maps.staticLootMultiplier.shoreline = modConfig.Loot.Locations.Shoreline;
-            maps.staticLootMultiplier.woods = modConfig.Loot.Locations.Woods;
-            maps.staticLootMultiplier.lighthouse = modConfig.Loot.Locations.Lighthouse;
-            maps.staticLootMultiplier.tarkovstreets = modConfig.Loot.Locations.Streets;
-            maps.staticLootMultiplier.sandbox = modConfig.Loot.Locations.GroundZero
+            maps.staticLootMultiplier.bigmap = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.factory4_day = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.factory4_night = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.interchange = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.laboratory = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.rezervbase = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.shoreline = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.woods = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.lighthouse = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.tarkovstreets = modConfig.LootChanges.StaticLootMultiplier;
+            maps.staticLootMultiplier.sandbox = modConfig.LootChanges.StaticLootMultiplier;
         }
         //#endregion
         //

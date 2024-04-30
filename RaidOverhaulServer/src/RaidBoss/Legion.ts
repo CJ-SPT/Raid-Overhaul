@@ -357,7 +357,7 @@ export class LegionData
 
         if (info.exit === "runner")
         {
-            bossLegionChance += 1;
+            bossLegionChance += 5;
         }
 
         if (info.exit === "Left")
@@ -367,7 +367,7 @@ export class LegionData
 
         if (info.exit === "killed")
         {
-            bossLegionChance /= 4;
+            bossLegionChance += 1;
         }
 
         if (bossLegionChance > 100)

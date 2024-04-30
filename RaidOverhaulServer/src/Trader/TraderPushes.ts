@@ -45,6 +45,8 @@ export class pushTraderFeatures
         for (var wepPresetCount = 0; wepPresetCount <this.ref.randomUtil.getInt(18, 34); wepPresetCount++) this.traderData.addWeaponPresets(wepPresetCount, modConfig.Debug.ExtraLogging);
         for (var gearPresetCount = 0; gearPresetCount <this.ref.randomUtil.getInt(12, 30); gearPresetCount++) this.traderData.addGearPresets(gearPresetCount, modConfig.Debug.ExtraLogging);
 
+        //18, 34 and 12, 30
+
         if (modConfig.Debug.ExtraLogging)
         {
             this.ref.logger.log(`[${logString}] ${wepPresetCount} total weapon presets have been added`, LogTextColor.GREEN);

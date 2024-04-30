@@ -48,9 +48,9 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
 
     private static preloaderDepCheck(): boolean 
     {
-        const pluginRO = "legionprepatch.dll";
+        const prePatchLegion = "legionprepatch.dll";
 
-        try { const pluginPath = fs.readdirSync("./BepInEx/patchers").map(plugin => plugin.toLowerCase()); return pluginPath.includes(pluginRO); }
+        try { const pluginPath = fs.readdirSync("./BepInEx/patchers").map(plugin => plugin.toLowerCase()); return pluginPath.includes(prePatchLegion); }
         catch { return false; }
     }
 

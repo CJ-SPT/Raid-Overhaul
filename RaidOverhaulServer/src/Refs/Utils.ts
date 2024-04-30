@@ -18,11 +18,7 @@ import { PreAkiModLoader }              from "@spt-aki/loaders/PreAkiModLoader";
 import type { GameController }          from "@spt-aki/controllers/GameController";
 
 import { Currency,
-         Quests,
-         BossAndFollow,
-         Locales,
-         StaticLoot,
-         SlotPushes}      from "../Refs/Enums";
+         BossAndFollow}   from "../Refs/Enums";
 import { References }     from "../Refs/References";
 import * as baseJson      from "../../db/base.json";
 import * as path          from "path";
@@ -278,12 +274,12 @@ export class Utils
     public getFormCost(itemID: string): number
     {
 
-        return Math.round(this.getFleaPrice(itemID) / this.getFleaPrice("66292e79a4d9da25e683ab55"));
+        return Math.ceil(this.getFleaPrice(itemID) / this.getFleaPrice("66292e79a4d9da25e683ab55"));
     }
     
     public getReqCost(itemID: string): number
     {
-        return Math.round(this.getFleaPrice(itemID) / this.getFleaPrice("RequisitionSlips"));
+        return Math.ceil(this.getFleaPrice(itemID) / this.getFleaPrice("RequisitionSlips"));
     }
 
     public buildBaseAssort(ItemID: string, assortUtils: any, StockCount: number, LoyaltyLevelToPush: number, tables: any)
@@ -302,29 +298,33 @@ export class Utils
 
     public getPresetFormCost(PresetID): number
     {
-        return Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false) / this.getFleaPrice("66292e79a4d9da25e683ab55"));
+        return Math.round(this.ref.ragfairPriceService.getFleaPriceForOfferItems(PresetID) / this.getFleaPrice("66292e79a4d9da25e683ab55"));
     }
 
     public getPresetReqCost(PresetID): number
     {
-        return Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false) / this.getFleaPrice("RequisitionSlips"));
+        return Math.ceil(this.ref.ragfairPriceService.getFleaPriceForOfferItems(PresetID) / this.getFleaPrice("RequisitionSlips"));
     }
 
     public buildPresetAssort(PresetID, assortUtils: any, ArrayToPull: any, ItemKeys: string, StockCount: number, LoyaltyLevelToPush: number, tables: any)
     {
-        if (Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false)) == 0)
+        const presetPrice = Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false));
+        const slipCost = Math.round(presetPrice / this.getFleaPrice("RequisitionSlips"));
+        const formCost = Math.ceil(presetPrice / this.getFleaPrice("66292e79a4d9da25e683ab55"));
+
+        if (presetPrice <= 0)
         {
-            assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.ref.randomUtil.randInt(2, 6), tables);
+            assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.ref.randomUtil.randInt(1, 10), tables);
         }
 
-        else if (Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false)) <= 49999)
+        else if (presetPrice <= 49999)
         {
-            assortUtils.createComplexFormOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.getPresetFormCost(PresetID), tables);
+            assortUtils.createComplexFormOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, formCost, tables);
         }
 
-        else if (Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false)) >= 50000)
+        else if (presetPrice >= 50000)
         {
-            assortUtils.createComplexFormOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.getPresetReqCost(PresetID), tables);
+            assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, slipCost, tables);
         }
     }
 
@@ -428,7 +428,7 @@ export class Utils
     //
     //
     //#region Item Gen
-    public createItem(itemGen: ItemGeneratorSettings, addToFilters: boolean): void
+    public createItem(itemGen: ItemGeneratorSettings): void
     {
         const newItemGen = itemGen.newItem;
 
@@ -450,7 +450,7 @@ export class Utils
 		}
 		this.ref.customItem.createItemFromClone(newItem);
 
-        if (addToFilters)
+        if (newItemGen.CloneToFilters)
         {
             this.updateFilters(newItemGen.newID, newItemGen.ItemToClone)
         }
@@ -465,12 +465,12 @@ export class Utils
             this.addToBots(newItemGen.BotLootItemToClone, newItemGen.newID);
         }
 
-        if (newItemGen.QuestPush.AddToQuests)
+        if (newItemGen.QuestPush?.AddToQuests)
         {
             this.addToQuests(this.ref.tables.templates.quests, newItemGen.QuestPush.QuestConditionType, newItemGen.QuestPush.QuestTargetConditionToClone, newItemGen.newID);
         }
 
-        if (newItemGen.LootPush.AddToStaticLoot)
+        if (newItemGen.LootPush?.AddToStaticLoot)
         {
             this.addToStaticLoot(newItemGen.LootPush.LootContainersToAdd, newItemGen.newID, newItemGen.LootPush.StaticLootProbability);
         }
@@ -485,7 +485,7 @@ export class Utils
             this.pushToBlacklist(newItemGen.newID)
         }
 
-        if (newItemGen.SlotInfo.AddToSlot)
+        if (newItemGen.SlotInfo?.AddToSlot)
         {
             this.pushToSlots(newItemGen.newID, newItemGen.SlotInfo.Slot)
         }
@@ -1051,18 +1051,36 @@ export type ItemGeneratorSettings = {
 		newID: string,
         parentID: string,
 		OverrideProperties: Props,
-        LocalePush: Locales,
+        LocalePush: {
+            en: {
+                name: string,
+                shortName: string,
+                description: string
+            }
+        },
         HandbookParent: string,
         HandbookPrice: number,
-        PushMastery: boolean,
-        AddToBots: boolean,
-        BotLootItemToClone: string,
-        QuestPush: Quests,
-        LootPush: StaticLoot,
-        AddToCases: boolean,
-        CasesToPush: string[],
-        PushToFleaBlacklist: boolean,
-        SlotInfo: SlotPushes
+        CloneToFilters?: boolean,
+        PushMastery?: boolean,
+        AddToBots?: boolean,
+        BotLootItemToClone?: string,
+        QuestPush?: {
+            AddToQuests: boolean,
+            QuestConditionType: string,
+            QuestTargetConditionToClone: string
+        },
+        LootPush?: {
+            AddToStaticLoot: boolean,
+            LootContainersToAdd: string[],
+            StaticLootProbability: number
+        },
+        AddToCases?: boolean,
+        CasesToPush?: string[],
+        PushToFleaBlacklist?: boolean,
+        SlotInfo?:  {
+            AddToSlot: boolean,
+            Slot: number
+        }
 	}
 };
 

@@ -65,8 +65,8 @@
     "equipmentMods": {
       "Back_plate": 100,
       "Front_plate": 100,
-      "Collar": 100,
-      "Groin": 100,
+      "back_plate": 100,
+      "front_plate": 100,
       "Left_side_plate": 100,
       "Right_side_plate": 100,
       "Helmet_top": 100,

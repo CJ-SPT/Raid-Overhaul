@@ -424,7 +424,7 @@ export class TraderData
 
             if (debugLogging)
             {
-                this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[shuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[reshuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
             }
         }
 

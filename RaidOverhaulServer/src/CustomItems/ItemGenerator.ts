@@ -139,14 +139,7 @@ export class ItemGenerator
             HandbookParent: HandbookIDs.MarksmanRifles,
             HandbookPrice: 61999,
             PushMastery: true,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
+            CloneToFilters: true,
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -158,19 +151,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -214,15 +197,6 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.Magazines,
             HandbookPrice: 11999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -234,19 +208,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -290,15 +254,6 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.Magazines,
             HandbookPrice: 19999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -310,19 +265,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
       //#endregion
       //
       //
@@ -596,33 +541,9 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.AssaultRifles,
             HandbookPrice: 51999,
-            PushMastery: true,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            PushMastery: true
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -691,34 +612,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 43999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 43999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -788,34 +684,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 43999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 43999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -878,34 +749,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 43999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 43999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -972,34 +818,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 43999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 43999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1069,34 +890,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 43999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 43999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1138,34 +934,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 7999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1206,34 +977,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 7999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1281,34 +1027,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 7999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1352,34 +1073,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 7999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7999
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1420,34 +1116,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 7999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: "",
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7999
           }
-        }, true);
+        });
       //#endregion
       //
       //
@@ -1674,14 +1345,7 @@ export class ItemGenerator
             HandbookParent: HandbookIDs.SMGs,
             HandbookPrice: 47999,
             PushMastery: true,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
+            CloneToFilters: true,
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -1693,19 +1357,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1745,15 +1399,6 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.Magazines,
             HandbookPrice: 8999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -1765,19 +1410,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1817,15 +1452,6 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.Magazines,
             HandbookPrice: 18499,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -1837,19 +1463,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -1878,15 +1494,6 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
             HandbookPrice: 31999,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
             LootPush: 
             {
               AddToStaticLoot: true,
@@ -1898,19 +1505,9 @@ export class ItemGenerator
                 "578f87ad245977356274f2cc"
               ],
               StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
             }
           }
-        }, true);
+        });
       //#endregion
       //
       //
@@ -2107,14 +1704,7 @@ export class ItemGenerator
         HandbookParent: HandbookIDs.Pistols,
         HandbookPrice: 55999,
         PushMastery: true,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
+        CloneToFilters: true,
         LootPush: 
         {
           AddToStaticLoot: true,
@@ -2127,18 +1717,9 @@ export class ItemGenerator
           ],
           StaticLootProbability: 5
         },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: true,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        PushToFleaBlacklist: true
       }
-    }, true);
+    });
 
 
     this.utils.createItem({
@@ -2167,34 +1748,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.ReceiversAndSlides,
-          HandbookPrice: 41999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 41999
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -2231,34 +1787,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Magazines,
-          HandbookPrice: 11999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 11999
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -2295,34 +1826,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Magazines,
-          HandbookPrice: 15499,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 15499
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -2359,34 +1865,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Magazines,
-          HandbookPrice: 25999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 25999
         }
-      }, false);
+      });
       //#endregion
       //
       //
@@ -2559,14 +2040,7 @@ export class ItemGenerator
         HandbookParent: HandbookIDs.MarksmanRifles,
         HandbookPrice: 60999,
         PushMastery: true,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
+        CloneToFilters: true,
         LootPush: 
         {
           AddToStaticLoot: true,
@@ -2579,18 +2053,9 @@ export class ItemGenerator
           ],
           StaticLootProbability: 5
         },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: true,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        PushToFleaBlacklist: true
       }
-    }, true);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -2626,34 +2091,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Magazines,
-        HandbookPrice: 6999,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 6999
       }
-    }, false);
+    });
       
 
     this.utils.createItem({
@@ -2690,34 +2130,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Magazines,
-        HandbookPrice: 14999,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 14999
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -2753,34 +2168,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Magazines,
-        HandbookPrice: 29999,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 29999
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -2801,34 +2191,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.ReceiversAndSlides,
-          HandbookPrice: 39999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 39999
         }
-      }, true);
+      });
       //#endregion
       //
       //
@@ -2959,14 +2324,7 @@ export class ItemGenerator
         HandbookParent: HandbookIDs.BoltActionRifles,
         HandbookPrice: 91999,
         PushMastery: true,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
+        CloneToFilters: true,
         LootPush: 
         {
           AddToStaticLoot: true,
@@ -2979,18 +2337,9 @@ export class ItemGenerator
           ],
           StaticLootProbability: 5
         },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: true,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        PushToFleaBlacklist: true
       }
-    }, true);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -3026,34 +2375,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Magazines,
-          HandbookPrice: 14999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 14999
         } 
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -3089,34 +2413,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Magazines,
-        HandbookPrice: 14999,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 14999
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -3152,34 +2451,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Magazines,
-          HandbookPrice: 14999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 14999
         }
-      }, false);
+      });
       //#endregion
       //
       //
@@ -3306,33 +2580,9 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.AssaultRifles,
             HandbookPrice: 34230,
-            PushMastery: true,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            PushMastery: true
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3375,34 +2625,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.ReceiversAndSlides,
-            HandbookPrice: 22640,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 22640
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3459,34 +2684,9 @@ export class ItemGenerator
               }
             },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 3120,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 3120
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3543,34 +2743,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Magazines,
-            HandbookPrice: 4210,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 4210
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3644,34 +2819,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Barrels,
-            HandbookPrice: 26460,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 26460
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3695,33 +2845,9 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.FlashhidersAndBrakes,
             HandbookPrice: 1340,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            CloneToFilters: true
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3744,34 +2870,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Mounts,
-            HandbookPrice: 5640,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 5640
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3794,34 +2895,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Mounts,
-            HandbookPrice: 2033,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 2033
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -3844,34 +2920,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Mounts,
-            HandbookPrice: 3340,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 3340
           }
-        }, false);
+        });
       //#endregion
     }
 
@@ -4049,32 +3100,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.BodyArmor,
           HandbookPrice: 209999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: true,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_WOODEN_CRATE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4295,32 +3323,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.TacticalRigs,
           HandbookPrice: 239999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4350,32 +3355,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.Facecovers,
           HandbookPrice: 159999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4451,32 +3433,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.Backpacks,
           HandbookPrice: 139999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4576,32 +3535,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.Backpacks,
           HandbookPrice: 99999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4701,32 +3637,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.Backpacks,
           HandbookPrice: 149999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -4993,32 +3906,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.TacticalRigs,
           HandbookPrice: 189999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.BACKPACK_6SH118
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5090,28 +3980,9 @@ export class ItemGenerator
             },
               HandbookParent: HandbookIDs.Backpacks,
               HandbookPrice: 43999,
-              PushMastery: false,
-              AddToBots: false,
-              BotLootItemToClone: "",
-              QuestPush: {
-                  AddToQuests: false,
-                  QuestConditionType: "",
-                  QuestTargetConditionToClone: ""
-              },
-              LootPush: {
-                  AddToStaticLoot: false,
-                  LootContainersToAdd: [""],
-                  StaticLootProbability: 0
-              },
-              AddToCases: false,
-              CasesToPush: [""],
-              PushToFleaBlacklist: false,
-              SlotInfo: {
-                AddToSlot: false,
-                Slot: 0
-              }
+              CloneToFilters: true
             }
-          }, true);
+          });
       //#endregion
       //
       //
@@ -5141,15 +4012,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.InfoItems,
           HandbookPrice: 53999,
-          PushMastery: false,
+          CloneToFilters: true,
           AddToBots: true,
           BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
           LootPush: 
           {
             AddToStaticLoot: true,
@@ -5160,14 +4025,9 @@ export class ItemGenerator
           CasesToPush: [
             AllItemList.CONTAINER_DOCS,
             AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          ]
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5191,15 +4051,9 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.Money,
           HandbookPrice: 175,
-          PushMastery: false,
+          CloneToFilters: true,
           AddToBots: true,
           BotLootItemToClone: AllItemList.MONEY_USD,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
           LootPush: 
           {
             AddToStaticLoot: true,
@@ -5210,14 +4064,9 @@ export class ItemGenerator
           CasesToPush: [
             AllItemList.CONTAINER_DOCS,
             AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          ]
         }
-      }, true);
+      });
       //#endregion
       //
       //
@@ -5291,33 +4140,10 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true,
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5387,33 +4213,10 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true,
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5483,33 +4286,10 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true,
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5603,33 +4383,10 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true,
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5723,33 +4480,16 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
+          CloneToFilters: true,
           QuestPush: 
           {
             AddToQuests: true,
             QuestConditionType: "HandoverItem",
             QuestTargetConditionToClone: "59db794186f77448bc595262"
           },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -5843,33 +4583,10 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.SecureContainers,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.BARTER_LEDX,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
-          PushToFleaBlacklist: true,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          CloneToFilters: true,
+          PushToFleaBlacklist: true
         }
-      }, true);
+      });
       //#endregion
       //
       //
@@ -6023,33 +4740,14 @@ export class ItemGenerator
           },
           HandbookParent: HandbookIDs.GearComponents,
           HandbookPrice: 99999999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: "",
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 0
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.SECURE_KAPPA,
-            AllItemList.SECURE_EPSILON
-          ],
+          CloneToFilters: true,
           PushToFleaBlacklist: true,
           SlotInfo: {
             AddToSlot: true,
             Slot: 14
           }
         }
-      }, true);
+      });
       //#endregion
       //
       //
@@ -6213,33 +4911,9 @@ export class ItemGenerator
             },
             HandbookParent: HandbookIDs.AssaultRifles,
             HandbookPrice: 95605,
-            PushMastery: true,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.ASSAULTRIFLE_MK_16_556X45_FDE,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_WEAPON_BOX_6X3],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            PushMastery: true
           } 
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6330,34 +5004,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Barrels,
-            HandbookPrice: 27627,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 27627
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6380,34 +5029,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Handguards,
-            HandbookPrice: 14327,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 14327
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6430,34 +5054,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Handguards,
-            HandbookPrice: 7665,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 7665
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6479,34 +5078,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Mounts,
-            HandbookPrice: 2640,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 2640
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6529,33 +5103,9 @@ export class ItemGenerator
           },
             HandbookParent: HandbookIDs.FlashhidersAndBrakes,
             HandbookPrice: 1340,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            CloneToFilters: true
           }
-        }, true);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6577,34 +5127,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.PistolGrips,
-            HandbookPrice: 2320,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 2320
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6626,34 +5151,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Ironsights,
-            HandbookPrice: 1000,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 1000
           }
-        }, false);
+        });
 
         this.utils.createItem({
           newItem: {
@@ -6675,34 +5175,9 @@ export class ItemGenerator
             }
           },
             HandbookParent: HandbookIDs.Ironsights,
-            HandbookPrice: 823,
-            PushMastery: false,
-            AddToBots: false,
-            BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-            QuestPush: 
-            {
-              AddToQuests: false,
-              QuestConditionType: "",
-              QuestTargetConditionToClone: ""
-            },
-            LootPush: 
-            {
-              AddToStaticLoot: false,
-              LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-              StaticLootProbability: 5
-            },
-            AddToCases: false,
-            CasesToPush: [
-              AllItemList.CONTAINER_DOCS,
-              AllItemList.CONTAINER_SICC
-            ],
-            PushToFleaBlacklist: false,
-            SlotInfo: {
-              AddToSlot: false,
-              Slot: 0
-            }
+            HandbookPrice: 823
           }
-        }, false);
+        });
       //#endregion
       //
       //
@@ -6734,34 +5209,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Ammo,
-          HandbookPrice: 999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 999
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -6784,34 +5234,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Ammo,
-          HandbookPrice: 879,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 879
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -6834,34 +5259,9 @@ export class ItemGenerator
           }
         },
           HandbookParent: HandbookIDs.Ammo,
-          HandbookPrice: 599,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          HandbookPrice: 599
         }
-      }, false);
+      });
       //#endregion
       //
       //
@@ -6888,34 +5288,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1349,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-          AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1349
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -6938,34 +5313,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1949,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1949
       }
-    }, false);
+    });
       //#endregion
       //
       //
@@ -6992,34 +5342,9 @@ export class ItemGenerator
           }
         },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1879,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-          AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1879
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -7042,34 +5367,9 @@ export class ItemGenerator
           }
         },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 2399,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 2399
       }
-    }, false);
+    });
     //#endregion
     }
 
@@ -7112,33 +5412,9 @@ export class ItemGenerator
         },
           HandbookParent: HandbookIDs.Ammo,
           HandbookPrice: 999,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          BotLootItemToClone: AllItemList.KEYCARD_ACCESS
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -7174,33 +5450,9 @@ export class ItemGenerator
         },
           HandbookParent: HandbookIDs.Ammo,
           HandbookPrice: 879,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          BotLootItemToClone: AllItemList.KEYCARD_ACCESS
         }
-      }, false);
+      });
 
       this.utils.createItem({
         newItem: {
@@ -7237,33 +5489,9 @@ export class ItemGenerator
         },
           HandbookParent: HandbookIDs.Ammo,
           HandbookPrice: 599,
-          PushMastery: false,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-          QuestPush: 
-          {
-            AddToQuests: false,
-            QuestConditionType: "",
-            QuestTargetConditionToClone: ""
-          },
-          LootPush: 
-          {
-            AddToStaticLoot: false,
-            LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-            StaticLootProbability: 5
-          },
-          AddToCases: false,
-          CasesToPush: [
-            AllItemList.CONTAINER_DOCS,
-            AllItemList.CONTAINER_SICC
-          ],
-          PushToFleaBlacklist: false,
-          SlotInfo: {
-            AddToSlot: false,
-            Slot: 0
-          }
+          BotLootItemToClone: AllItemList.KEYCARD_ACCESS
         }
-      }, false);
+      });
       //#endregion
       //
       //
@@ -7302,34 +5530,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1349,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-          AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1349
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -7364,34 +5567,9 @@ export class ItemGenerator
         }
       },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1949,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1949
       }
-    }, false);
+    });
       //#endregion
       //
       //
@@ -7430,34 +5608,9 @@ export class ItemGenerator
           }
         },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 1879,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-          AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 1879
       }
-    }, false);
+    });
 
     this.utils.createItem({
       newItem: {
@@ -7492,34 +5645,9 @@ export class ItemGenerator
           }
         },
         HandbookParent: HandbookIDs.Ammo,
-        HandbookPrice: 2399,
-        PushMastery: false,
-        AddToBots: false,
-        BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
-        QuestPush: 
-        {
-          AddToQuests: false,
-          QuestConditionType: "",
-          QuestTargetConditionToClone: ""
-        },
-        LootPush: 
-        {
-          AddToStaticLoot: false,
-          LootContainersToAdd: [AllItemList.LOOTCONTAINER_SAFE],
-          StaticLootProbability: 5
-        },
-        AddToCases: false,
-        CasesToPush: [
-          AllItemList.CONTAINER_DOCS,
-          AllItemList.CONTAINER_SICC
-        ],
-        PushToFleaBlacklist: false,
-        SlotInfo: {
-          AddToSlot: false,
-          Slot: 0
-        }
+        HandbookPrice: 2399
       }
-    }, false);
+    });
     //#endregion
     }
 }

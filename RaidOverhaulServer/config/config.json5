@@ -14,7 +14,6 @@
     "NoRunThrough": true,           //Remove raid survived requirements
     "LootableMelee": true,          //Makes melee weapons lootable
     "LootableArmbands": true,       //Makes armbands lootable
-    "PocketChanges": true,          //Enables the pocket size and special slot filter changes
     "EnableExtendedRaids": true,    //Enables the raid time changes making raid times essentially unlimited
     "TimeLimit": 999,               //The raid time limit calculated in minutes
     "HolsterAnything": true,        //If true, you will be able to put any weapon in your holster slot
@@ -31,21 +30,34 @@
     }
   },
 
-  "Weight": {
+  "PocketChanges": {
+    "Enabled": true,                //Enables the pocket size and special slot filter changes
+    "Pocket1": {                    //A combined horizontal value above 6 will push your special slots off screen so uhh...dont get too crazy lmao
+      "Vertical": 2,
+      "Horizontal": 1
+    },
+    "Pocket2": {
+      "Vertical": 2,
+      "Horizontal": 2
+    },
+    "Pocket3": {
+      "Vertical": 2,
+      "Horizontal": 1
+    },
+    "Pocket4": {
+      "Vertical": 2,
+      "Horizontal": 1
+    },
+  },
+
+  "WeightChanges": {                //Multiplies all weight thresholds by whatever number is inputted into the "WeightMultiplier" field
     "Enabled": false,
-    "MinWeight": 90,                //Minimum overweight limit  DEFAULT 21
-    "MaxWeight": 140,               //Maximum overweight limit  DEFAULT 81
-    "WalkMinWeight": 110,           //Minimum walk overweight limit  DEFAULT 42
-    "WalkMaxWeight": 150,           //Maximum walk overweight limit  DEFAULT 70
-    "WalkSpeedMinWeight": 120,      //Minimum walk speed overweight limit  DEFAULT 34
-    "WalkSpeedMaxWeight": 170,      //Maximum walk speed overweight limit  DEFAULT 75
-    "SprintMinWeight": 90,          //Minimum sprint speed overweight limit  DEFAULT 21
-    "SprintMaxWeight": 140,         //Maximum sprint speed overweight limit  DEFAULT 58
+    "WeightMultiplier": 2
   },
 
   "Trader": {
       "DisableFleaBlacklist": true, //Disables the flea market blacklist from BSG
-      "LL1Items": true,             //Sets all trader assort items to be available at loyalty level 1 
+      "LL1Items": false,            //Sets all trader assort items to be available at loyalty level 1 
   },
 
   "Insurance": {
@@ -57,7 +69,7 @@
   },
 
   "BasicStackTuning": {
-    "Enabled": true,                //Enables the basic stack multiplier. It will multiply the total stacks for ammo by whatever number you put in the "StackMultiplier" section
+    "Enabled": false,               //Enables the basic stack multiplier. It will multiply the total stacks for ammo by whatever number you put in the "StackMultiplier" section
     "StackMultiplier": 5
   },
 
@@ -71,35 +83,24 @@
   },
 
   "MoneyStackMultiplier": {
-    "Enabled": true,                //Enables the money stack multiplier. Total money stack will be the number you put in the "MoneyMultiplier" section    
+    "Enabled": false,               //Enables the money stack multiplier. Total money stack will be the number you put in the "MoneyMultiplier" section    
     "MoneyMultiplier": 5000000
   },
 
-  "Loot": {
+  "LootChanges": {
     "EnableLootOptions": false,     //Enables the static and loose loot multipliers. Both types of loot will be multiplied per map by whatever number you put in it's respective section
-    "Locations": {
-      "Customs": 3,
-      "FactoryDay": 3,
-      "FactoryNight": 3,
-      "Interchange": 3,
-      "Labs": 5,
-      "Reserve": 3,
-      "Shoreline": 3,
-      "Woods": 3,
-      "Lighthouse": 3,
-      "Streets": 3,
-      "GroundZero": 3
-    }
+    "StaticLootMultiplier": 3,
+    "LooseLootMultiplier": 2
   },
 
   "Events": {
     "EnableWeatherOptions": true,     //Enables the weather modification options. Seriously, only enable one or I'll have to bonk you...
-    "RandomizedWeather": false,       //Casts a random number from 0-100. If it's under 70 it will be standard weather, over 70 will be winter/snow.
-    "WinterWonderland": true,         //All snow all the time baby!!!
+    "RandomizedWeather": true,        //Casts a random number from 0-100. If it's under 70 it will be standard weather, over 70 will be winter/snow.
+    "WinterWonderland": false,        //All snow all the time baby!!!
     "RandomizedSeasonalEvents": true, //Casts a random number from 0-100. If it's over 85 it will start a random seasonal event
   },
 
   "Debug": {
-    "ExtraLogging": true
+    "ExtraLogging": false
   }
 }

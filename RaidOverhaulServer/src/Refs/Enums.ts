@@ -438,35 +438,6 @@ export enum QuestStatus {
 }
 //#endregion
 //#region Interfaces
-export interface Locales
-{
-    en: {
-        name: string,
-        shortName: string,
-        description: string
-    }
-}
-
-export interface Quests
-{
-    AddToQuests: boolean,
-    QuestConditionType: string,
-    QuestTargetConditionToClone: string
-}
-
-export interface StaticLoot
-{
-    AddToStaticLoot: boolean,
-    LootContainersToAdd: string[],
-    StaticLootProbability: number
-}
-
-export interface SlotPushes
-{
-    AddToSlot: boolean,
-    Slot: number
-}
-
 export interface WeaponPreset
 {
     _id: string;
@@ -513,9 +484,9 @@ export interface AssortTemplate
 }
 //#endregion
 
-//#region AllItemsList
 export enum AllItemList
 {
+    //#region AllItemsList
     AMMOBOX_127X55_PS12B_10RND = "648983d6b5a2df1c815a04ec",
     AMMOBOX_12G_AP20_25RND = "64898838d5b4df6140000a20",
     AMMOBOX_12G_RIP_5RND = "5c1127d0d174af29be75cf68",
@@ -3490,5 +3461,5 @@ export enum AllItemList
     MAGAZINE_SPEAR_EXT = "65293c7a17e14363030ad308",
     MAGAZINE_SPEAR = "65293c38fc460e50a509cb25",
     ASSAULT_RIFLE_SPEAR = "65290f395ae2ae97b80fdf2d"
+    //#endregion
 }
-//#endregion
