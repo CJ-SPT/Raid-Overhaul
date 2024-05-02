@@ -341,24 +341,6 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
-          ],
-          "value": 2,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container0HI_4",
-          "index": 3,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
             "5732ee6a24597719ae0c0281"
           ],
           "value": 1,
@@ -492,24 +474,6 @@
           "globalQuestCounterId": "",
           "id": "Sec_Container1HI_4",
           "index": 3,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "RequisitionSlips"
-          ],
-          "value": 2,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container1HI_5",
-          "index": 4,
           "isEncoded": false,
           "maxDurability": 100,
           "minDurability": 0,
@@ -673,24 +637,6 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
-          ],
-          "value": 3,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container2HI_6",
-          "index": 5,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
             "5857a8b324597729ab0a0e7d"
           ],
           "value": 1,
@@ -848,24 +794,6 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
-          ],
-          "value": 4,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container3HI_6",
-          "index": 5,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
             "5857a8bc2459772bad15db29"
           ],
           "value": 1,
@@ -1017,24 +945,6 @@
           "globalQuestCounterId": "",
           "id": "Sec_Container4HI_5",
           "index": 4,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "RequisitionSlips"
-          ],
-          "value": 5,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container4HI_6",
-          "index": 5,
           "isEncoded": false,
           "maxDurability": 100,
           "minDurability": 0,
@@ -1246,24 +1156,6 @@
           "globalQuestCounterId": "",
           "id": "Sec_Container5HI_8",
           "index": 7,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "RequisitionSlips"
-          ],
-          "value": 10,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "Sec_Container5HI_9",
-          "index": 8,
           "isEncoded": false,
           "maxDurability": 100,
           "minDurability": 0,

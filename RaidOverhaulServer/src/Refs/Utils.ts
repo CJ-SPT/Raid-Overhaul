@@ -306,25 +306,32 @@ export class Utils
         return Math.ceil(this.ref.ragfairPriceService.getFleaPriceForOfferItems(PresetID) / this.getFleaPrice("RequisitionSlips"));
     }
 
-    public buildPresetAssort(PresetID, assortUtils: any, ArrayToPull: any, ItemKeys: string, StockCount: number, LoyaltyLevelToPush: number, tables: any)
+    public buildPresetAssort(PresetID, assortUtils: any, ArrayToPull: any, ItemKeys: string, StockCount: number, LoyaltyLevelToPush: number, tables: any, logstring: any, presetName: any)
     {
         const presetPrice = Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false));
         const slipCost = Math.round(presetPrice / this.getFleaPrice("RequisitionSlips"));
         const formCost = Math.ceil(presetPrice / this.getFleaPrice("66292e79a4d9da25e683ab55"));
 
-        if (presetPrice <= 0)
+        try 
         {
-            assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.ref.randomUtil.randInt(1, 10), tables);
-        }
+            if (presetPrice <= 0 || presetPrice == undefined)
+            {
+                assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, this.ref.randomUtil.randInt(1, 10), tables);
+            }
 
-        else if (presetPrice <= 49999)
-        {
-            assortUtils.createComplexFormOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, formCost, tables);
-        }
+            else if (presetPrice <= 49999)
+            {
+                assortUtils.createComplexFormOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, formCost, tables);
+            }
 
-        else if (presetPrice >= 50000)
+            else if (presetPrice >= 50000)
+            {
+                assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, slipCost, tables);
+            }
+        }
+        catch(error)
         {
-            assortUtils.createComplexOffer(ArrayToPull, ItemKeys, StockCount, LoyaltyLevelToPush, slipCost, tables);
+            this.ref.logger.log(`[${logstring}] Error loading ${presetName} => ${error}, skipping preset.`, LogTextColor.RED)
         }
     }
 
@@ -1038,6 +1045,24 @@ export class AssortUtils
     {
         this.createComplexAssortItem(ArrayToPull[ItemKeys]._items)
             .addMoneyCost(Currency.ReqForms, ReqCost)
+            .addStackCount(StockCount)
+            .addLoyaltyLevel(LoyaltyLevelToPush)
+            .export(tables.traders[baseJson._id], true);
+    }
+
+    public createPresetFormOffer(PresetItem: any, StockCount: number, LoyaltyLevelToPush: number, ReqCost: number, tables: any)
+    {
+        this.createComplexAssortItem(PresetItem)
+            .addMoneyCost(Currency.ReqForms, ReqCost)
+            .addStackCount(StockCount)
+            .addLoyaltyLevel(LoyaltyLevelToPush)
+            .export(tables.traders[baseJson._id], true);
+    }
+
+    public createPresetSlipOffer(PresetItem: any, StockCount: number, LoyaltyLevelToPush: number, ReqCost: number, tables: any)
+    {
+        this.createComplexAssortItem(PresetItem)
+            .addMoneyCost(Currency.ReqSlips, ReqCost)
             .addStackCount(StockCount)
             .addLoyaltyLevel(LoyaltyLevelToPush)
             .export(tables.traders[baseJson._id], true);

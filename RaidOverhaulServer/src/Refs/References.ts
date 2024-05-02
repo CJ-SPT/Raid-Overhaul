@@ -77,7 +77,7 @@ export class References
         this.ragfairPriceService = container.resolve<RagfairPriceService>("RagfairPriceService");
         this.importerUtil = container.resolve<ImporterUtil>("ImporterUtil");
         this.vfs = container.resolve<VFS>("VFS");
-        this.botHelper = container.resolve<BotHelper>("BotHelper")
+        this.botHelper = container.resolve<BotHelper>("BotHelper");
         this.hashUtil = container.resolve<HashUtil>("HashUtil");
         this.probHelper = container.resolve<ProbabilityHelper>("ProbabilityHelper");
         this.traderHelper = container.resolve<TraderHelper>("TraderHelper");
@@ -98,7 +98,7 @@ export class References
         this.ragfairPriceService = container.resolve<RagfairPriceService>("RagfairPriceService");
         this.importerUtil = container.resolve<ImporterUtil>("ImporterUtil");
         this.vfs = container.resolve<VFS>("VFS");
-        this.botHelper = container.resolve<BotHelper>("BotHelper")
+        this.botHelper = container.resolve<BotHelper>("BotHelper");
         this.randomUtil = container.resolve<RandomUtil>("RandomUtil");
         this.itemHelper = container.resolve<ItemHelper>("ItemHelper");
         this.hashUtil = container.resolve<HashUtil>("HashUtil");

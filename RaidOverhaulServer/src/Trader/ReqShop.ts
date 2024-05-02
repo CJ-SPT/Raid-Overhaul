@@ -415,28 +415,35 @@ export class TraderData
         var keys =                  Object.keys(weaponPresetArray);
         const shuffledKeys =        this.utils.shuffle(keys).shift();
         
-        if (shuffledKeys == "undefined")
+        try 
         {
-            const reshuffledKeys = this.utils.shuffle(keys).shift();
-
-            this.utils.buildPresetAssort(weaponPresetArray[reshuffledKeys]._items, this.assortUtils, weaponPresetArray, reshuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables)
-            count++
-
-            if (debugLogging)
+            if (shuffledKeys == "undefined")
             {
-                this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[reshuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                const reshuffledKeys = this.utils.shuffle(keys).shift();
+
+                this.utils.buildPresetAssort(weaponPresetArray[reshuffledKeys]._items, this.assortUtils, weaponPresetArray, reshuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables, this.logString, weaponPresetArray[reshuffledKeys]._name)
+                count++
+
+                if (debugLogging)
+                {
+                    this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[reshuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                }
+            }
+
+            else
+            {
+                this.utils.buildPresetAssort(weaponPresetArray[shuffledKeys]._items, this.assortUtils, weaponPresetArray, shuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables, this.logString, weaponPresetArray[shuffledKeys]._name)
+                count++
+
+                if (debugLogging)
+                {
+                    this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[shuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                }
             }
         }
-
-        else
+        catch(error)
         {
-            this.utils.buildPresetAssort(weaponPresetArray[shuffledKeys]._items, this.assortUtils, weaponPresetArray, shuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables)
-            count++
-
-            if (debugLogging)
-            {
-                this.ref.logger.log(`[${this.logString}] ${weaponPresetArray[shuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
-            }
+            this.ref.logger.log(`[${this.logString}] Error loading weapon preset => ${error}, skipping.`, LogTextColor.RED)
         }
         //#endregion
     }
@@ -454,29 +461,36 @@ export class TraderData
         const randomLoyaltyLevel =  this.ref.randomUtil.randInt(1, 4);
         var keys =                  Object.keys(gearPresetArray);
         const shuffledKeys =        this.utils.shuffle(keys).shift();
-
-        if (shuffledKeys == "undefined")
+        
+        try 
         {
-            const reshuffledKeys = this.utils.shuffle(keys).shift();
-
-            this.utils.buildPresetAssort(gearPresetArray[reshuffledKeys]._items, this.assortUtils, gearPresetArray, reshuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables)
-            count++
-
-            if (debugLogging)
+            if (shuffledKeys == "undefined")
             {
-                this.ref.logger.log(`[${this.logString}] ${gearPresetArray[reshuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                const reshuffledKeys = this.utils.shuffle(keys).shift();
+
+                this.utils.buildPresetAssort(gearPresetArray[reshuffledKeys]._items, this.assortUtils, gearPresetArray, reshuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables, this.logString, gearPresetArray[reshuffledKeys]._name)
+                count++
+
+                if (debugLogging)
+                {
+                    this.ref.logger.log(`[${this.logString}] ${gearPresetArray[reshuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                }
+            }
+
+            else
+            {
+                this.utils.buildPresetAssort(gearPresetArray[shuffledKeys]._items, this.assortUtils, gearPresetArray, shuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables, this.logString, gearPresetArray[shuffledKeys]._name)
+                count++
+
+                if (debugLogging)
+                {
+                    this.ref.logger.log(`[${this.logString}] ${gearPresetArray[shuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
+                }
             }
         }
-
-        else
+        catch(error)
         {
-            this.utils.buildPresetAssort(gearPresetArray[shuffledKeys]._items, this.assortUtils, gearPresetArray, shuffledKeys, randomAssortCount, randomLoyaltyLevel, this.ref.tables)
-            count++
-
-            if (debugLogging)
-            {
-                this.ref.logger.log(`[${this.logString}] ${gearPresetArray[shuffledKeys]._name} has been added to the Req Shop`, LogTextColor.GREEN);
-            }
+            this.ref.logger.log(`[${this.logString}] Error loading gear preset => ${error}, skipping.`, LogTextColor.RED)
         }
         //#endregion
     }

@@ -42,8 +42,8 @@ export class pushTraderFeatures
             this.traderData.addCustomPresets(modConfig.Debug.ExtraLogging);
         }
         
-        for (var wepPresetCount = 0; wepPresetCount <this.ref.randomUtil.getInt(18, 34); wepPresetCount++) this.traderData.addWeaponPresets(wepPresetCount, modConfig.Debug.ExtraLogging);
-        for (var gearPresetCount = 0; gearPresetCount <this.ref.randomUtil.getInt(12, 30); gearPresetCount++) this.traderData.addGearPresets(gearPresetCount, modConfig.Debug.ExtraLogging);
+        for (var wepPresetCount = 0; wepPresetCount <this.ref.randomUtil.getInt(18, 37); wepPresetCount++) this.traderData.addWeaponPresets(wepPresetCount, modConfig.Debug.ExtraLogging);
+        for (var gearPresetCount = 0; gearPresetCount <this.ref.randomUtil.getInt(15, 33); gearPresetCount++) this.traderData.addGearPresets(gearPresetCount, modConfig.Debug.ExtraLogging);
 
         //18, 34 and 12, 30
 
