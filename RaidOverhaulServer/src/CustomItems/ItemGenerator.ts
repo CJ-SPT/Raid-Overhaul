@@ -3990,9 +3990,9 @@ export class ItemGenerator
       //#region Requisition Slips
       this.utils.createItem({
         newItem: {
-          ItemToClone: AllItemList.MONEY_USD,
+          ItemToClone: AllItemList.INFO_BLUE_FOLDERS,
           newID: "RequisitionSlips",
-          parentID: BaseClasses.MONEY,
+          parentID: BaseClasses.INFO,
           OverrideProperties: 
           {
             Prefab: {
@@ -4000,7 +4000,9 @@ export class ItemGenerator
               rcid: ""
             },
             Height: 1,
-            Width: 2
+            Width: 2,
+            StackMaxSize: 50000,
+            BackgroundColor: "green"
           },
           LocalePush: 
           {
@@ -4013,8 +4015,8 @@ export class ItemGenerator
           HandbookParent: HandbookIDs.InfoItems,
           HandbookPrice: 53999,
           CloneToFilters: true,
-          AddToBots: true,
-          BotLootItemToClone: AllItemList.KEYCARD_ACCESS,
+          AddToBots: false,
+          BotLootItemToClone: AllItemList.INFO_BLUE_FOLDERS,
           LootPush: 
           {
             AddToStaticLoot: true,
@@ -4031,15 +4033,19 @@ export class ItemGenerator
 
       this.utils.createItem({
         newItem: {
-          ItemToClone: AllItemList.MONEY_USD,
+          ItemToClone: AllItemList.INFO_DIARY,
           newID: "66292e79a4d9da25e683ab55",
-          parentID: BaseClasses.MONEY,
+          parentID: BaseClasses.INFO,
           OverrideProperties: 
           {
             Prefab: {
               path: "assets/content/items/quest/item_quest_letter/item_quest_letter.bundle",
               rcid: ""
-            }
+            },
+            Height: 1,
+            Width: 1,
+            StackMaxSize: 50000,
+            BackgroundColor: "green"
           },
           LocalePush: 
           {
@@ -4049,11 +4055,11 @@ export class ItemGenerator
               description: "A requisition form used to trade with the Requisitions Office. You'll want to keep a stack of these handy in case you run into trouble and need some quick provisions. A smaller denomination for trading apparently."
             }
           },
-          HandbookParent: HandbookIDs.Money,
+          HandbookParent: HandbookIDs.InfoItems,
           HandbookPrice: 175,
           CloneToFilters: true,
-          AddToBots: true,
-          BotLootItemToClone: AllItemList.MONEY_USD,
+          AddToBots: false,
+          BotLootItemToClone: AllItemList.INFO_DIARY,
           LootPush: 
           {
             AddToStaticLoot: true,

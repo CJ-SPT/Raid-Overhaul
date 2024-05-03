@@ -6,7 +6,6 @@ import { ITraderConfig }            from "@spt-aki/models/spt/config/ITraderConf
 import { IRagfairConfig }           from "@spt-aki/models/spt/config/IRagfairConfig";
 import { LogTextColor }             from "@spt-aki/models/spt/logging/LogTextColor";
 import { Traders }                  from "@spt-aki/models/enums/Traders";
-import { Money }                    from "@spt-aki/models/enums/Money";
 import { ConfigTypes }              from "@spt-aki/models/enums/ConfigTypes";
 import { StaticRouterModService }   from "@spt-aki/services/mod/staticRouter/StaticRouterModService";
 import { DynamicRouterModService }  from "@spt-aki/services/mod/dynamicRouter/DynamicRouterModService";
@@ -82,8 +81,6 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
         traderData.setupTraderUpdateTime();
 
         Traders["Requisitions"] = "Requisitions";
-        Money["RequisitionSlips"] = "RequisitionSlips";
-        Money["RequisitionForms"] = "66292e79a4d9da25e683ab55";
         ragfair.traders[baseJson._id] = true;
 
         staticRouterModService.registerStaticRouter(

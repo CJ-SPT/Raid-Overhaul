@@ -102,7 +102,7 @@
               "_id": "Req_Deal_reward2_0",
               "_tpl": "RequisitionSlips",
               "upd": {
-                "StackObjectsCount": 5
+                "StackObjectsCount": 15
               }
             }
           ],
@@ -345,6 +345,24 @@
           ],
           "value": 1,
           "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container0HI_4",
+          "index": 3,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 1,
+          "visibilityConditions": []
         }
       ],
       "AvailableForStart": [
@@ -483,6 +501,24 @@
             "544a11ac4bdc2d470e8b456a"
           ],
           "value": 1,
+          "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container1HI_5",
+          "index": 4,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 3,
           "visibilityConditions": []
         }
       ],
@@ -641,6 +677,24 @@
           ],
           "value": 1,
           "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container2HI_6",
+          "index": 5,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 5,
+          "visibilityConditions": []
         }
       ],
       "AvailableForStart": [
@@ -798,6 +852,24 @@
           ],
           "value": 1,
           "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container3HI_6",
+          "index": 5,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 7,
+          "visibilityConditions": []
         }
       ],
       "AvailableForStart": [
@@ -954,6 +1026,24 @@
             "59db794186f77448bc595262"
           ],
           "value": 1,
+          "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container4HI_6",
+          "index": 5,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 10,
           "visibilityConditions": []
         }
       ],
@@ -1165,6 +1255,24 @@
             "5c093ca986f7740a1867ab12"
           ],
           "value": 1,
+          "visibilityConditions": []
+        },
+        {
+          "conditionType": "HandoverItem",
+          "dogtagLevel": 0,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "Sec_Container5HI_9",
+          "index": 8,
+          "isEncoded": false,
+          "maxDurability": 100,
+          "minDurability": 0,
+          "onlyFoundInRaid": false,
+          "parentId": "",
+          "target": [
+            "RequisitionSlips"
+          ],
+          "value": 15,
           "visibilityConditions": []
         }
       ],

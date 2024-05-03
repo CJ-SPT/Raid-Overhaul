@@ -22,6 +22,7 @@
   "Sec_Container0HI_1": "Hand over a Sewing kit",
   "Sec_Container0HI_2": "Hand over a Spark plug",
   "Sec_Container0HI_3": "Hand over Waist pouch",
+  "Sec_Container0HI_4": "Hand over a Requisition Slip",
 
   "Sec_Container1": "Hand over the required items for modification",
   "Sec_Container1 name": "Threadbare: Alpha",
@@ -31,6 +32,7 @@
   "Sec_Container1HI_2": "Hand over a Military circuit board",
   "Sec_Container1HI_3": "Hand over 2 Phase control relays",
   "Sec_Container1HI_4": "Hand over Secure container Alpha",
+  "Sec_Container1HI_5": "Hand over 3 Requisition Slips",
 
   "Sec_Container2": "Hand over the required items for modification",
   "Sec_Container2 name": "Threadbare: Beta",
@@ -41,6 +43,7 @@
   "Sec_Container2HI_3": "Hand over 2 Electronic components",
   "Sec_Container2HI_4": "Hand over a Golden 1GPhone smartphones",
   "Sec_Container2HI_5": "Hand over Secure container Beta",
+  "Sec_Container2HI_6": "Hand over 5 Requisition Slips",
 
   "Sec_Container3": "Hand over the required items for modification",
   "Sec_Container3 name": "Threadbare: Gamma",
@@ -50,7 +53,7 @@
   "Sec_Container3HI_2": "Hand over 3 Golden 1GPhone smartphones",
   "Sec_Container3HI_3": "Hand over 2 Iridium military thermal vision modules",
   "Sec_Container3HI_4": "Hand over a TerraGroup Labs access keycard",
-  "Sec_Container3HI_5": "Hand over Secure container Gamma",
+  "Sec_Container3HI_6": "Hand over 7 Requisition Slips",
 
   "Sec_Container4": "Hand over the required items for modification",
   "Sec_Container4 name": "Threadbare: Epsilon",
@@ -61,6 +64,7 @@
   "Sec_Container4HI_3": "Hand over a Graphics card",
   "Sec_Container4HI_4": "Hand over 2 TerraGroup Labs access keycards",
   "Sec_Container4HI_5": "Hand over Secure container Epsilon",
+  "Sec_Container4HI_6": "Hand over 10 Requisition Slips",
   
   "Sec_Container5": "Hand over the required items for modification",
   "Sec_Container5 name": "Threadbare: Kappa",
@@ -74,6 +78,7 @@
   "Sec_Container5HI_6": "Hand over 3 TerraGroup Labs access keycard",
   "Sec_Container5HI_7": "Hand over 10 Physical Bitcoins",
   "Sec_Container5HI_8": "Hand over Secure container Kappa",
+  "Sec_Container5HI_9": "Hand over 15 Requisition Slips",
 
   "ExfilDelivery_1": "Items received and returned to base.",
   "ExfilDelivery_2": "Holy shit, you had a good haul there. We got everything back in one piece for you.",

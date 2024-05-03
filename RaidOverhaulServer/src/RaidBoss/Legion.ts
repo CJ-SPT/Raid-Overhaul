@@ -75,7 +75,6 @@ export class LegionData
 
         preset.bosslegion = 1;
         botConfig.equipment["bosslegion"] = botSettings.equipmentSettings;
-        botConfig.walletLoot["bosslegion"] = botSettings.walletSettings;
         botConfig.itemSpawnLimits["bosslegion"] = {};
         botConfig.bosses.push("bosslegion");
 

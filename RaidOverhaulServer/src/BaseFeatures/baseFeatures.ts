@@ -7,6 +7,7 @@ import { LogTextColor }         from "@spt-aki/models/spt/logging/LogTextColor";
 import { ConfigTypes }          from "@spt-aki/models/enums/ConfigTypes";
 
 import { Utils }                from "../Refs/Utils";
+import { AllBots }              from "../Refs/Enums";
 import { References }           from "../Refs/References";
 
 import * as ammoList            from "../Refs/ArrayFiles/Items/ammoStackList.json";
@@ -156,6 +157,44 @@ export class Base
             if (handbookBase.Items[flare].Id == "62178be9d0050232da3485d9")
             {
                 handbookBase.Items[flare].Price == 59999
+            }
+        }
+
+        for (const botId in this.ref.tables.bots.types) 
+        {
+            const botType = AllBots[botId];
+
+            if (botType) 
+            {
+                for (const lootSlot in this.ref.tables.bots.types[botId].inventory.items) 
+                {
+                    const items = this.ref.tables.bots.types[botId].inventory.items;
+
+                    if (items[lootSlot]["5c94bbff86f7747ee735c08f"] !== undefined) 
+                    {
+                        const weight = items[lootSlot]["5c94bbff86f7747ee735c08f"];
+                        items[lootSlot]["RequisitionSlips"] = weight;
+                    }
+                }
+            }
+        }
+
+        for (const botId in this.ref.tables.bots.types) 
+        {
+            const botType = AllBots[botId];
+
+            if (botType) 
+            {
+                for (const lootSlot in this.ref.tables.bots.types[botId].inventory.items) 
+                {
+                    const items = this.ref.tables.bots.types[botId].inventory.items;
+
+                    if (items[lootSlot]["573475fb24597737fb1379e1"] !== undefined) 
+                    {
+                        const weight = items[lootSlot]["573475fb24597737fb1379e1"];
+                        items[lootSlot]["66292e79a4d9da25e683ab55"] = weight;
+                    }
+                }
             }
         }
         //#endregion
