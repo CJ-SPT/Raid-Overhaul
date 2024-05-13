@@ -1,6 +1,6 @@
 {
   "name": "Raid Overhaul",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "src/mod.js",
   "isBundleMod": true,
   "license": "CC BY-NC-ND 4.0",
@@ -10,7 +10,9 @@
   "loadAfter": [
     "SPT-Realism"
   ],
-  "incompatibilities": [],
+  "incompatibilities": [
+    "zROStandaloneBackend"
+  ],
   "contributors": [
     "Dirtbikercj"
   ],

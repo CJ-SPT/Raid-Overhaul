@@ -308,7 +308,7 @@ export class Utils
 
     public buildPresetAssort(PresetID, assortUtils: any, ArrayToPull: any, ItemKeys: string, StockCount: number, LoyaltyLevelToPush: number, tables: any, logstring: any, presetName: any)
     {
-        const presetPrice = Math.round(this.ref.ragfairPriceService.getDynamicOfferPriceForOffer(PresetID, Currency.Roubles, false));
+        const presetPrice = Math.round(this.ref.ragfairPriceService.getFleaPriceForOfferItems(PresetID));
         const slipCost = Math.round(presetPrice / this.getFleaPrice("RequisitionSlips"));
         const formCost = Math.ceil(presetPrice / this.getFleaPrice("66292e79a4d9da25e683ab55"));
 

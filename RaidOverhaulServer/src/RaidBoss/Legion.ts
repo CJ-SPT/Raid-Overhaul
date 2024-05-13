@@ -76,6 +76,7 @@ export class LegionData
         preset.bosslegion = 1;
         botConfig.equipment["bosslegion"] = botSettings.equipmentSettings;
         botConfig.itemSpawnLimits["bosslegion"] = {};
+        botConfig.walletLoot["bosslegion"] = botConfig.walletLoot["bossgluhar"];
         botConfig.bosses.push("bosslegion");
 
         try
@@ -341,27 +342,27 @@ export class LegionData
 
         if (victimRoles?.includes("bosslegion"))
         {
-            bossLegionChance = 15;
+            bossLegionChance = 10;
         }
 
         if (aggressorName === "legion")
         {
             bossLegionChance /= 2;
         }
-
+        
         if (info.exit === "survived")
         {
-            bossLegionChance += 2.5;
+            bossLegionChance += 1.5;
         }
 
         if (info.exit === "runner")
         {
-            bossLegionChance += 5;
+            bossLegionChance += 3;
         }
 
         if (info.exit === "Left")
         {
-            bossLegionChance += 1;
+            bossLegionChance += 0.5;
         }
 
         if (info.exit === "killed")

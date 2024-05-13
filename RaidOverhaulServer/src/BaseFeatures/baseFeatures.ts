@@ -22,17 +22,6 @@ export class Base
 
     public pushModFeatures(modConfig: any): void
     {
-        const questItems =      this.ref.configServer.getConfig<ILostOnDeathConfig>(ConfigTypes.LOST_ON_DEATH);
-        const ragfair =         this.ref.configServer.getConfig<IRagfairConfig>(ConfigTypes.RAGFAIR);
-        const maps =            this.ref.configServer.getConfig<ILocationConfig>(ConfigTypes.LOCATION);
-        const weatherConfig =   this.ref.configServer.getConfig<IWeatherConfig>(ConfigTypes.WEATHER);
-        const airdropConfig =   this.ref.configServer.getConfig<IAirdropConfig>(ConfigTypes.AIRDROP);
-        const handbookBase =    this.ref.tables.templates.handbook;
-        const presets =         this.ref.tables.globals;
-        const globals =         this.ref.tables.globals.config;
-        const items =           this.ref.tables.templates.items;
-        const stamina =         this.ref.tables.globals.config.Stamina;
-        const traders =         this.ref.tables.traders;
 
         const randomEventList = [
             "Halloween",
@@ -41,6 +30,19 @@ export class Base
         ]
 
         const randomEvent = this.ref.randomUtil.drawRandomFromList(randomEventList, 1).toString();
+        const questItems =      this.ref.configServer.getConfig<ILostOnDeathConfig>(ConfigTypes.LOST_ON_DEATH);
+        const ragfair =         this.ref.configServer.getConfig<IRagfairConfig>(ConfigTypes.RAGFAIR);
+        const maps =            this.ref.configServer.getConfig<ILocationConfig>(ConfigTypes.LOCATION);
+        const weatherConfig =   this.ref.configServer.getConfig<IWeatherConfig>(ConfigTypes.WEATHER);
+        const airdropConfig =   this.ref.configServer.getConfig<IAirdropConfig>(ConfigTypes.AIRDROP);
+        const handbookBase =    this.ref.tables.templates.handbook;
+        const fleaPrices =      this.ref.tables.templates.prices;
+        const presets =         this.ref.tables.globals;
+        const globals =         this.ref.tables.globals.config;
+        const items =           this.ref.tables.templates.items;
+        const stamina =         this.ref.tables.globals.config.Stamina;
+        const traders =         this.ref.tables.traders;
+        const whiteFlare =      "62178be9d0050232da3485d9"
 
         //#region Raid Changes
         if (modConfig.Raid.EnableExtendedRaids)
@@ -152,13 +154,14 @@ export class Base
             }
         }
 
-        for (const flare in this.ref.tables.templates.handbook.Items)
+        for (const flare in handbookBase.Items)
         {
-            if (handbookBase.Items[flare].Id == "62178be9d0050232da3485d9")
+            if (handbookBase.Items[flare].Id == whiteFlare)
             {
-                handbookBase.Items[flare].Price == 59999
+                handbookBase.Items[flare].Price = 89999
             }
         }
+        fleaPrices[whiteFlare] = 97388 + this.ref.randomUtil.getInt(500, 53000)
 
         for (const botId in this.ref.tables.bots.types) 
         {

@@ -77,6 +77,11 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
         const staticRouterModService: StaticRouterModService =   container.resolve<StaticRouterModService>("StaticRouterModService");
         const dynamicRouterModService: DynamicRouterModService = container.resolve<DynamicRouterModService>("DynamicRouterModService");
 
+        if (modConfig.RemoveFromSwag)
+        {
+            return;
+        }
+
         traderData.registerProfileImage();
         traderData.setupTraderUpdateTime();
 
@@ -211,6 +216,18 @@ class RaidOverhaul implements IPreAkiLoadMod, IPostDBLoadMod
         //Random message on server on startup
         const messageArray =    ["The hamsters can take a break now", "Time to get wrecked by Birdeye LOL", "Back to looking for cat pics", "I made sure to crank up your heart attack event chances", "If there's a bunch of red text it's 100% not my fault", "We are legion, for we are many", "All Hail the Cult of Cj", "Good luck out there"];
         const randomMessage =   messageArray[Math.floor(Math.random() * messageArray.length)];
+
+        if (modConfig.RemoveFromSwag)
+        {
+            const swagBossConfigPath = path.join(__dirname, '../../SWAG/config/bossConfig.json');
+            const swagBossConfig =     JSON.parse(fs.readFileSync(swagBossConfigPath, 'utf-8'));
+
+            swagBossConfig.CustomBosses.legion.enabled = false;
+
+            fs.writeFileSync(swagBossConfigPath, JSON.stringify(swagBossConfig, null, 2), 'utf-8');
+
+            return this.ref.logger.error(`[${this.modName}] Removing Legion from Swag config. Ready to uninstall.`);
+        }
 
         if (!RaidOverhaul.pluginDepCheck())
         {

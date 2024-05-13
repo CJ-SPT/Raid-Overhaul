@@ -2859,7 +2859,160 @@ export class ItemGenerator
               Prefab: {
                 path: "assets/content/items/mods/famas/mount_famas_opticrail.bundle",
                 rcid: ""
-              }
+              },
+              Slots: [
+                {
+                  "_name": "mod_scope",
+                  "_id": "FamasOpticRail_scope",
+                  "_parent": "FamasOpticRail",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "57ac965c24597706be5f975c",
+                          "57aca93d2459771f2c7e26db",
+                          "544a3f024bdc2d1d388b4568",
+                          "544a3a774bdc2d3a388b4567",
+                          "5d2dc3e548f035404a1a4798",
+                          "57adff4f24597737f373b6e6",
+                          "5c0517910db83400232ffee5",
+                          "591c4efa86f7741030027726",
+                          "570fd79bd2720bc7458b4583",
+                          "570fd6c2d2720bc6458b457f",
+                          "558022b54bdc2dac148b458d",
+                          "5c07dd120db834001c39092d",
+                          "5c0a2cec0db834001b7ce47d",
+                          "58491f3324597764bc48fa02",
+                          "584924ec24597768f12ae244",
+                          "5b30b0dc5acfc400153b7124",
+                          "6165ac8c290d254f5e6b2f6c",
+                          "60a23797a37c940de7062d02",
+                          "5d2da1e948f035477b1ce2ba",
+                          "5c0505e00db834001b735073",
+                          "609a63b6e2ff132951242d09",
+                          "584984812459776a704a82a6",
+                          "59f9d81586f7744c7506ee62",
+                          "570fd721d2720bc5458b4596",
+                          "57ae0171245977343c27bfcf",
+                          "5dfe6104585a0c3e995c7b82",
+                          "5d1b5e94d7ad1a2b865a96b0",
+                          "609bab8b455afd752b2e6138",
+                          "58d39d3d86f77445bb794ae7",
+                          "616554fe50224f204c1da2aa",
+                          "5c7d55f52e221644f31bff6a",
+                          "616584766ef05c2ce828ef57",
+                          "5b3b6dc75acfc47a8773fb1e",
+                          "615d8d878004cc50514c3233",
+                          "5b2389515acfc4771e1be0c0",
+                          "577d128124597739d65d0e56",
+                          "618b9643526131765025ab35",
+                          "618bab21526131765025ab3f",
+                          "5c86592b2e2216000e69e77c",
+                          "5a37ca54c4a282000d72296a",
+                          "5d0a29fed7ad1a002769ad08",
+                          "58d2664f86f7747fec5834f6",
+                          "57c69dd424597774c03b7bbc",
+                          "5b3b99265acfc4704b4a1afb",
+                          "5aa66a9be5b5b0214e506e89",
+                          "5aa66c72e5b5b00016327c93",
+                          "5c1cdd302e221602b3137250",
+                          "61714b2467085e45ef140b2c",
+                          "6171407e50224f204c1da3c5",
+                          "61713cc4d8e3106d9806c109",
+                          "5b31163c5acfc400153b71cb",
+                          "5a33b652c4a28232996e407c",
+                          "5a33b2c9c4a282000c5a9511",
+                          "59db7eed86f77461f8380365",
+                          "5a1ead28fcdbcb001912fa9f",
+                          "5dff77c759400025ea5150cf",
+                          "626bb8532c923541184624b4",
+                          "62811f461d5df4475f46a332",
+                          "63fc449f5bd61c6cf3784a88",
+                          "6477772ea8a38bb2050ed4db",
+                          "6478641c19d732620e045e17",
+                          "64785e7c19d732620e045e15",
+                          "653931da5db71d30ab1d6296",
+                          "65392f611406374f82152ba5",
+                          "655f13e0a246670fb0373245",
+                          "6567e751a715f85433025998"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_sight_rear",
+                  "_id": "FamasOpticRail_rearsight",
+                  "_parent": "FamasOpticRail",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5ba26b17d4351e00367f9bdd",
+                          "5dfa3d7ac41b2312ea33362a",
+                          "5c1780312e221602b66cc189",
+                          "5fb6564947ce63734e3fa1da",
+                          "5bc09a18d4351e003562b68e",
+                          "5c18b9192e2216398b5a8104",
+                          "5fc0fa957283c4046c58147e",
+                          "5894a81786f77427140b8347"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_sight_front",
+                  "_id": "FamasOpticRail_frontsight",
+                  "_parent": "FamasOpticRail",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5ba26b01d4351e0085325a51",
+                          "5dfa3d950dee1b22f862eae0",
+                          "5c17804b2e2216152006c02f",
+                          "5fb6567747ce63734e3fa1dc",
+                          "5bc09a30d4351e00367fb7c8",
+                          "5c18b90d2e2216152142466b",
+                          "5fc0fa362770a0045c59c677",
+                          "5894a73486f77426d259076c"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_tactical_000",
+                  "_id": "FamasOpticRail_tac00",
+                  "_parent": "FamasOpticRail",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5649a2464bdc2d91118b45a8"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                }
+              ]
             },
             LocalePush: 
             {
@@ -4015,8 +4168,6 @@ export class ItemGenerator
           HandbookParent: HandbookIDs.InfoItems,
           HandbookPrice: 53999,
           CloneToFilters: true,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.INFO_BLUE_FOLDERS,
           LootPush: 
           {
             AddToStaticLoot: true,
@@ -4058,8 +4209,6 @@ export class ItemGenerator
           HandbookParent: HandbookIDs.InfoItems,
           HandbookPrice: 175,
           CloneToFilters: true,
-          AddToBots: false,
-          BotLootItemToClone: AllItemList.INFO_DIARY,
           LootPush: 
           {
             AddToStaticLoot: true,
@@ -5024,7 +5173,251 @@ export class ItemGenerator
                 path: "assets/content/items/mods/l85a2/handguard_l85a2_daniel_defense_rail.bundle",
                 rcid: ""
               },
-              Ergonomics: 14
+              Ergonomics: 14,
+              Slots: [
+                {
+                  "_name": "mod_foregrip",
+                  "_id": "5efaf417aeb21837e749c7f4",
+                  "_parent": "L85A2RisHG",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5c7fc87d2e221644f31c0298",
+                          "5cda9bcfd7f00c0c0b53e900",
+                          "59f8a37386f7747af3328f06",
+                          "619386379fb0c665d5490dbe",
+                          "5c87ca002e221600114cb150",
+                          "588226d124597767ad33f787",
+                          "588226dd24597767ad33f789",
+                          "588226e62459776e3e094af7",
+                          "588226ef24597767af46e39c",
+                          "59fc48e086f77463b1118392",
+                          "5fce0cf655375d18a253eff0",
+                          "5cf4fb76d7f00c065703d3ac",
+                          "5b057b4f5acfc4771e1bd3e9",
+                          "5c791e872e2216001219c40a",
+                          "558032614bdc2de7118b4585",
+                          "58c157be86f77403c74b2bb6",
+                          "58c157c886f774032749fb06",
+                          "5f6340d3ca442212f4047eb2",
+                          "591af28e86f77414a27a9e1d",
+                          "5c1cd46f2e22164bef5cfedb",
+                          "5c1bc4812e22164bef5cfde7",
+                          "5c1bc5612e221602b5429350",
+                          "5c1bc5af2e221602b412949b",
+                          "5c1bc5fb2e221602b1779b32",
+                          "5c1bc7432e221602b412949d",
+                          "5c1bc7752e221602b1779b34",
+                          "64806bdd26c80811d408d37a",
+                          "64807a29e5ffe165600abc97",
+                          "648067db042be0705c0b3009",
+                          "65169d5b30425317755f8e25",
+                          "655df24fdf80b12750626d0a",
+                          "655dccfdbdcc6b5df71382b6"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_scope",
+                  "_id": "5efaf417aeb21837e749c7f5",
+                  "_parent": "L85A2RisHG",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "57ac965c24597706be5f975c",
+                          "57aca93d2459771f2c7e26db",
+                          "544a3f024bdc2d1d388b4568",
+                          "544a3a774bdc2d3a388b4567",
+                          "5d2dc3e548f035404a1a4798",
+                          "57adff4f24597737f373b6e6",
+                          "5c0517910db83400232ffee5",
+                          "591c4efa86f7741030027726",
+                          "570fd79bd2720bc7458b4583",
+                          "570fd6c2d2720bc6458b457f",
+                          "558022b54bdc2dac148b458d",
+                          "5c07dd120db834001c39092d",
+                          "5c0a2cec0db834001b7ce47d",
+                          "58491f3324597764bc48fa02",
+                          "584924ec24597768f12ae244",
+                          "5b30b0dc5acfc400153b7124",
+                          "6165ac8c290d254f5e6b2f6c",
+                          "60a23797a37c940de7062d02",
+                          "5d2da1e948f035477b1ce2ba",
+                          "5c0505e00db834001b735073",
+                          "609a63b6e2ff132951242d09",
+                          "584984812459776a704a82a6",
+                          "59f9d81586f7744c7506ee62",
+                          "570fd721d2720bc5458b4596",
+                          "57ae0171245977343c27bfcf",
+                          "5dfe6104585a0c3e995c7b82",
+                          "5d1b5e94d7ad1a2b865a96b0",
+                          "609bab8b455afd752b2e6138",
+                          "58d39d3d86f77445bb794ae7",
+                          "616554fe50224f204c1da2aa",
+                          "5c7d55f52e221644f31bff6a",
+                          "616584766ef05c2ce828ef57",
+                          "5b3b6dc75acfc47a8773fb1e",
+                          "615d8d878004cc50514c3233",
+                          "5b2389515acfc4771e1be0c0",
+                          "577d128124597739d65d0e56",
+                          "618b9643526131765025ab35",
+                          "618bab21526131765025ab3f",
+                          "5c86592b2e2216000e69e77c",
+                          "5a37ca54c4a282000d72296a",
+                          "5d0a29fed7ad1a002769ad08",
+                          "58d2664f86f7747fec5834f6",
+                          "57c69dd424597774c03b7bbc",
+                          "5b3b99265acfc4704b4a1afb",
+                          "5aa66a9be5b5b0214e506e89",
+                          "5aa66c72e5b5b00016327c93",
+                          "5c1cdd302e221602b3137250",
+                          "61714b2467085e45ef140b2c",
+                          "6171407e50224f204c1da3c5",
+                          "61713cc4d8e3106d9806c109",
+                          "5b31163c5acfc400153b71cb",
+                          "5a33b652c4a28232996e407c",
+                          "5a33b2c9c4a282000c5a9511",
+                          "59db7eed86f77461f8380365",
+                          "5a1ead28fcdbcb001912fa9f",
+                          "5dff77c759400025ea5150cf",
+                          "626bb8532c923541184624b4",
+                          "62811f461d5df4475f46a332",
+                          "63fc449f5bd61c6cf3784a88",
+                          "6477772ea8a38bb2050ed4db",
+                          "6478641c19d732620e045e17",
+                          "64785e7c19d732620e045e15",
+                          "653931da5db71d30ab1d6296",
+                          "65392f611406374f82152ba5",
+                          "655f13e0a246670fb0373245",
+                          "6567e751a715f85433025998"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_tactical_001",
+                  "_id": "5efaf417aeb21837e749c7f6",
+                  "_parent": "L85A2RisHG",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5a800961159bd4315e3a1657",
+                          "57fd23e32459772d0805bcf1",
+                          "544909bb4bdc2d6f028b4577",
+                          "5d10b49bd7ad1a1a560708b0",
+                          "5c06595c0db834001a66af6c",
+                          "5cc9c20cd7f00c001336c65d",
+                          "5d2369418abbc306c62e0c80",
+                          "5b07dd285acfc4001754240d",
+                          "56def37dd2720bec348b456a",
+                          "5a7b483fe899ef0016170d15",
+                          "61605d88ffa6e502ac5e7eeb",
+                          "5a5f1ce64f39f90b401987bc",
+                          "560d657b4bdc2da74d8b4572",
+                          "5b3a337e5acfc4704b4a19a0",
+                          "5c5952732e2216398b5abda2",
+                          "57d17e212459775a1179a0f5",
+                          "6267c6396b642f77f56f5c1c",
+                          "6272370ee4013c5d7e31f418",
+                          "6272379924e29f06af4d5ecb",
+                          "626becf9582c3e319310b837",
+                          "644a3df63b0b6f03e101e065",
+                          "646f6322f43d0c5d62063715"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_tactical_002",
+                  "_id": "5efaf417aeb21837e749c7f7",
+                  "_parent": "L85A2RisHG",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5a800961159bd4315e3a1657",
+                          "57fd23e32459772d0805bcf1",
+                          "544909bb4bdc2d6f028b4577",
+                          "5d10b49bd7ad1a1a560708b0",
+                          "5c06595c0db834001a66af6c",
+                          "5cc9c20cd7f00c001336c65d",
+                          "5d2369418abbc306c62e0c80",
+                          "5b07dd285acfc4001754240d",
+                          "56def37dd2720bec348b456a",
+                          "5a7b483fe899ef0016170d15",
+                          "61605d88ffa6e502ac5e7eeb",
+                          "5a5f1ce64f39f90b401987bc",
+                          "560d657b4bdc2da74d8b4572",
+                          "5b3a337e5acfc4704b4a19a0",
+                          "5c5952732e2216398b5abda2",
+                          "57d17e212459775a1179a0f5",
+                          "6267c6396b642f77f56f5c1c",
+                          "6272370ee4013c5d7e31f418",
+                          "6272379924e29f06af4d5ecb",
+                          "626becf9582c3e319310b837",
+                          "644a3df63b0b6f03e101e065",
+                          "646f6322f43d0c5d62063715"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                },
+                {
+                  "_name": "mod_tactical_000",
+                  "_id": "5efafe76a2f64932a722aa74",
+                  "_parent": "L85A2RisHG",
+                  "_props": {
+                    "filters": [
+                      {
+                        "Shift": 0,
+                        "Filter": [
+                          "5a800961159bd4315e3a1657",
+                          "57fd23e32459772d0805bcf1",
+                          "544909bb4bdc2d6f028b4577",
+                          "5c06595c0db834001a66af6c",
+                          "5cc9c20cd7f00c001336c65d",
+                          "5d2369418abbc306c62e0c80",
+                          "5b07dd285acfc4001754240d",
+                          "56def37dd2720bec348b456a",
+                          "5a7b483fe899ef0016170d15",
+                          "61605d88ffa6e502ac5e7eeb",
+                          "5a5f1ce64f39f90b401987bc",
+                          "560d657b4bdc2da74d8b4572",
+                          "5b3a337e5acfc4704b4a19a0",
+                          "5c5952732e2216398b5abda2",
+                          "57d17e212459775a1179a0f5"
+                        ]
+                      }
+                    ]
+                  },
+                  "_required": false,
+                  "_mergeSlotWithChildren": false,
+                  "_proto": "55d30c4c4bdc2db4468b457e"
+                }
+              ]
             },
             LocalePush: 
             {
