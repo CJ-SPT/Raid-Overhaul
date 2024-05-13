@@ -19,7 +19,7 @@ using LegionPrePatch;
 
 namespace DJsRaidOverhaul
 {
-    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.1.0")]
+    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.2.0")]
 
     public class Plugin : BaseUnityPlugin
     {
@@ -51,8 +51,10 @@ namespace DJsRaidOverhaul
 
         private bool realismDetected = false;
         private bool watchAnimsDetected = false;
+        private bool standaloneDetected = false;
         public const string Realism = "RealismMod";
         public const string WatchAnims = "com.samswat.watchanims";
+        public const string ROStandalone = "DJ.ROStandalone";
 
         void Awake()
         {
@@ -183,6 +185,15 @@ namespace DJsRaidOverhaul
 #if DEBUG
                 Utils.LogToServerConsole("Watch Animations Standalone Detected, disabling ROs watch animations.");
 #endif
+            }
+
+            if (Chainloader.PluginInfos.ContainsKey(ROStandalone) && PreloaderUI.Instantiated && standaloneDetected == false)
+            {
+                if (GameObject.Find("ErrorScreen"))
+                    PreloaderUI.Instance.CloseErrorScreen();
+
+                PreloaderUI.Instance.ShowErrorScreen("Raid Overhaul Error", "Raid Overhaul is not compatible with Raid Overhaul Standalone. Install one or the other or errors will occur.");
+                standaloneDetected = true;
             }
 
             if (Session == null && ClientAppUtils.GetMainApp().GetClientBackEndSession() != null)
