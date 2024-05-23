@@ -4,7 +4,7 @@
     <TargetFramework>net471</TargetFramework>
     <AssemblyName>RaidOverhaul</AssemblyName>
     <Description>A large overhaul for raids including events and dead body clean up.</Description>
-    <Version>2.2.0</Version>
+    <Version>2.2.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
 	<TargetSptAkiVersion>sptaki380</TargetSptAkiVersion>
