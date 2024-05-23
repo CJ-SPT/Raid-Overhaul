@@ -1,5 +1,6 @@
 using EFT;
 using EFT.UI;
+using EFT.UI.DragAndDrop;
 using TMPro;
 using System;
 using System.Reflection;
@@ -267,6 +268,21 @@ namespace DJsRaidOverhaul.Patches
                 items = exfilCrateItems,
                 traderId = Utils.ReqID
             }.ToJson(_defaultJsonConverters));
+        }
+    }
+
+    public class SpecialSlotViewPatch : ModulePatch
+    {
+
+        protected override MethodBase GetTargetMethod()
+        {
+            return typeof(SearchableItemView).GetMethod("method_0", BindingFlags.Instance | BindingFlags.Public);
+        }
+
+        [PatchPrefix]
+        private static bool PatchPrefix(SearchableItemView __instance)
+        {
+            return !__instance.name.StartsWith("SpecialSlot");
         }
     }
 }

@@ -110,6 +110,8 @@ namespace DJsRaidOverhaul
             new RigPatch().Enable();
             new AirdropBoxPatch().Enable();
 
+            new SpecialSlotViewPatch().Enable();
+
             if (DJConfig.WatchAnimations.Value && watchAnimsDetected == false)
             {
                 new GamePlayerOwnerPatch().Enable();
@@ -202,6 +204,11 @@ namespace DJsRaidOverhaul
 
                 Log.LogDebug("Session set");
             }
+        }
+
+        void OnDestroy()
+        {
+            new SpecialSlotViewPatch().Disable();
         }
     }
 }
