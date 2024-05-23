@@ -19,7 +19,7 @@ using LegionPrePatch;
 
 namespace DJsRaidOverhaul
 {
-    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.2.0")]
+    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.2.1")]
 
     public class Plugin : BaseUnityPlugin
     {
