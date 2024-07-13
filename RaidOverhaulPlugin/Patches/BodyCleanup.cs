@@ -3,9 +3,9 @@ using UnityEngine;
 using Comfort.Common;
 using System.Threading.Tasks;
 using System.Collections;
-using DJsRaidOverhaul.Helpers;
+using RaidOverhaul.Helpers;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public class BodyCleanup : MonoBehaviour
     {

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using EFT.UI.DragAndDrop;
 
-namespace DJsRaidOverhaul.Helpers
+namespace RaidOverhaul.Helpers
 {
     //Huge thanks to Groovey and all tho folks who figured this one out! All credit for this goes to them \('_')/
     internal class LayoutLoader
     {
         public static void LoadRigLayouts()
         {
-            string rigLayoutsDirectory = Path.Combine(Plugin.modPath, "bundles", "CustomLayouts");
+            string rigLayoutsDirectory = Path.Combine(Plugin.pluginPath, "bundles", "CustomLayouts");
 
             if (!Directory.Exists(rigLayoutsDirectory))
             {

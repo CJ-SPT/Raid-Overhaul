@@ -5,10 +5,10 @@ using System.Linq;
 using Comfort.Common;
 using System.Reflection;
 using EFT.InventoryLogic;
-using Aki.Reflection.Patching;
-using DJsRaidOverhaul.Helpers;
+using SPT.Reflection.Patching;
+using RaidOverhaul.Helpers;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     internal struct PlayerInfo
     {
@@ -73,7 +73,8 @@ namespace DJsRaidOverhaul.Patches
                 {
                     PlayerInfo.player.ActiveHealthController.DoStun(1, 0);
                     PlayerInfo.player.ActiveHealthController.DoContusion(4, 50);
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     Plugin.Log.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
                     PlayerInfo.player.PlayerHealthController.DoStun(1, 0);
@@ -84,7 +85,8 @@ namespace DJsRaidOverhaul.Patches
             {
                 PlayerInfo.player.ActiveHealthController.DoStun(1, 0);
                 PlayerInfo.player.ActiveHealthController.DoContusion(0, 100);
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Plugin.Log.LogError("Attempting to access ActiveHealthController resulted in an exception, falling back to PlayerHealthController" + e);
                 PlayerInfo.player.PlayerHealthController.DoStun(1, 0);

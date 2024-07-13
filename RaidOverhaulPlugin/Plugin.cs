@@ -11,20 +11,22 @@ using BepInEx.Logging;
 using BepInEx.Bootstrap;
 using HarmonyLib;
 using UnityEngine;
-using Aki.Reflection.Utils;
-using DJsRaidOverhaul.Helpers;
-using DJsRaidOverhaul.Patches;
-using DJsRaidOverhaul.Controllers;
-using LegionPrePatch;
+using SPT.Reflection.Utils;
+using RaidOverhaul.Helpers;
+using RaidOverhaul.Patches;
+using RaidOverhaul.Controllers;
+using RaidOverhaul.Checkers;
+using LegionPreLoader.Helpers;
 
-namespace DJsRaidOverhaul
+namespace RaidOverhaul
 {
-    [BepInPlugin("DJ.RaidOverhaul", "DJs Raid Overhaul", "2.2.1")]
+    [BepInPlugin(ClientInfo.ROGUID, ClientInfo.ROPluginName, ClientInfo.PluginVersion)]
 
     public class Plugin : BaseUnityPlugin
     {
-        public const int TarkovVersion = 29197;
         public static string modPath = Path.Combine(Environment.CurrentDirectory, "user", "mods", "RaidOverhaul");
+        public static string pluginPath = Path.Combine(Environment.CurrentDirectory, "BepInEx", "plugins", "RaidOverhaul");
+
         internal static GameObject Hook;
         internal static EventController ECScript;
         internal static DoorController DCScript;
@@ -39,7 +41,7 @@ namespace DJsRaidOverhaul
 
         public static GameWorld ROGameWorld
         { get => Singleton<GameWorld>.Instance; }
-        
+
         public static Player ROPlayer
         { get => ROGameWorld.MainPlayer; }
 
@@ -62,9 +64,6 @@ namespace DJsRaidOverhaul
             {
                 throw new Exception("Invalid EFT Version");
             }
-
-            Traverse.Create(typeof(BotSettingsRepoClass)).Field<Dictionary<WildSpawnType, BotSettingsValuesClass>>("dictionary_0").Value.Add((WildSpawnType)LegionEnums.BossLegionValue, new BotSettingsValuesClass(true, false, false, "ScavRole/Boss", ETagStatus.Solo));         
-
             // Bind the configs
             DJConfig.BindConfig(Config);
 
@@ -76,13 +75,22 @@ namespace DJsRaidOverhaul
             BCScript = Hook.AddComponent<BodyCleanup>();
             DontDestroyOnLoad(Hook);
 
-            // Get and Initialize the weightings
-            Weighting.EventWeights = Utils.Get<Weightings>("/RaidOverhaul/GetEventWeightings");
-
+            // Get and Initialize the Server Configs
+            ConfigController.EventConfig = Utils.Get<EventsConfig>("/RaidOverhaul/GetEventConfig");
             Weighting.InitWeightings();
 
+            ConfigController.ServerConfig = Utils.Get<ServerConfigs>("/RaidOverhaul/GetServerConfig");
 
-            if (DJConfig.TimeChanges.Value)
+            //Load Legion
+            if (ConfigController.ServerConfig.EnableLegion)
+            {
+                Traverse.Create(typeof(BotSettingsRepoAbstractClass)).Field<Dictionary<WildSpawnType, GClass696>>("dictionary_0").Value.Add((WildSpawnType)LegionEnums.BossLegionValue, new GClass696(true, false, false, "ScavRole/Boss", ETagStatus.Solo));
+            }
+
+            //Check flags and adjust accordingly
+            //FlagController.ResetTraderLL();
+
+            if (ConfigController.ServerConfig.TimeChanges)
             {
                 new GameWorldPatch().Enable();
                 new UIPanelPatch().Enable();
@@ -90,6 +98,7 @@ namespace DJsRaidOverhaul
                 new WeatherControllerPatch().Enable();
                 new GlobalsPatch().Enable();
                 new WatchPatch().Enable();
+                new FactoryTimerPanelPatch().Enable();
             }
 
             if (DJConfig.EnableAdrenaline.Value && realismDetected == false)
@@ -110,9 +119,12 @@ namespace DJsRaidOverhaul
             new RigPatch().Enable();
             new AirdropBoxPatch().Enable();
 
-            new SpecialSlotViewPatch().Enable();
+            if (ConfigController.ServerConfig.RaidChanges.SpecialSlotChanges)
+            {
+                new SpecialSlotViewPatch().Enable();
+            }
 
-            if (DJConfig.WatchAnimations.Value && watchAnimsDetected == false)
+            if (ConfigController.ServerConfig.WatchAnimations && watchAnimsDetected == false)
             {
                 new GamePlayerOwnerPatch().Enable();
                 new GameWorldDisposePatch().Enable();
@@ -156,8 +168,7 @@ namespace DJsRaidOverhaul
                     {"5f5e4075df4f3100376a8138", 1},
                     {"5cdea33e7d6c8b0474535dac", 0}
                 };
-                var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                AnimationClips = AssetBundle.LoadFromFile($"{directory}/bundles/watch animations.bundle").LoadAllAssets<AnimationClip>();
+                AnimationClips = AssetBundle.LoadFromFile($"{pluginPath}/bundles/watch animations.bundle").LoadAllAssets<AnimationClip>();
             }
 
             _FAS = _FAS ?? typeof(Inventory).GetField("FastAccessSlots");

@@ -4,7 +4,6 @@ using JsonType;
 using UnityEngine;
 using UnityEngine.UI;
 using HarmonyLib;
-using Comfort.Common;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,15 +13,15 @@ using EFT.UI.Matchmaker;
 using EFT.UI.BattleTimer;
 using EFT.InventoryLogic;
 using EFT.Communications;
-using Aki.Custom.Airdrops;
+using SPT.Custom.Airdrops;
 using System.Threading.Tasks;
-using DJsRaidOverhaul.Helpers;
-using DJsRaidOverhaul.Patches;
+using RaidOverhaul.Helpers;
+using RaidOverhaul.Patches;
 
-using static DJsRaidOverhaul.Plugin;
+using static RaidOverhaul.Plugin;
 
 
-namespace DJsRaidOverhaul.Controllers
+namespace RaidOverhaul.Controllers
 {
     public class EventController : MonoBehaviour
     {
@@ -78,7 +77,7 @@ namespace DJsRaidOverhaul.Controllers
 
         void Update()
         {
-            if (DJConfig.TimeChanges.Value)
+            if (ConfigController.ServerConfig.TimeChanges)
             {
                 RaidTime.inverted = MonoBehaviourSingleton<MenuUI>.Instance == null || MonoBehaviourSingleton<MenuUI>.Instance.MatchMakerSelectionLocationScreen == null
                 ? RaidTime.inverted
@@ -121,6 +120,7 @@ namespace DJsRaidOverhaul.Controllers
                 _lamp = FindObjectsOfType<LampController>();
             }
 
+
             if (!_eventisRunning)
             {
                 StaticManager.Instance.StartCoroutine(StartEvents());
@@ -144,7 +144,7 @@ namespace DJsRaidOverhaul.Controllers
 
         private IEnumerator StartEvents()
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(DJConfig.EventRangeMin.Value, DJConfig.EventRangeMax.Value) * 60f);
+            yield return new WaitForSeconds(Random.Range(ConfigController.EventConfig.RandomEventRangeMinimumServer, ConfigController.EventConfig.RandomEventRangeMaximumServer) * 60f);
 
             if (ROGameWorld != null && ROGameWorld.AllAlivePlayersList != null && ROGameWorld.AllAlivePlayersList.Count > 0 && !(ROPlayer is HideoutPlayer))
             {
@@ -205,7 +205,10 @@ namespace DJsRaidOverhaul.Controllers
                 _healthEventCount++;
 
 #if DEBUG
-            Utils.LogToServerConsole("Heal Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Heal Event has run");
+            }
 #endif
         }
 
@@ -221,7 +224,10 @@ namespace DJsRaidOverhaul.Controllers
                 _damageEventCount++;
 
 #if DEBUG
-            Utils.LogToServerConsole("Heart Attack Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Heart Attack Event has run");
+            }
 #endif
         }
 
@@ -237,7 +243,10 @@ namespace DJsRaidOverhaul.Controllers
             });
 
 #if DEBUG
-            Utils.LogToServerConsole("Armor Repair Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Armor Repair Event has run");
+            }
 #endif            
         }
 
@@ -251,7 +260,10 @@ namespace DJsRaidOverhaul.Controllers
                 _airdropEventHasRun = true;
 
 #if DEBUG
-            Utils.LogToServerConsole("Aidrop Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Aidrop Event has run");
+            }
 #endif         
             }
 
@@ -276,7 +288,10 @@ namespace DJsRaidOverhaul.Controllers
                 DoHealPlayer();
 
 #if DEBUG
-            Utils.LogToServerConsole("Joke Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Joke Event has run");
+            }
 #endif 
 
                 _jokeEventHasRun = true;
@@ -313,7 +328,10 @@ namespace DJsRaidOverhaul.Controllers
 
             NotificationManagerClass.DisplayMessageNotification("Blackout Event: All power switches and lights disabled for 10 minutes", ENotificationDurationType.Long, ENotificationIconType.Alert);
 #if DEBUG
-            Utils.LogToServerConsole("Blackout Event: All power switches and lights disabled for 10 minutes");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Blackout Event: All power switches and lights disabled for 10 minutes");
+            }
 #endif  
                 await Task.Delay(600000);
 
@@ -331,7 +349,10 @@ namespace DJsRaidOverhaul.Controllers
             NotificationManagerClass.DisplayMessageNotification("Blackout Event over", ENotificationDurationType.Long, ENotificationIconType.Quest);
 
 #if DEBUG
-            Utils.LogToServerConsole("Blackout Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Blackout Event has run");
+            }
 #endif              
         }
 
@@ -368,7 +389,10 @@ namespace DJsRaidOverhaul.Controllers
                 }
 
 #if DEBUG
-            Utils.LogToServerConsole("Skill Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Skill Event has run");
+            }
 #endif                  
         }
 
@@ -415,7 +439,10 @@ namespace DJsRaidOverhaul.Controllers
             }
 
 #if DEBUG
-            Utils.LogToServerConsole("Metabolism Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Metabolism Event has run");
+            }
 #endif    
         }
 
@@ -460,7 +487,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Malfunction Event: Be careful not to jam up!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Malfunction Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Malfunction Event has started");
+            }
 #endif    
 
                 await Task.Delay(300000);
@@ -478,7 +508,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Malfunction Event: Your weapon has had time to cool off, shouldn't have any more troubles!", ENotificationDurationType.Long, ENotificationIconType.Default);
 
 #if DEBUG
-            Utils.LogToServerConsole("Malfunction Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Malfunction Event has run");
+            }
 #endif  
             }  
 
@@ -501,7 +534,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Trader Event: A random Trader has gained a little more respect for you.", ENotificationDurationType.Default, ENotificationIconType.Achievement);
 
 #if DEBUG
-            Utils.LogToServerConsole("Trader Rep Gain Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Trader Rep Gain Event has run");
+            }
 #endif  
             }
 
@@ -513,7 +549,10 @@ namespace DJsRaidOverhaul.Controllers
                     NotificationManagerClass.DisplayMessageNotification("Trader Event: A random Trader has lost a little faith in you.", ENotificationDurationType.Default, ENotificationIconType.Achievement);
 
 #if DEBUG
-            Utils.LogToServerConsole("Trader Rep Loss Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Trader Rep Loss Event has run");
+            }
 #endif  
                 }
 
@@ -573,7 +612,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Berserk Event: You're seeing red, I feel bad for any scavs and PMCs in your way!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Berserk Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Berserk Event has started");
+            }
 #endif  
 
                 await Task.Delay(180000);
@@ -596,7 +638,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Berserk Event: Your vision has cleared up, I guess you got all your rage out!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Berserk Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Berserk Event has run");
+            }
 #endif  
             }
 
@@ -639,7 +684,10 @@ namespace DJsRaidOverhaul.Controllers
                     NotificationManagerClass.DisplayMessageNotification("Weight Event: Better hunker down until you get your stamina back!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Weight Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Weight Event has started");
+            }
 #endif  
 
                     await Task.Delay(180000);
@@ -654,7 +702,10 @@ namespace DJsRaidOverhaul.Controllers
                     Session.Profile.Inventory.UpdateTotalWeight();
 
 #if DEBUG
-            Utils.LogToServerConsole("Weight Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Weight Event has run");
+            }
 #endif  
 
                     NotificationManagerClass.DisplayMessageNotification("Weight Event: You're rested and ready to get back out there!", ENotificationDurationType.Long, ENotificationIconType.Alert);
@@ -678,7 +729,10 @@ namespace DJsRaidOverhaul.Controllers
                     NotificationManagerClass.DisplayMessageNotification("Weight Event: You feel light on your feet, stock up on everything you can!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Weight Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Weight Event has started");
+            }
 #endif  
 
                     await Task.Delay(180000);
@@ -695,7 +749,10 @@ namespace DJsRaidOverhaul.Controllers
                     NotificationManagerClass.DisplayMessageNotification("Weight Event: You've lost your extra energy, hope you didn't fill your backpack too much!", ENotificationDurationType.Long, ENotificationIconType.Alert);
 
 #if DEBUG
-            Utils.LogToServerConsole("Weight Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Weight Event has run");
+            }
 #endif  
                 }
             }
@@ -727,7 +784,10 @@ namespace DJsRaidOverhaul.Controllers
             NotificationManagerClass.DisplayMessageNotification("Shopping Spree Event: All Traders have maxed out standing. Better get to them in the next ten minutes!", ENotificationDurationType.Default, ENotificationIconType.Mail);
 
 #if DEBUG
-            Utils.LogToServerConsole("Shopping Spree Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Shopping Spree Event has started");
+            }
 #endif  
 
             await Task.Delay(600000);
@@ -742,13 +802,16 @@ namespace DJsRaidOverhaul.Controllers
             NotificationManagerClass.DisplayMessageNotification("Shopping Spree Event: All Traders standing has been set back to normal. This is a fickle business after all.", ENotificationDurationType.Default, ENotificationIconType.Mail);
 
 #if DEBUG
-            Utils.LogToServerConsole("Shopping Spree Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Shopping Spree Event has run");
+            }
 #endif 
         }
 
         public async void DoLockDownEvent()
         {
-            var raidTimeLeft = Aki.SinglePlayer.Utils.InRaid.RaidTimeUtil.GetRemainingRaidSeconds();
+            var raidTimeLeft = SPT.SinglePlayer.Utils.InRaid.RaidTimeUtil.GetRemainingRaidSeconds();
             var exfils = FindObjectsOfType<ExfiltrationPoint>();
 
             if (_exfilEventCount >= 1) { return; }
@@ -763,7 +826,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Lockdown Event: All extracts are unavaliable for 15 minutes", ENotificationDurationType.Long, ENotificationIconType.EntryPoint);
 
 #if DEBUG
-            Utils.LogToServerConsole("Lockdown Event has started");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Lockdown Event has started");
+            }
 #endif  
 
                 EventExfilPatch.IsLockdown = true;
@@ -784,7 +850,10 @@ namespace DJsRaidOverhaul.Controllers
                 NotificationManagerClass.DisplayMessageNotification("Lockdown Event: Extracts are available again. Time to get out of there!", ENotificationDurationType.Long, ENotificationIconType.EntryPoint);
 
 #if DEBUG
-            Utils.LogToServerConsole("Lockdown Event has run");
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
+                Utils.LogToServerConsole("Lockdown Event has run");
+            }
 #endif 
 
                 EventExfilPatch.IsLockdown = false;
@@ -815,10 +884,13 @@ namespace DJsRaidOverhaul.Controllers
                     _mouseInputCount++;
                     ExfilAirdropBOOMBOOM();
                     _eventisRunning = true;
+                    NotificationManagerClass.DisplayMessageNotification("Exfil Airdrop crate on it's way", ENotificationDurationType.Long, ENotificationIconType.EntryPoint);
 
 #if DEBUG
-            NotificationManagerClass.DisplayMessageNotification("Exfil Airdrop crate on it's way", ENotificationDurationType.Long, ENotificationIconType.EntryPoint);
-            Utils.LogToServerConsole("Exfil Airdrop crate on it's way");
+                    if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+                    {
+                        Utils.LogToServerConsole("Exfil Airdrop crate on it's way");
+                    }
 #endif                      
                 }
             }

@@ -1,10 +1,10 @@
 ﻿using EFT;
 using System;
 using System.Reflection;
-using Aki.Reflection.Patching;
-using DJsRaidOverhaul.Helpers;
+using SPT.Reflection.Patching;
+using RaidOverhaul.Helpers;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public class OnDeadPatch : ModulePatch
     {

@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Reflection;
-using Aki.Reflection.Patching;
+using SPT.Reflection.Patching;
 using Comfort.Common;
 using EFT;
 using EFT.InputSystem;
 using HarmonyLib;
 using UnityEngine;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public class GamePlayerOwnerPatch : ModulePatch
     {
         private const string STATE_NAME = "hand_nv_on";
         private static AnimationClip _defaultClip;
         private static Coroutine _coroutine;
-        
+
         protected override MethodBase GetTargetMethod()
         {
             return AccessTools.Method(typeof(GamePlayerOwner), "TranslateCommand");
@@ -24,14 +24,14 @@ namespace DJsRaidOverhaul.Patches
         private static void PatchPostfix(ECommand command)
         {
             if (command != ECommand.DisplayTimer && command != ECommand.DisplayTimerAndExits) return;
-            
+
             var player = Singleton<GameWorld>.Instance.AllAlivePlayersList[0];
-            
+
             if (player.Side == EPlayerSide.Savage) return;
-            
+
             var animator = player.HandsController.FirearmsAnimator.Animator;
             var animIndex = GetAnimIndex(player);
-            
+
             if (Plugin.Controllers.TryGetValue(animator, out var overrideController))
             {
                 StaticManager.KillCoroutine(_coroutine);

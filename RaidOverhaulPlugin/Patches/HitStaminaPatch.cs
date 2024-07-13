@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using EFT;
-using Aki.Reflection.Patching;
-using DJsRaidOverhaul.Helpers;
+using SPT.Reflection.Patching;
+using RaidOverhaul.Helpers;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public class HitStaminaPatch : ModulePatch
     {

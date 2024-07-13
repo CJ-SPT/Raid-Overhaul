@@ -17,15 +17,15 @@ using EFT.Interactive;
 using EFT.UI.Matchmaker;
 using EFT.Communications;
 using EFT.UI.BattleTimer;
-using Aki.Common.Http;
-using Aki.Custom.Airdrops;
-using Aki.Custom.Airdrops.Utils;
-using Aki.Custom.Airdrops.Models;
-using Aki.Reflection.Patching;
-using DJsRaidOverhaul.Helpers;
-using DJsRaidOverhaul.Controllers;
+using SPT.Common.Http;
+using SPT.Custom.Airdrops;
+using SPT.Custom.Airdrops.Utils;
+using SPT.Custom.Airdrops.Models;
+using SPT.Reflection.Patching;
+using RaidOverhaul.Helpers;
+using RaidOverhaul.Controllers;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public struct RaidTime
     {
@@ -52,6 +52,13 @@ namespace DJsRaidOverhaul.Patches
     {
 
         protected override MethodBase GetTargetMethod() => typeof(GameWorld).GetMethod("OnGameStarted", BindingFlags.Instance | BindingFlags.Public);
+
+        
+        [PatchPrefix]
+        static void PatchPrefix()
+        {
+            RequestHandler.GetJson("/RaidOverhaul/GetWeather");
+        }
 
         [PatchPostfix]
         static void Postfix(GameWorld __instance)
@@ -103,6 +110,44 @@ namespace DJsRaidOverhaul.Patches
 
         [PatchPrefix]
         static void Prefix(ref TimeSpan timeSpan) => timeSpan = new TimeSpan(RaidTime.GetDateTime().Ticks);
+    }
+
+    public class FactoryTimerPanelPatch : ModulePatch
+    {
+
+        protected override MethodBase GetTargetMethod()
+        {
+            return AccessTools.FirstMethod(typeof(LocationConditionsPanel), x => x.Name == nameof(LocationConditionsPanel.Set) && x.GetParameters()[0].Name == "session");
+        }
+
+        [PatchPostfix]
+        static void Postfix(RaidSettings raidSettings, bool takeFromCurrent, MatchMakerAcceptScreen __instance)
+        {
+            TextMeshProUGUI timePanel;
+
+            try 
+            {
+                timePanel = __instance.transform.Find("TimePanel").gameObject.transform.Find("Time").gameObject.GetComponent<TextMeshProUGUI>();
+            }
+            catch (Exception) { return; }
+
+            if (raidSettings.SelectedLocation.Id == "factory4_day") {
+
+                SetTimePanelText(timePanel, "15:28:00");
+            }
+
+            if (raidSettings.SelectedLocation.Id == "factory4_night") {
+
+                SetTimePanelText(timePanel, "03:28:00");
+            }
+        }
+
+        static void SetTimePanelText(TextMeshProUGUI timePanel, string text)
+        {
+            try {
+                timePanel.text = text;
+            } catch(Exception) { }
+        }
     }
 
     public class ExitTimerUIPatch : ModulePatch

@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using BepInEx.Logging;
 using Newtonsoft.Json;
-using Aki.Common.Http;
+using SPT.Common.Http;
 using EFT.InventoryLogic;
 
-namespace DJsRaidOverhaul.Helpers
+namespace RaidOverhaul.Helpers
 {
     public static class Utils
     {

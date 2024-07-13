@@ -5,9 +5,9 @@ using EFT.Interactive;
 using EFT.Communications;
 using System.Reflection;
 using System.Collections;
-using DJsRaidOverhaul.Helpers;
+using RaidOverhaul.Helpers;
 
-namespace DJsRaidOverhaul.Controllers
+namespace RaidOverhaul.Controllers
 {
     internal class DoorController : MonoBehaviour
     {
@@ -56,7 +56,7 @@ namespace DJsRaidOverhaul.Controllers
 
         private IEnumerator DoorEvents()
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(DJConfig.DoorRangeMin.Value, DJConfig.DoorRangeMax.Value) * 60f);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(ConfigController.EventConfig.DoorEventRangeMinimumServer, ConfigController.EventConfig.DoorEventRangeMaximumServer) * 60f);
 
             if (Plugin.ROGameWorld != null && Plugin.ROGameWorld.AllAlivePlayersList != null && Plugin.ROGameWorld.AllAlivePlayersList.Count > 0 && !(Plugin.ROPlayer is HideoutPlayer))
             {
@@ -104,7 +104,10 @@ namespace DJsRaidOverhaul.Controllers
                 typeof(Switch).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(_switch, null);
 
 #if DEBUG
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
                 Utils.LogToServerConsole("A random switch has been thrown.");
+            }
 #endif
 
                 RemoveAt(ref _switchs, selection);
@@ -145,7 +148,10 @@ namespace DJsRaidOverhaul.Controllers
                 typeof(Door).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(door, null);
 
 #if DEBUG
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
                 Utils.LogToServerConsole("A random door has been unlocked.");
+            }
 #endif
 
                 RemoveAt(ref _door, selection);
@@ -186,7 +192,10 @@ namespace DJsRaidOverhaul.Controllers
                 typeof(KeycardDoor).GetMethod("Open", BindingFlags.Instance | BindingFlags.Public).Invoke(kdoor, null);
 
 #if DEBUG
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
                 Utils.LogToServerConsole("A random keycard door has been unlocked.");
+            }
 #endif
 
                 RemoveAt(ref _kdoor, selection);
@@ -247,8 +256,11 @@ namespace DJsRaidOverhaul.Controllers
                 });
 
 #if DEBUG
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
                 NotificationManagerClass.DisplayMessageNotification($"[{_doorChangedCount}] total Doors have had their states changed. [{_doorNotChangedCount}] haven't been modified.", ENotificationDurationType.Long, ENotificationIconType.Default);
                 Utils.LogToServerConsole($"[{_doorChangedCount}] total Doors have had their states changed. [{_doorNotChangedCount}] haven't been modified.");
+            }
 #endif
             }
         }
@@ -268,8 +280,11 @@ namespace DJsRaidOverhaul.Controllers
                 });
 
 #if DEBUG
+            if (ConfigController.ServerConfig.Debug.EnableExtraDebugLogging)
+            {
                 NotificationManagerClass.DisplayMessageNotification($"[{_lampCount}] total Lamps have been modified.", ENotificationDurationType.Long, ENotificationIconType.Default);
                 Utils.LogToServerConsole($"[{_lampCount}] total Lamps have been modified.");
+            }
 #endif
             }
         }

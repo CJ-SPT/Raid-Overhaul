@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using Aki.Reflection.Patching;
+using SPT.Reflection.Patching;
 using EFT;
 
-namespace DJsRaidOverhaul.Patches
+namespace RaidOverhaul.Patches
 {
     public class GameWorldDisposePatch : ModulePatch
     {
