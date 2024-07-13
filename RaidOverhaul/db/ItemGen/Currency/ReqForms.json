@@ -23,15 +23,6 @@
       "HandbookPrice": 175
     },
     "CloneToFilters": true,
-    "LootPush": {
-      "LootContainersToAdd": [
-        "LOOTCONTAINER_SAFE",
-        "LOOTCONTAINER_COMMON_FUND_STASH",
-        "LOOTCONTAINER_CASH_REGISTER",
-        "LOOTCONTAINER_CASH_REGISTER_TAR22"
-      ],
-      "StaticLootProbability": 150
-    },
     "CasePush": {
       "CaseFiltersToAdd": [
         "CONTAINER_DOCS",
