@@ -830,204 +830,110 @@
       "_parent": "99dcd3e0129ff18aaad8fa01",
       "_type": "Preset"
     },
-    "662180630faa3ed9ec5b9614": {
+    "6632bb0f334f6b4b261ebfea": {
       "_changeWeaponName": false,
-      "_encyclopedia": "L85A2",
-      "_id": "662180630faa3ed9ec5b9614",
+      "_encyclopedia": "6632aab0b450b045b2160db9",
+      "_id": "6632bb0f334f6b4b261ebfea",
       "_items": [
         {
-          "_id": "6621846c5909d9ebd9b8a7de",
-          "_tpl": "L85A2"
+          "_id": "6632bb166a640078a80d4c39",
+          "_tpl": "6632aab0b450b045b2160db9"
         },
         {
-          "_id": "662184786e500a116e676a9a",
-          "_tpl": "L85A2StdHG",
-          "parentId": "6621846c5909d9ebd9b8a7de",
+          "_id": "6632bb1da038398b326c4285",
+          "_tpl": "6632ac6284c8d1f2c208fc73",
+          "parentId": "6632bb166a640078a80d4c39",
           "slotId": "mod_handguard"
         },
         {
-          "_id": "662184800a64c4f6409de733",
-          "_tpl": "L85A2Barrel",
-          "parentId": "6621846c5909d9ebd9b8a7de",
+          "_id": "6632bb200b9ade4ce198b65e",
+          "_tpl": "6632abd640e9589cbe50f5c4",
+          "parentId": "6632bb166a640078a80d4c39",
           "slotId": "mod_barrel"
         },
         {
-          "_id": "662184878176148a7814379d",
-          "_tpl": "L85A2MuzzleBrake",
-          "parentId": "662184800a64c4f6409de733",
+          "_id": "6632bb254b0d7ad9a10d9afe",
+          "_tpl": "6632ad8ddca02e1335f19533",
+          "parentId": "6632bb200b9ade4ce198b65e",
           "slotId": "mod_muzzle"
         },
         {
-          "_id": "662184969db33a5b458d0b51",
-          "_tpl": "L85A2FrontSight",
-          "parentId": "662184800a64c4f6409de733",
-          "slotId": "mod_sight_front"
-        },
-        {
-          "_id": "6621849eba104e27895ca150",
-          "_tpl": "L85A2CarryHandle",
-          "parentId": "6621846c5909d9ebd9b8a7de",
+          "_id": "6632bb292b67d7d7210284d3",
+          "_tpl": "6632ae53381c8a2cc378ecfe",
+          "parentId": "6632bb166a640078a80d4c39",
           "slotId": "mod_scope"
         },
         {
-          "_id": "662184a407d37ad14f1f4e1c",
-          "_tpl": "L85A2PistolGrip",
-          "parentId": "6621846c5909d9ebd9b8a7de",
+          "_id": "6632bb2c677ad233ccbbd452",
+          "_tpl": "6632add2cab2e1b57bfb69e4",
+          "parentId": "6632bb166a640078a80d4c39",
           "slotId": "mod_pistol_grip"
         },
         {
-          "_id": "662184ab2d2098de96fa19f4",
+          "_id": "6632bb2fdde8a8ad2bff5580",
           "_tpl": "55d4887d4bdc2d962f8b4570",
-          "parentId": "6621846c5909d9ebd9b8a7de",
+          "parentId": "6632bb166a640078a80d4c39",
           "slotId": "mod_magazine"
         }
       ],
-      "_name": "L85A2 default",
-      "_parent": "6621846c5909d9ebd9b8a7de",
+      "_name": "L85A2 Base",
+      "_parent": "6632bb166a640078a80d4c39",
       "_type": "Preset"
     },
-    "662180b4039f9de4ae12f266": {
+    "6632bab6994fd274f96e64fb": {
       "_changeWeaponName": false,
-      "_encyclopedia": "L85A2",
-      "_id": "662180b4039f9de4ae12f266",
+      "_encyclopedia": "6632b91ca1a7a5564dad34ac",
+      "_id": "6632bab6994fd274f96e64fb",
       "_items": [
         {
-          "_id": "662184b54a736e6091157002",
-          "_tpl": "L85A2"
+          "_id": "6632bac24effc503d8e1c22e",
+          "_tpl": "6632b91ca1a7a5564dad34ac"
         },
         {
-          "_id": "662184c0b74d085cca78fc2f",
-          "_tpl": "L85A2RisHG",
-          "parentId": "662184b54a736e6091157002",
-          "slotId": "mod_handguard"
-        },
-        {
-          "_id": "662184c74073f7b218a166fb",
-          "_tpl": "L85A2Barrel",
-          "parentId": "662184b54a736e6091157002",
-          "slotId": "mod_barrel"
-        },
-        {
-          "_id": "662184cd7fa1d0eee08e6486",
-          "_tpl": "L85A2MuzzleBrake",
-          "parentId": "662184c74073f7b218a166fb",
+          "_id": "6632bad62668b3a7b0d67118",
+          "_tpl": "6632b08e74de51403f059e69",
+          "parentId": "6632bac24effc503d8e1c22e",
           "slotId": "mod_muzzle"
         },
         {
-          "_id": "662184d848e859a1108b9c5b",
-          "_tpl": "L85A2RailTop",
-          "parentId": "662184b54a736e6091157002",
+          "_id": "6632badad2a972ccaeafefd4",
+          "_tpl": "6632b00709ecfdb16444e5ff",
+          "parentId": "6632bad62668b3a7b0d67118",
+          "slotId": "mod_muzzle"
+        },
+        {
+          "_id": "6632bade525a20fa73afae15",
+          "_tpl": "6632b12e6de0b8af48c4ad27",
+          "parentId": "6632bac24effc503d8e1c22e",
           "slotId": "mod_scope"
         },
         {
-          "_id": "662184df66a76edac90a8ddd",
-          "_tpl": "L85A2PistolGrip",
-          "parentId": "662184b54a736e6091157002",
-          "slotId": "mod_pistol_grip"
-        },
-        {
-          "_id": "662184ee031d4bfc76241195",
-          "_tpl": "55d4887d4bdc2d962f8b4570",
-          "parentId": "662184b54a736e6091157002",
-          "slotId": "mod_magazine"
-        }
-      ],
-      "_name": "L85A2 rails",
-      "_parent": "662184b54a736e6091157002",
-      "_type": "Preset"
-    },
-    "6621a59a20e3b56082a2d70f": {
-      "_changeWeaponName": false,
-      "_encyclopedia": "FamasAR",
-      "_id": "6621a59a20e3b56082a2d70f",
-      "_items": [
-        {
-          "_id": "6621a58b10088639e7e634a3",
-          "_tpl": "FamasAR"
-        },
-        {
-          "_id": "6621a652d00afa3d3edf79f9",
-          "_tpl": "Famas488mmBrl",
-          "parentId": "6621a58b10088639e7e634a3",
-          "slotId": "mod_muzzle"
-        },
-        {
-          "_id": "6621a6621b673e8d1e7dcc4b",
-          "_tpl": "FamasFlashHider",
-          "parentId": "6621a652d00afa3d3edf79f9",
-          "slotId": "mod_muzzle"
-        },
-        {
-          "_id": "6621a66bfb756967294a450a",
-          "_tpl": "FamasUR",
-          "parentId": "6621a58b10088639e7e634a3",
-          "slotId": "mod_scope"
-        },
-        {
-          "_id": "6621a6724fd360bf5c626414",
-          "_tpl": "Famas25rd",
-          "parentId": "6621a58b10088639e7e634a3",
-          "slotId": "mod_magazine"
-        }
-      ],
-      "_name": "Famas Standard",
-      "_parent": "6621a58b10088639e7e634a3",
-      "_type": "Preset"
-    },
-    "6621a6bcf5385547fc81e504": {
-      "_changeWeaponName": false,
-      "_encyclopedia": "FamasAR",
-      "_id": "6621a6bcf5385547fc81e504",
-      "_items": [
-        {
-          "_id": "6621a6811e346fd5772fe565",
-          "_tpl": "FamasAR"
-        },
-        {
-          "_id": "6621a688c873a5cb25794a01",
-          "_tpl": "Famas488mmBrl",
-          "parentId": "6621a6811e346fd5772fe565",
-          "slotId": "mod_muzzle"
-        },
-        {
-          "_id": "6621a68f468080db2d9a5e98",
-          "_tpl": "FamasFlashHider",
-          "parentId": "6621a688c873a5cb25794a01",
-          "slotId": "mod_muzzle"
-        },
-        {
-          "_id": "6621a697334cb423bb14285b",
-          "_tpl": "FamasUR",
-          "parentId": "6621a6811e346fd5772fe565",
-          "slotId": "mod_scope"
-        },
-        {
-          "_id": "6621a6a643b1f8e40d296f79",
-          "_tpl": "FamasOpticRail",
-          "parentId": "6621a697334cb423bb14285b",
+          "_id": "6632bae3677bf783b1677858",
+          "_tpl": "6632afdb57948b8c9c11b447",
+          "parentId": "6632bade525a20fa73afae15",
           "slotId": "mod_mount"
         },
         {
-          "_id": "6621a6aebc1afe99153cda69",
-          "_tpl": "FamasSideRail",
-          "parentId": "6621a6811e346fd5772fe565",
+          "_id": "6632bae65b380b674f55cad9",
+          "_tpl": "6632aefb9ade0e483d1196af",
+          "parentId": "6632bac24effc503d8e1c22e",
           "slotId": "mod_tactical_002"
         },
         {
-          "_id": "6621a6b3aa03685b3fe3bc0c",
-          "_tpl": "FamasBottomRail",
-          "parentId": "6621a6811e346fd5772fe565",
+          "_id": "6632baec17340b8a4c4b24df",
+          "_tpl": "6632aec88ead7013b94b0592",
+          "parentId": "6632bac24effc503d8e1c22e",
           "slotId": "mod_handguard"
         },
         {
-          "_id": "6621a6b7f9f6c68d8d8f1b90",
-          "_tpl": "Famas30rd",
-          "parentId": "6621a6811e346fd5772fe565",
+          "_id": "6632baef4f654054835f0ee3",
+          "_tpl": "6632b03eca6e447ccb92b08e",
+          "parentId": "6632bac24effc503d8e1c22e",
           "slotId": "mod_magazine"
         }
       ],
-      "_name": "Famas rails",
-      "_parent": "6621a6811e346fd5772fe565",
+      "_name": "Famas Base",
+      "_parent": "6632bac24effc503d8e1c22e",
       "_type": "Preset"
     },
     "6621b36441f789405703caa7": {

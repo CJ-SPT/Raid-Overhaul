@@ -100,7 +100,7 @@
           "items": [
             {
               "_id": "Req_Deal_reward2_0",
-              "_tpl": "RequisitionSlips",
+              "_tpl": "668b3c71042c73c6f9b00704",
               "upd": {
                 "StackObjectsCount": 15
               }
@@ -359,7 +359,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 1,
           "visibilityConditions": []
@@ -516,7 +516,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 3,
           "visibilityConditions": []
@@ -691,7 +691,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 5,
           "visibilityConditions": []
@@ -866,7 +866,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 7,
           "visibilityConditions": []
@@ -1041,7 +1041,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 10,
           "visibilityConditions": []
@@ -1270,7 +1270,7 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "RequisitionSlips"
+            "668b3c71042c73c6f9b00704"
           ],
           "value": 15,
           "visibilityConditions": []
