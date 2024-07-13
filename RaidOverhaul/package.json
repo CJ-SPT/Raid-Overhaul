@@ -1,11 +1,11 @@
 {
   "name": "Raid Overhaul",
-  "version": "2.2.1",
+  "version": "2.5.0",
   "main": "src/mod.js",
   "isBundleMod": true,
   "license": "CC BY-NC-ND 4.0",
   "author": "DJ",
-  "akiVersion": "~3.8",
+  "sptVersion": "~3.9",
   "loadBefore": [],
   "loadAfter": [
     "SPT-Realism"

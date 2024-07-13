@@ -1,24 +1,30 @@
 {
   "DoorEvents": {
-    "_switchWeighting": 2,
-    "_doorWeighting": 10,
-    "_keycardWeighting": 1
+    "SwitchToggle": 2,
+    "DoorUnlock": 10,
+    "KeycardUnlock": 1
   },
 
+  "DoorEventRangeMinimum": 1,
+  "DoorEventRangeMaximum": 3,
+
   "RaidEvents": {
-    "_damageWeighting": 4,
-    "_airdropWeighting": 16,
-    "_blackoutWeighting": 8,
-    "_jokeWeighting": 4,
-    "_healWeighting": 12,
-    "_armorWeighting": 14,
-    "_skillWeighting": 6,
-    "_metWeighting": 6,
-    "_malfWeighting": 4,
-    "_traderWeighting": 3,
-    "_berserkWeighting": 4,
-    "_weightWeightingLOL": 4,
-    "_maxLLWeighting": 1,
-    "_exfilWeighting": 1
-  }
+    "DamageEvent": 4,
+    "AirdropEvent": 16,
+    "BlackoutEvent": 8,
+    "JokeEvent": 4,
+    "HealEvent": 12,
+    "ArmorEvent": 14,
+    "SkillEvent": 6,
+    "MetabolismEvent": 6,
+    "MalfunctionEvent": 4,
+    "TraderEvent": 3,
+    "BerserkEvent": 4,
+    "WeightEvent": 4,
+    "MaxLLEvent": 1,
+    "ExfilEvent": 1
+  },
+
+  "RandomEventRangeMinimum": 5,
+  "RandomEventRangeMaximum": 25
 }

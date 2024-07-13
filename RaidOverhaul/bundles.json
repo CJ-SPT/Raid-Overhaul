@@ -51,14 +51,6 @@
       ]
     },
     {
-      "key": "CustomLayouts/raidoverhaullayouts.bundle",
-      "dependencyKeys": [
-        "shaders",
-        "cubemaps",
-        "assets/commonassets/physics/physicsmaterials.bundle"
-      ]
-    },
-    {
       "key": "Clothing/top_tshirt_black.bundle",
       "dependencyKeys": [
         "cubemaps",
@@ -298,6 +290,22 @@
       "dependencyKeys": [
         "assets/commonassets/physics/physicsmaterials.bundle",
         "assets/content/items/mods/famas/famas_materials.bundle"
+      ]
+    },
+    {
+      "key": "Containers/OnyxContainer.bundle",
+      "dependencyKeys": [
+        "assets/commonassets/physics/physicsmaterials.bundle",
+        "cubemaps",
+        "shaders"
+      ]
+    },
+    {
+      "key": "Containers/ThetaContainer.bundle",
+      "dependencyKeys": [
+        "assets/commonassets/physics/physicsmaterials.bundle",
+        "cubemaps",
+        "shaders"
       ]
     }
   ]
