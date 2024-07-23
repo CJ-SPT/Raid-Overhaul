@@ -1,5 +1,4 @@
 ﻿using Mono.Cecil;
-using System;
 using System.Collections.Generic;
 using LegionPreLoader.Helpers;
 
@@ -11,16 +10,8 @@ namespace LegionPreLoader.Patches
 
         public static void Patch(ref AssemblyDefinition assembly)
         {
-            /*
-            if (LegionUtils.EnableCustomBoss)
-            {
-                var wildSpawnType = assembly.MainModule.GetType("EFT.WildSpawnType");
-                LegionUtils.AddEnumValue(ref wildSpawnType, LegionEnums.BossLegionName, LegionEnums.BossLegionValue);
-            } else {
-            */
-                Console.WriteLine("Legion is disabled, returning.");
-                return; 
-            //}
+            var wildSpawnType = assembly.MainModule.GetType("EFT.WildSpawnType");
+            LegionUtils.AddEnumValue(ref wildSpawnType, LegionEnums.BossLegionName, LegionEnums.BossLegionValue);
         }
     }
 }
