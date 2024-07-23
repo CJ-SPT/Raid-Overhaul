@@ -53,13 +53,6 @@ namespace RaidOverhaul.Patches
 
         protected override MethodBase GetTargetMethod() => typeof(GameWorld).GetMethod("OnGameStarted", BindingFlags.Instance | BindingFlags.Public);
 
-        
-        [PatchPrefix]
-        static void PatchPrefix()
-        {
-            RequestHandler.GetJson("/RaidOverhaul/GetWeather");
-        }
-
         [PatchPostfix]
         static void Postfix(GameWorld __instance)
         {

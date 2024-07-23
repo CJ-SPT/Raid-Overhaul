@@ -1,16 +1,17 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using BepInEx.Logging;
 using Newtonsoft.Json;
 using SPT.Common.Http;
 using EFT.InventoryLogic;
+using UnityEngine;
 
 namespace RaidOverhaul.Helpers
 {
     public static class Utils
     {
-        public static readonly List<string> Traders = new List<string>
-        {
+        public static readonly List<string> Traders = new List<string> {
             "54cb50c76803fa8b248b4571",     //Prapor
             "54cb57776803fa99248b456e",     //Therapist 
             "579dc571d53a0658a154fbec",     //Fence
@@ -24,24 +25,16 @@ namespace RaidOverhaul.Helpers
 
         public static readonly string ReqID = "Requisitions";
 
-        public static float GetStrength()
-        {
-            return DJConfig.EffectStrength.Value;
-        }
-
-        public static T Get<T>(string url)
-        {
+        public static T Get<T>(string url) {
             var req = RequestHandler.GetJson(url);
 
-            if (string.IsNullOrEmpty(req))
-            {
+            if (string.IsNullOrEmpty(req)) {
                 throw new InvalidOperationException("The response from the server is null or empty.");
             }
 
             return JsonConvert.DeserializeObject<T>(req);
         }
-        public static void LogToServerConsole(string message)
-        {
+        public static void LogToServerConsole(string message) {
             Plugin.Log.Log( LogLevel.Info, message);
             RequestHandler.GetJson("/RaidOverhaul/LogToServer/" + message);
         }
@@ -60,5 +53,24 @@ namespace RaidOverhaul.Helpers
             EquipmentSlot.Eyewear,
             EquipmentSlot.ArmBand
         };
+
+        public static void LoadLegionSettings()
+        {
+            if (File.Exists(Plugin.legionJsonPath)) {
+                try
+                {
+                    string legionSettingsJson = File.ReadAllText(Plugin.legionJsonPath);
+                    Plugin.legionText = new TextAsset(legionSettingsJson);
+                    Debug.Log("Legion settings loaded successfully");
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Error loading Legion settings from {Plugin.legionJsonPath}: {ex.Message}");
+                }
+            }
+            else {
+                Debug.LogError($"Legion settings file not found at {Plugin.legionJsonPath}");
+            }
+        }
     }
 }

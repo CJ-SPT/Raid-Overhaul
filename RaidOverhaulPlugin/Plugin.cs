@@ -26,6 +26,8 @@ namespace RaidOverhaul
     {
         public static string modPath = Path.Combine(Environment.CurrentDirectory, "user", "mods", "RaidOverhaul");
         public static string pluginPath = Path.Combine(Environment.CurrentDirectory, "BepInEx", "plugins", "RaidOverhaul");
+        public static string legionJsonPath = Path.Combine(Environment.CurrentDirectory, "BepInEx", "plugins", "RaidOverhaul", "Flags", "normalLegionSettings.json");
+        public static TextAsset legionText;
 
         internal static GameObject Hook;
         internal static EventController ECScript;
@@ -60,8 +62,7 @@ namespace RaidOverhaul
 
         void Awake()
         {
-            if (!VersionChecker.CheckEftVersion(Logger, Info, Config))
-            {
+            if (!VersionChecker.CheckEftVersion(Logger, Info, Config)) {
                 throw new Exception("Invalid EFT Version");
             }
             // Bind the configs
@@ -82,16 +83,31 @@ namespace RaidOverhaul
             ConfigController.ServerConfig = Utils.Get<ServerConfigs>("/RaidOverhaul/GetServerConfig");
 
             //Load Legion
-            if (ConfigController.ServerConfig.EnableLegion)
-            {
-                Traverse.Create(typeof(BotSettingsRepoAbstractClass)).Field<Dictionary<WildSpawnType, GClass696>>("dictionary_0").Value.Add((WildSpawnType)LegionEnums.BossLegionValue, new GClass696(true, false, false, "ScavRole/Boss", ETagStatus.Solo));
+            //Thanks and all credit to Groovey for the boss loading fix for 390 <3
+            FieldInfo excludedDifficultiesField = typeof(GClass531).GetField("ExcludedDifficulties", BindingFlags.Static | BindingFlags.Public);
+            if (excludedDifficultiesField == null) {
+                throw new InvalidOperationException("ExcludedDifficulties field not found.");
             }
 
+            var excludedDifficulties = (Dictionary<WildSpawnType, List<BotDifficulty>>)excludedDifficultiesField.GetValue(null);
+
+            var excludedDifficultiesForLegion = new List<BotDifficulty> {
+                BotDifficulty.easy,
+                BotDifficulty.hard,
+                BotDifficulty.impossible
+            };
+
+            if (!excludedDifficulties.ContainsKey((WildSpawnType)199)) {
+                excludedDifficulties.Add((WildSpawnType)199, excludedDifficultiesForLegion);
+                Console.WriteLine("Successfully added Legion to the excluded difficulties list");
+            }
+            Traverse.Create(typeof(BotSettingsRepoAbstractClass)).Field<Dictionary<WildSpawnType, GClass696>>("dictionary_0").Value.Add((WildSpawnType)LegionEnums.BossLegionValue, new GClass696(true, false, false, "ScavRole/Boss", ETagStatus.Solo));
+
+            Utils.LoadLegionSettings();
             //Check flags and adjust accordingly
             //FlagController.ResetTraderLL();
 
-            if (ConfigController.ServerConfig.TimeChanges)
-            {
+            if (ConfigController.ServerConfig.TimeChanges) {
                 new GameWorldPatch().Enable();
                 new UIPanelPatch().Enable();
                 new TimerUIPatch().Enable();
@@ -101,13 +117,7 @@ namespace RaidOverhaul
                 new FactoryTimerPanelPatch().Enable();
             }
 
-            if (DJConfig.EnableAdrenaline.Value && realismDetected == false)
-            {
-                new HitStaminaPatch().Enable();
-            }
-
-            if (DJConfig.Deafness.Value && realismDetected == false)
-            {
+            if (DJConfig.Deafness.Value && realismDetected == false) {
                 new DeafnessPatch().Enable();
                 new GrenadeDeafnessPatch().Enable();
             }
@@ -118,19 +128,17 @@ namespace RaidOverhaul
             new EventExfilPatch().Enable();
             new RigPatch().Enable();
             new AirdropBoxPatch().Enable();
+            new LegionSmethodPatch().Enable();
 
-            if (ConfigController.ServerConfig.RaidChanges.SpecialSlotChanges)
-            {
+            if (ConfigController.ServerConfig.RaidChanges.SpecialSlotChanges) {
                 new SpecialSlotViewPatch().Enable();
             }
 
-            if (ConfigController.ServerConfig.WatchAnimations && watchAnimsDetected == false)
-            {
+            if (ConfigController.ServerConfig.WatchAnimations && watchAnimsDetected == false) {
                 new GamePlayerOwnerPatch().Enable();
                 new GameWorldDisposePatch().Enable();
                 Controllers = new Dictionary<IAnimator, AnimatorOverrideController>();
-                SuitsLookup = new Dictionary<string, int>
-                {
+                SuitsLookup = new Dictionary<string, int> {
                     //bear
                     {"5cc0858d14c02e000c6bea66", 0},
                     {"5fce3e47fe40296c1d5fd784", 0},
@@ -184,24 +192,21 @@ namespace RaidOverhaul
 
         void Update()
         {
-            if (Chainloader.PluginInfos.ContainsKey(Realism) && PreloaderUI.Instantiated && realismDetected == false)
-            {
+            if (Chainloader.PluginInfos.ContainsKey(Realism) && PreloaderUI.Instantiated && realismDetected == false) {
                 realismDetected = true;
 #if DEBUG
                 Utils.LogToServerConsole("Realism Detected, disabling ROs adrenaline and deafness mechanics.");
 #endif
             }
 
-            if (Chainloader.PluginInfos.ContainsKey(WatchAnims) && PreloaderUI.Instantiated && watchAnimsDetected == false)
-            {
+            if (Chainloader.PluginInfos.ContainsKey(WatchAnims) && PreloaderUI.Instantiated && watchAnimsDetected == false) {
                 watchAnimsDetected = true;
 #if DEBUG
                 Utils.LogToServerConsole("Watch Animations Standalone Detected, disabling ROs watch animations.");
 #endif
             }
 
-            if (Chainloader.PluginInfos.ContainsKey(ROStandalone) && PreloaderUI.Instantiated && standaloneDetected == false)
-            {
+            if (Chainloader.PluginInfos.ContainsKey(ROStandalone) && PreloaderUI.Instantiated && standaloneDetected == false) {
                 if (GameObject.Find("ErrorScreen"))
                     PreloaderUI.Instance.CloseErrorScreen();
 
@@ -209,16 +214,14 @@ namespace RaidOverhaul
                 standaloneDetected = true;
             }
 
-            if (Session == null && ClientAppUtils.GetMainApp().GetClientBackEndSession() != null)
-            {
+            if (Session == null && ClientAppUtils.GetMainApp().GetClientBackEndSession() != null) {
                 Session = ClientAppUtils.GetMainApp().GetClientBackEndSession();
 
                 Log.LogDebug("Session set");
             }
         }
 
-        void OnDestroy()
-        {
+        void OnDestroy() {
             new SpecialSlotViewPatch().Disable();
         }
     }

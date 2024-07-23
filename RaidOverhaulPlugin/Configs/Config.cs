@@ -43,8 +43,8 @@ namespace RaidOverhaul.Helpers
         public static ConfigEntry<float> DropBackPackChance;
 
         public static ConfigEntry<bool> Deafness;
-        public static ConfigEntry<float> EffectStrength;
-        public static ConfigEntry<bool> EnableAdrenaline;
+        //public static ConfigEntry<float> EffectStrength;
+        //public static ConfigEntry<bool> EnableAdrenaline;
 
         public static ConfigEntry<bool> EnableEvents;
         public static ConfigEntry<bool> EnableDoorEvents;
@@ -156,8 +156,8 @@ namespace RaidOverhaul.Helpers
 
             #endregion
 
-            #region Adrenaline Drop
-
+            #region Adrenaline
+/*
             EnableAdrenaline = cfg.Bind(
                 "6. Adrenaline",
                 "Enable Adrenaline Effect",
@@ -173,13 +173,13 @@ namespace RaidOverhaul.Helpers
                 new ConfigDescription("Causes an adrenaline effect on hit. This is how strong the effect will be multiplied by, as a percent.",
                 new AcceptableValueRange<float>(0f, 100f),
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = true, Order = 1 }));
-
+*/
             #endregion
 
-            #region Deafness Drop
+            #region Deafness
 
             Deafness = cfg.Bind(
-                "7. Deafness",
+                "6. Deafness",
                 "Enable",
                 false,
                 new ConfigDescription("Enable deafness changes. Make sure you have your ear protection on.\nThis requires a restart to take effect after enabling or disabling!",

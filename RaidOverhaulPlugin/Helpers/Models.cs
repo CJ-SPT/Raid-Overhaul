@@ -349,8 +349,14 @@ namespace RaidOverhaul.Helpers
         [JsonProperty("EnableWeatherOptions")]
         public bool EnableWeatherChanges;
 
-        [JsonProperty("RandomizedWeather")]
-        public bool EnableRandomizedWeather;
+        [JsonProperty("AllSeasons")]
+        public bool AllSeasonsRandomized;
+
+        [JsonProperty("NoWinter")]
+        public bool NoWinterRandomized;
+
+        [JsonProperty("SeasonalProgression")]
+        public bool SeasonalWeatherProgression;
 
         [JsonProperty("WinterWonderland")]
         public bool EnableWinterOnly;
