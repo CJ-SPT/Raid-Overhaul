@@ -9,7 +9,7 @@ import { IRagfairConfig } from "@spt/models/spt/config/IRagfairConfig";
 import { IWeatherConfig } from "@spt/models/spt/config/IWeatherConfig";
 import { LogTextColor } from "@spt/models/spt/logging/LogTextColor";
 
-import { AllBots, configFile, seasonalProgression } from "../Refs/Enums";
+import { AllBots, configFile } from "../Refs/Enums";
 import { References } from "../Refs/References";
 import { Utils } from "../Refs/Utils";
 
@@ -824,7 +824,7 @@ export class Base {
         }
     }
 
-    public seasonProgression() {
+    public seasonProgression(modConfig: configFile) {
         const weatherConfig: IWeatherConfig = this.ref.configServer.getConfig<IWeatherConfig>(ConfigTypes.WEATHER);
         const seasonsProgression = require("../../config/SeasonsProgressionFile.json");
         const seasonsProgressionFile = path.join(__dirname, "../../config/SeasonsProgressionFile.json");
@@ -836,17 +836,20 @@ export class Base {
             weatherConfig.overrideSeason = Season.SPRING;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Spring is active.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Spring is active.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }
         if (RaidsRun > 3 && RaidsRun < 7) {
             RaidsRun++;
 
-            weatherConfig.overrideSeason = Season.STORM;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Storm is active.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Storm is active.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }
@@ -856,7 +859,9 @@ export class Base {
             weatherConfig.overrideSeason = Season.SUMMER;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Summer is active.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Summer is active.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }
@@ -866,7 +871,9 @@ export class Base {
             weatherConfig.overrideSeason = Season.AUTUMN;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Autumn is active.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Autumn is active.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }
@@ -876,17 +883,20 @@ export class Base {
             weatherConfig.overrideSeason = Season.WINTER;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Winter is coming.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Winter is coming.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }
         if (RaidsRun > 15 || RaidsRun < 1) {
             RaidsRun = 1;
 
-            weatherConfig.overrideSeason = Season.STORM;
             seasonsProgression.seasonsProgression = RaidsRun;
             fs.writeFileSync(seasonsProgressionFile, JSON.stringify(seasonsProgression, null, 4));
-            this.ref.logger.log(`[${modName}] Winter has passed.`, LogTextColor.MAGENTA);
+            if (modConfig.Debug.ExtraLogging) {
+                this.ref.logger.log(`[${modName}] Winter has passed.`, LogTextColor.MAGENTA);
+            }
 
             return;
         }

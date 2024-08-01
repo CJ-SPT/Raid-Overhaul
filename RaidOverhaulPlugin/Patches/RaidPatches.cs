@@ -1,6 +1,7 @@
 using EFT;
 using EFT.UI;
 using EFT.UI.DragAndDrop;
+using EFT.InventoryLogic;
 using TMPro;
 using System;
 using System.Reflection;
@@ -311,16 +312,43 @@ namespace RaidOverhaul.Patches
 
     public class SpecialSlotViewPatch : ModulePatch
     {
-
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(SearchableItemView).GetMethod("method_0", BindingFlags.Instance | BindingFlags.Public);
+            return typeof(SlotItemView).GetMethod("NewSlotItemView");
         }
 
-        [PatchPrefix]
-        private static bool PatchPrefix(SearchableItemView __instance)
+        [PatchPostfix]
+        private static void Postfix(SlotItemView __instance, Item item)
         {
-            return !__instance.name.StartsWith("SpecialSlot");
+            LootItemClass lootItemClass = item as LootItemClass;
+            bool lootFlag = lootItemClass == null;
+            if (!lootFlag) {
+                bool gridsFlag = lootItemClass.Grids != null && lootItemClass.Grids.Length == 0;
+                if (!gridsFlag) {
+                    RemoveGridsView(__instance);
+                }
+            }
+        }
+
+        private static void RemoveGridsView(SlotItemView __instance)
+        {
+            GeneratedGridsView generatedGridsView = __instance.transform.parent.GetComponentInChildren<GeneratedGridsView>();
+            bool gridsViewFlag = generatedGridsView != null;
+            if (gridsViewFlag)
+            {
+                generatedGridsView.GameObject.SetActive(false);
+            }
+        }
+    }
+
+    public class KeyPatch : ModulePatch
+    {
+        protected override MethodBase GetTargetMethod() => typeof(GameWorld).GetMethod("OnGameStarted", BindingFlags.Instance | BindingFlags.Public);
+
+        [PatchPostfix]
+        private static void Postfix() 
+        {
+            KeyController.PatchLocks();
         }
     }
 }

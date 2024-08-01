@@ -75,14 +75,14 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
         const dynamicRouterModService: DynamicRouterModService =
             container.resolve<DynamicRouterModService>("DynamicRouterModService");
         const configPath = path.resolve(__dirname, "../config/config.json");
-        const seasonsProgressionFile = path.resolve(__dirname, "../config/SeasonsProgressionFile.json");
+        const weatherConfigPath = path.resolve(__dirname, "../config/SeasonsProgressionFile.json");
         const modConfig = this.ref.jsonUtil.deserialize(
             fs.readFileSync(configPath, "utf-8"),
             "config.json",
         ) as configFile;
-        const RaidsRunJson = this.ref.jsonUtil.deserialize(
-            fs.readFileSync(seasonsProgressionFile, "utf-8"),
-            "SeasonsProgressionFile.json",
+        const weatherConfig = this.ref.jsonUtil.deserialize(
+            fs.readFileSync(weatherConfigPath, "utf-8"),
+            "config.json",
         ) as seasonalProgression;
 
         if (modConfig.RemoveFromSwag) {
@@ -151,6 +151,21 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
             "spt",
         );
 
+        staticRouterModService.registerStaticRouter(
+            "GetWeatherConfig",
+            [
+                {
+                    url: "/RaidOverhaul/GetWeatherConfig",
+                    action: async (url: string, info: string, sessionId: string, output: string) => {
+                        const WeatherConfig = weatherConfig;
+
+                        return JSON.stringify(WeatherConfig);
+                    },
+                },
+            ],
+            "spt",
+        );
+
         //#region Randomize weather pre-raid
         if (modConfig.Events.EnableWeatherOptions) {
             if (
@@ -207,7 +222,7 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
                         {
                             url: "/client/items",
                             action: async (url, info, sessionId, output) => {
-                                modFeatures.seasonProgression();
+                                modFeatures.seasonProgression(modConfig);
                                 return output;
                             },
                         },
@@ -282,6 +297,7 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
         this.ref.postDBLoad(container);
 
         const traderConfig: ITraderConfig = this.ref.configServer.getConfig<ITraderConfig>(ConfigTypes.TRADER);
+        const ragfair: IRagfairConfig = this.ref.configServer.getConfig<IRagfairConfig>(ConfigTypes.RAGFAIR);
 
         //Imports
         const traderData = new TraderData(traderConfig, this.ref, this.utils);
@@ -335,6 +351,7 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
         //Load all custom items
         itemGenerator.createCustomItems("../../db/ItemGen/Currency");
         itemGenerator.createCustomItems("../../db/ItemGen/ConstItems");
+        itemGenerator.createCustomItems("../../db/ItemGen/CustomKeys");
         if (modConfig.EnableCustomItems) {
             if (this.ref.preSptModLoader.getImportedModsNames().includes("SPT-Realism")) {
                 itemGenerator.createCustomItems("../../db/ItemGen/Ammo Realism");
@@ -350,6 +367,9 @@ class RaidOverhaul implements IPreSptLoadMod, IPostDBLoadMod {
             itemGenerator.createCustomItems("../../db/ItemGen/Weapons");
             itemGenerator.createCustomItems("../../db/ItemGen/Gear");
         }
+        this.ref.tables.locations["laboratory"].base.AccessKeys.push(...["66a2fc9886fbd5d38c5ca2a6"]);
+        ragfair.dynamic.blacklist.custom.push(...["66a2fc9886fbd5d38c5ca2a6"]);
+        ragfair.dynamic.blacklist.custom.push(...["66a2fc926af26cc365283f23"]);
 
         // Load custom boss data
         if (modConfig.EnableCustomBoss) {

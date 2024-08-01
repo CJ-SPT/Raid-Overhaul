@@ -71,6 +71,7 @@ export class pushTraderFeatures {
         this.traderData.addReqSlips();
         this.traderData.addReqForms();
         this.traderData.addFlares();
+        this.traderData.addNewKeys();
 
         if (modConfig.EnableCustomItems) {
             this.traderData.addStaticItems(modConfig.Debug.ExtraLogging);

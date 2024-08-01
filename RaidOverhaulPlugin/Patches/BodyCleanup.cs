@@ -51,6 +51,21 @@ namespace RaidOverhaul.Patches
             yield break;
         }
 
+        public static void MaidServiceRun()
+        {
+            if (Plugin.ROGameWorld != null && Plugin.ROGameWorld.AllAlivePlayersList != null && Plugin.ROGameWorld.AllAlivePlayersList.Count > 0 && !(Plugin.ROPlayer is HideoutPlayer))
+            {
+                Task.Delay(10000);
+                foreach (BotOwner bot in FindObjectsOfType<BotOwner>())
+                {
+                    if (!bot.HealthController.IsAlive && UnityEngine.Vector3.Distance(Plugin.ROPlayer.Transform.position, bot.Transform.position) >= DJConfig.DistToClean.Value)
+                    {
+                        bot.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+
         public bool Ready() => Gameworld != null && Gameworld.AllAlivePlayersList != null && Gameworld.AllAlivePlayersList.Count > 0 && !(Myplayer is HideoutPlayer);
 
         Player Myplayer

@@ -439,6 +439,38 @@ export class TraderData {
     //
     //
 
+    public addNewKeys(): void {
+        //#region Custom Keys
+        this.assortUtils = new AssortUtils(this.ref.hashUtil, this.ref.logger);
+
+        if (this.ref.probHelper.rollChance(5, 100)) {
+            this.assortUtils.createSingleCashOffer(
+                "66a2fc926af26cc365283f23",
+                1,
+                1,
+                Currency.ReqSlips,
+                999,
+                this.ref.tables,
+            );
+        }
+
+        if (this.ref.probHelper.rollChance(5, 100)) {
+            this.assortUtils.createSingleCashOffer(
+                "66a2fc9886fbd5d38c5ca2a6",
+                1,
+                1,
+                Currency.ReqSlips,
+                999,
+                this.ref.tables,
+            );
+        }
+        //#endregion
+    }
+
+    //
+    //
+    //
+
     public addFlares(): void {
         //#region Flares
         this.assortUtils = new AssortUtils(this.ref.hashUtil, this.ref.logger);

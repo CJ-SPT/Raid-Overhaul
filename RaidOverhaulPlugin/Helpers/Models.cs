@@ -54,6 +54,12 @@ namespace RaidOverhaul.Helpers
         [JsonProperty("RandomEventRangeMaximum")]
         public float RandomEventRangeMaximumServer;
     }
+
+    public struct SeasonalConfig
+    {
+        [JsonProperty("seasonsProgression")]
+        public int SeasonsProgression;
+    }
     #endregion
 
     #region Event Weightings

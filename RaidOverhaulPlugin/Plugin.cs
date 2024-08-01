@@ -32,8 +32,9 @@ namespace RaidOverhaul
         internal static GameObject Hook;
         internal static EventController ECScript;
         internal static DoorController DCScript;
-        internal static ManualLogSource Log;
+        internal static SeasonalWeatherController WScript;
         internal static BodyCleanup BCScript;
+        internal static ManualLogSource Log;
 
         internal static Dictionary<IAnimator, AnimatorOverrideController> Controllers;
         internal static Dictionary<string, int> SuitsLookup;
@@ -73,6 +74,7 @@ namespace RaidOverhaul
             Hook = new GameObject("Event Object");
             ECScript = Hook.AddComponent<EventController>();
             DCScript = Hook.AddComponent<DoorController>();
+            WScript = Hook.AddComponent<SeasonalWeatherController>();
             BCScript = Hook.AddComponent<BodyCleanup>();
             DontDestroyOnLoad(Hook);
 
@@ -81,6 +83,8 @@ namespace RaidOverhaul
             Weighting.InitWeightings();
 
             ConfigController.ServerConfig = Utils.Get<ServerConfigs>("/RaidOverhaul/GetServerConfig");
+
+            Utils.GetWeatherFields();
 
             //Load Legion
             //Thanks and all credit to Groovey for the boss loading fix for 390 <3
@@ -122,6 +126,7 @@ namespace RaidOverhaul
                 new GrenadeDeafnessPatch().Enable();
             }
 
+            new KeyPatch().Enable();
             new OnDeadPatch().Enable();
             new EnableEntryPointPatch().Enable();
             new RandomizeDefaultStatePatch().Enable();

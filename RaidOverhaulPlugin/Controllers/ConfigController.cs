@@ -7,5 +7,6 @@ namespace RaidOverhaul.Controllers
     {
         public static ServerConfigs ServerConfig = new ServerConfigs();
         public static EventsConfig EventConfig = new EventsConfig();
+        public static SeasonalConfig SeasonConfig = new SeasonalConfig();
     }
 }

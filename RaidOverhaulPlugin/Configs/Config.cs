@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using BepInEx.Configuration;
 
 namespace RaidOverhaul.Helpers
@@ -36,6 +37,7 @@ namespace RaidOverhaul.Helpers
         All = PowerOn | DoorUnlock | KDoorUnlock,
         }
         
+        public static ConfigEntry<bool> CleanBodiesAsap { get; set; }
         public static ConfigEntry<bool> DropBackPack;
         public static ConfigEntry<bool> EnableClean;
         public static ConfigEntry<int> TimeToClean;
@@ -43,8 +45,6 @@ namespace RaidOverhaul.Helpers
         public static ConfigEntry<float> DropBackPackChance;
 
         public static ConfigEntry<bool> Deafness;
-        //public static ConfigEntry<float> EffectStrength;
-        //public static ConfigEntry<bool> EnableAdrenaline;
 
         public static ConfigEntry<bool> EnableEvents;
         public static ConfigEntry<bool> EnableDoorEvents;
@@ -110,6 +110,14 @@ namespace RaidOverhaul.Helpers
 
             #region Body Clean Up
 
+            CleanBodiesAsap = cfg.Bind(
+                "4. Body Cleanup Configs",
+                "Maid Service",
+                true,
+                new ConfigDescription("Clean bodies immediately. For when you go on too much of a killing spree.",
+                null,
+                new ConfigurationManagerAttributes {Order = 4, CustomDrawer = MaidService}));
+
             EnableClean = cfg.Bind(
                 "4. Body Cleanup Configs",
                 "Enable Clean",
@@ -156,26 +164,6 @@ namespace RaidOverhaul.Helpers
 
             #endregion
 
-            #region Adrenaline
-/*
-            EnableAdrenaline = cfg.Bind(
-                "6. Adrenaline",
-                "Enable Adrenaline Effect",
-                false,
-                new ConfigDescription("Enables the adrenaline effect on hit. If enabled, modify the strength with the 'EffectStrength' option ",
-                null,
-                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 2 }));
-
-            EffectStrength = cfg.Bind(
-                "6. Adrenaline",
-                "Effect Strength",
-                30f,
-                new ConfigDescription("Causes an adrenaline effect on hit. This is how strong the effect will be multiplied by, as a percent.",
-                new AcceptableValueRange<float>(0f, 100f),
-                new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = true, Order = 1 }));
-*/
-            #endregion
-
             #region Deafness
 
             Deafness = cfg.Bind(
@@ -187,6 +175,15 @@ namespace RaidOverhaul.Helpers
                 new ConfigurationManagerAttributes { IsAdvanced = false, ShowRangeAsPercent = false, Order = 1 }));
 
             #endregion
+        }
+
+        public static void MaidService(ConfigEntryBase entry)
+        {
+            bool button = GUILayout.Button("Maid Service", GUILayout.ExpandWidth(true));
+            if (button)
+            {
+                Patches.BodyCleanup.MaidServiceRun();
+            }
         }
     }
 }

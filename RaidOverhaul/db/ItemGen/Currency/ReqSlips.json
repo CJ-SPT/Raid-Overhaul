@@ -8,7 +8,7 @@
             },
             "Height": 1,
             "Width": 2,
-            "StackMaxSize": 50000,
+            "StackMaxSize": 999,
             "BackgroundColor": "green"
         },
         "LocalePush": {
